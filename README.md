@@ -49,7 +49,9 @@ For answering your own questions, `etl.py` currently provides these analysis-fre
 * `df_regional` a dictionary of regional dataframes in the US
 
 Regarding analytical features, a [generalized-growth model](https://www.sciencedirect.com/science/article/pii/S1755436516000037)
-generator is in early development. Got ideas? Open an issue for discussion.
+generator is under development.
+
+Got ideas? Open an issue for discussion.
 
 ## License
 
