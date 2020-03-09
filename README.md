@@ -1,4 +1,4 @@
-# covid-19-pandas
+# covid-19-growth
 
 The Johns Hopkins University Center for Systems Science and Engineering is providing
 [daily COVID-19 CSV files](https://github.com/CSSEGISandData/COVID-19) containing the data that are
