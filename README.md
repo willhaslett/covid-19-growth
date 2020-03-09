@@ -12,12 +12,12 @@ c) and beyond!
 
 Clone the repo **with --recursive**
 ```
-git clone --recursive git@github.com:willhaslett/covid-19-pandas.git
+git clone --recursive git@github.com:willhaslett/covid-19-growth.git
 ```
 
 Set up your Python environmet. For example, with virtualenv
 ```
-cd covid-19-pandas
+cd covid-19-growth
 virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
