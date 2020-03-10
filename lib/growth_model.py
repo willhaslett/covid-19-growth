@@ -1,7 +1,6 @@
 # Pip
 import pprint
 import pandas as pd
-import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 # Local
@@ -21,5 +20,3 @@ days = np_array[:, 0]
 case_counts = np_array[:, 1]
 
 popt, pcov = curve_fit(egrowth, days, case_counts)
-
-pp(popt)
