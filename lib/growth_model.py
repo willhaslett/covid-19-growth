@@ -5,23 +5,21 @@ from scipy.optimize import curve_fit
 
 # Local
 from etl import df_us
-from models import ggrowth
+from models import ggrowth, egrowth
 
 pp = pprint.pprint
 
 # Starting with the Northeast region
 REGION = 'NE'
-# Group by date and sum
-df = df_us.groupby('int_date').sum().reset_index()
-# Keep only the 2d vector of interest
-df = df[['int_date', 'cases']]
+df = df_us.groupby('day').sum().reset_index()
+pp(df_us.groupby('day').sum())
+df = df[['day', 'cases']]
 
 # Scipy wants Numpy arrays
 np_array = df.to_numpy()
-dates = np_array[:, 0]
+days = np_array[:, 0]
 case_counts = np_array[:, 1]
 
-popt, pcov = curve_fit(ggrowth, dates, case_counts)
+popt, pcov = curve_fit(egrowth, days, case_counts)
 
-# Print model coefficients
-print(case_counts)
+pp(popt)

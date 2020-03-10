@@ -18,7 +18,7 @@ date_cols = df_all.filter(regex=('^\d+/\d+/\d+$')).columns.array
 df_all = pd.melt(df_all, id_vars=['Province/State', 'Country/Region', 'Lat',
                                   'Long'], value_vars=date_cols, var_name='date', value_name='cases')
 df_all.date = pd.to_datetime(df_all.date, format='%m/%d/%y')
-df_all['int_date'] = df_all.date.map(lambda date: 10000*date.year + 100*date.month + date.day)
+df_all['day'] = df_all['days_since'] = (df_all.date - pd.to_datetime(df_all.date.iloc[0])).astype('timedelta64[D]')
 
 # df_us: Filter out non-US, rename columns, split state into column
 #####################################################################################
