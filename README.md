@@ -5,7 +5,8 @@ The Johns Hopkins University Center for Systems Science and Engineering is provi
 displayed on their
 [ArcGIS dashboard for COVID-19](https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6).
 This repo aims to a) provide a sensible starting point for ongoing work in Python/Pandas using
-the JH data, and b) to provide useful COVID-19 growth models for configurable regions. There are [great existing dashboards](https://www.technologyreview.com/s/615330/best-worst-coronavirus-dashboards/). Here the idea is to let individuals choose the area of interest, then view both aggregated data and model predictions.
+the JH data, and b) to provide useful COVID-19 growth models for configurable regions. You can add
+c) and beyond!
 
 ## Installing
 
