@@ -1,6 +1,7 @@
 # Pip
 import pprint
 import pandas as pd
+import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 # Local
@@ -12,7 +13,6 @@ pp = pprint.pprint
 # Starting with the Northeast region
 REGION = 'NE'
 df = df_us.groupby('day').sum().reset_index()
-pp(df_us.groupby('day').sum())
 df = df[['day', 'cases']]
 
 # Scipy wants Numpy arrays
