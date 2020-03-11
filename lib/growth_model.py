@@ -3,8 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from lmfit import Model
 from etl import df_us
-import models
-from lmfit.models import LinearModel
+from models import LinearModel
 
 _df = df_us.groupby('day').sum().reset_index()
 model = LinearModel()
