@@ -11,6 +11,8 @@ For VSCode users, available as a self-contained, system-independent environment 
 
 Changes on master will be coming frequently, but no breaking changes to `etl.py` are anticipated.
 
+Trouble? Open a ticket.
+
 ![Screenshot](.screenshot.png)
 
 ## Installing
