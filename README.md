@@ -8,6 +8,10 @@ This repo aims to a) provide a sensible starting point for ongoing work in Pytho
 the JH data, and b) to provide useful COVID-19 growth models for configurable regions. You can add
 c) and beyond!
 
+For VSCode users, available as a fully self-contained, system-independent environment using Docker Remote and Jupyter Notebook integration.
+
+![Screenshot](.screenshot.png)
+
 ## Installing
 
 Clone the repo **with --recursive**
