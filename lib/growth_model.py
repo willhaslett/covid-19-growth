@@ -7,9 +7,6 @@ from etl import df_us
 from models import ggrowth, egrowth
 from constants import REGIONS as regions
 
-pp(regions)
-exit()
-
 # Starting with the Northeast region
 REGION = 'NE'
 df = df_us.groupby('day').sum().reset_index()
@@ -21,3 +18,5 @@ days = np_array[:, 0]
 case_counts = np_array[:, 1]
 
 popt, pcov = curve_fit(egrowth, days, case_counts)
+
+pp(days)

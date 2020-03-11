@@ -57,6 +57,11 @@ Verify the installation as above.
 
 ## Usage
 
+To stay in sync with the Johns Hopkins data
+```
+./update_data.sh
+```
+
 For answering your own questions, `etl.py` currently provides these analysis-freindly dataframes:
 * `df_all` all global cases
 * `df_us` all US cases, by city-or-county and state
