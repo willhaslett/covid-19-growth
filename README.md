@@ -53,8 +53,6 @@ Have the [VSCode extension for Remote Development](https://marketplace.visualstu
 
 In VSCode, [Open the project folder in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
 
-VSCode will suggest a few extensions to install directly in your container. Go ahead and install them. VSCode will not terminate your container unless you make Docker-related changes that force it to rebuild (or such changes come from upstream). If you do need to rebuild, you will need to install the recommended extensions again.
-
 Verify the installation as above.
 
 ## Usage
