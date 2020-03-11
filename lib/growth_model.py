@@ -1,13 +1,14 @@
-# Pip
-import pprint
+from pprint import pprint as pp
 import pandas as pd
 from scipy.optimize import curve_fit
 
 # Local
 from etl import df_us
 from models import ggrowth, egrowth
+from constants import REGIONS as regions
 
-pp = pprint.pprint
+pp(regions)
+exit()
 
 # Starting with the Northeast region
 REGION = 'NE'
