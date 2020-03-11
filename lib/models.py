@@ -1,4 +1,5 @@
 import numpy as np
+from lmfit import minimize, Parameters
 
 # Generalized growth https://www.sciencedirect.com/science/article/pii/S1755436516000037
 # TODO: Get this working correctly
