@@ -5,6 +5,22 @@ from etl import df_us
 import models
 from constants import REGIONS as regions
 
+
+# from lmfit import minimize, Parameters
+# def residual(params, x, data, eps_data):
+#     amp = params['amp']
+#     phaseshift = params['phase']
+#     freq = params['frequency']
+#     decay = params['decay']
+#     model = amp * sin(x*freq + phaseshift) * exp(-x*x*decay)
+#     return (data-model) / eps_data
+# params = Parameters()
+# params.add('amp', value=10)
+# params.add('decay', value=0.007)
+# params.add('phase', value=0.2)
+# params.add('frequency', value=3.0)
+# out = minimize(residual, params, args=(x, data, eps_data))
+
 # Choose model
 model = models.lgrowth
 
