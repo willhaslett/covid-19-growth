@@ -4,7 +4,7 @@ from scipy.optimize import curve_fit
 
 # Local
 from etl import df_us
-from models import ggrowth, egrowth
+import models
 from constants import REGIONS as regions
 
 # Starting with the Northeast region
@@ -17,6 +17,9 @@ np_array = df.to_numpy()
 days = np_array[:, 0]
 case_counts = np_array[:, 1]
 
-popt, pcov = curve_fit(egrowth, days, case_counts)
+# Choose model
+model = models.lgrowth
 
-pp(days)
+popt, pcov = curve_fit(model, days, case_counts)
+
+pp(popt)
