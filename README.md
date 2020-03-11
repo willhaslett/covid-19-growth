@@ -53,7 +53,7 @@ Have the [VSCode extension for Remote Development](https://marketplace.visualstu
 
 In VSCode, [Open the project folder in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
 
-Test installation as above.
+Verify the installation as above.
 
 ## Usage
 
