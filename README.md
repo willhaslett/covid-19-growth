@@ -9,6 +9,8 @@ the JH data, and **b)** to provide useful COVID-19 growth models for regions tha
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
+Changes on master will be coming frequently, but no breaking changes to `etl.py` are anticipated.
+
 ![Screenshot](.screenshot.png)
 
 ## Installing
