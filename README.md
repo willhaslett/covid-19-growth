@@ -4,9 +4,8 @@ The Johns Hopkins University Center for Systems Science and Engineering is provi
 [daily COVID-19 CSV files](https://github.com/CSSEGISandData/COVID-19) containing the data that are
 displayed on their
 [ArcGIS dashboard for COVID-19](https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6).
-This repo aims to a) provide a sensible starting point for ongoing work in Python/Pandas using
-the JH data, and b) to provide useful COVID-19 growth models for configurable regions. You can add
-c) and beyond!
+This repo aims to **a)** provide a sensible starting point for ongoing work in Python/Pandas using
+the JH data, and **b)** to provide useful COVID-19 growth models for **regions that you define**.
 
 For VSCode users, available as a fully self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
