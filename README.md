@@ -8,11 +8,12 @@ This repo aims to a) provide a sensible starting point for ongoing work in Pytho
 the JH data, and b) to provide useful COVID-19 growth models for configurable regions. You can add
 c) and beyond!
 
-For VSCode users, available as a fully self-contained, system-independent environment using Docker Remote and Jupyter Notebook integration.
+For VSCode users, available as a fully self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
 ![Screenshot](.screenshot.png)
 
 ## Installing
+### Vanilla
 
 Clone the repo **with --recursive**
 ```
@@ -45,7 +46,17 @@ $ python lib/tests.py
 [3772 rows x 6 columns]
 ```
 
-## Then what?
+### VSCode/Docker
+
+Clone the repo as above (--recursive !)
+
+Have the [VSCode extension for Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) installed. Here *remote* means, in a local Docker container (Debian).
+
+In VSCode, [Open the project folder in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
+
+Test installation as above.
+
+## Usage
 
 For answering your own questions, `etl.py` currently provides these analysis-freindly dataframes:
 * `df_all` all global cases
