@@ -22,6 +22,7 @@ _cases = _np_array[:, 1]
 _model_parameters, _model_covariance = curve_fit(model, _day, _cases)
 
 # Predicted case counts
-pred_cases = _df.drop(['cases'], axis=1).applymap(lambda x: model(x, _model_parameters[0]))
+pred_cases = _df.drop(['cases'], axis=1).applymap(
+    lambda x: model(x, _model_parameters[0]))
 
 pp(pred_cases)

@@ -12,7 +12,6 @@ def ggrowth(day, r, m):
 def egrowth(day, a, x):
     return (a * (np.e ** (day * x)))
 
-
 # Linear
 def lgrowth(day, m):
     return (m * day)
