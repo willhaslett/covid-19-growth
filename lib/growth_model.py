@@ -1,11 +1,12 @@
 from pprint import pprint as pp
 import pandas as pd
 from scipy.optimize import curve_fit
-
-# Local
 from etl import df_us
 import models
 from constants import REGIONS as regions
+
+# Choose model
+model = models.lgrowth
 
 # Starting with the Northeast region
 REGION = 'NE'
@@ -16,9 +17,6 @@ _df = _df[['day', 'cases']]
 _np_array = _df.to_numpy()
 _day = _np_array[:, 0]
 _cases = _np_array[:, 1]
-
-# Choose model
-model = models.lgrowth
 
 # Fit model
 popt, pcov = curve_fit(model, _day, _cases)
