@@ -62,10 +62,11 @@ To stay in sync with the Johns Hopkins data
 ./update_data.sh
 ```
 
-For answering your own questions, `etl.py` currently provides these analysis-freindly dataframes:
+For answering your own questions, `etl.py` currently provides these dataframes and functions:
 * `df_all` all global cases
 * `df_us` all US cases, by city-or-county and state
-* `df_regional` a dictionary of regional dataframes in the US
+* `for_states()` filters `df_us` on a region from `lib/regions.py`
+* `sum_by_date()` group by date and sum case counts 
 
 Regarding analytical features, a [generalized-growth model](https://www.sciencedirect.com/science/article/pii/S1755436516000037)
 generator is under development.
