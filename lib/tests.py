@@ -5,5 +5,6 @@ import etl
 
 pp(etl.df_all)
 pp(etl.for_country('France'))
+pp(etl.for_province_state('British Columbia'))
 
 # TODO: Actual tests

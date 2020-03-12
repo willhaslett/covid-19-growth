@@ -18,16 +18,20 @@ _df_all.date = pd.to_datetime(_df_all.date, format='%m/%d/%y')
 _df_all['day'] = (_df_all.date - pd.to_datetime(_df_all.date.iloc[0])).astype('timedelta64[D]')
 df_all = _df_all
 
+# Prefer adding semantic functions rather than using this one
+def _filter(column, value):
+    return df_all[df_all[column] == value].reset_index()
+
 def for_country(country):
-    return df_all[df_all['country'] == country].reset_index()
+    return _filter('country', country)
 
-# def state_to_col(df):
-#     _df_us.province_state, _df_us['state'] = itemgetter(
-#         0, 1)(_df_us.province_state.str.split(', ').str)
-#     df_us = _df_us
+def for_province_state(province_state):
+    return _filter('province_state', province_state)
 
-def for_province_state(state_list):
-    return df_us[df_us.state.isin(state_list)].reset_index()
+def state_to_col_destructive(df):
+    df.province_state, df['state'] = itemgetter(
+        0, 1)(df.province_state.str.split(', ').str)
+    return df
 
 def sum_by_date(df):
     return df.groupby('date').sum().reset_index()
