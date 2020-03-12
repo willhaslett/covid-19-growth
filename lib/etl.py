@@ -13,7 +13,7 @@ _date_cols = _df_all.filter(regex=('^\d+/\d+/\d+$')).columns.array
 _df_all = pd.melt(_df_all, id_vars=['Province/State', 'Country/Region', 'Lat',
                                   'Long'], value_vars=_date_cols, var_name='date', value_name='cases')
 _df_all.date = pd.to_datetime(_df_all.date, format='%m/%d/%y')
-_df_all['day'] = _df_all['days_since'] = (_df_all.date - pd.to_datetime(_df_all.date.iloc[0])).astype('timedelta64[D]')
+_df_all['day'] = (_df_all.date - pd.to_datetime(_df_all.date.iloc[0])).astype('timedelta64[D]')
 df_all = _df_all
 
 # df_us
