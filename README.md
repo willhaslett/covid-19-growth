@@ -66,17 +66,13 @@ To stay in sync with the Johns Hopkins data
 ```
 ./update_data.sh
 ```
-For answering your own questions, `etl.py` currently provides one dataframe an some wranging fucntions:
+
+`etl.py` currently provides one dataframe and these fucntions:
 * `df_all` A dataframe with all global cases, long format, dates as Pandas timestamps
 * `filter(column, vlaue)` Generic filter
 * `for_country(country)` Filter by country
 * `for_province_state(province_state)` Filter by province_state
 * `sum_by_date()` Group by date and sum case counts 
-
-Regarding analytical features, a [generalized-growth model](https://www.sciencedirect.com/science/article/pii/S1755436516000037)
-generator is under development.
-
-Got ideas? Open an issue for discussion.
 
 ## License
 
