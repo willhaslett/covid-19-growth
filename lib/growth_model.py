@@ -3,10 +3,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from lmfit import Model
 from etl import df_us
-from models import LinearModel, GeneralizedGrowthModel  
 
-_df = df_us.groupby('day').sum().reset_index()
-model = GeneralizedGrowthModel()
-params = model.make_params()
-result = model.fit(_df.day, params, x=_df.day.to_list())
-print(result.fit_report())
+# TODO: implement or delete file
+
+# def ggrowth(x, r, m, c0):
+#     # Generalized growth https://www.sciencedirect.com/science/article/pii/S1755436516000037
+#     a = c0 ** (1/m)
+#     return ((r/m) * x + a) ** m
