@@ -4,15 +4,13 @@ The Johns Hopkins University Center for Systems Science and Engineering is provi
 [daily COVID-19 CSV files](https://github.com/CSSEGISandData/COVID-19) containing the data that are
 displayed on their
 [ArcGIS dashboard for COVID-19](https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6).
-This repo aims to **a)** provide a sensible starting point for ongoing work in Python/Pandas using
-the JH data, and **b)** to provide useful COVID-19 growth models for regions that you define.
+This repo aims to provide a sensible starting point and some useful functions for ongoing work in
+Pandas/Python using the JH data.
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
 Breaking changes to `etl.py` will be committed on 2020-03-12 as new features are added. The API for
 this file should be stable as of 2020-03-13.
-
-Trouble? Open a ticket.
 
 ![Screenshot](.screenshot.png)
 
