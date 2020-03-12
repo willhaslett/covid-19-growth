@@ -9,9 +9,6 @@ Pandas/Python using the JH data.
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
-Breaking changes to `etl.py` will be committed on 2020-03-12 as new features are added. The API for
-this file should be stable as of 2020-03-13.
-
 ![Screenshot](.screenshot.png)
 
 ## Installing
