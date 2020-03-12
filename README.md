@@ -9,7 +9,7 @@ the JH data, and **b)** to provide useful COVID-19 growth models for regions tha
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
-Breking changes to `etl.py` will be committed on 2020-03-12 as new features are added. The API for
+Breaking changes to `etl.py` will be committed on 2020-03-12 as new features are added. The API for
 this file should be stable as of 2020-03-13.
 
 Trouble? Open a ticket.
