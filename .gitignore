@@ -2,3 +2,4 @@ venv/
 .vscode/
 *.swp
 *.pickle/
+__pycache__
