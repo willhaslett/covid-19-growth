@@ -1,8 +1,9 @@
 import pprint
 import pandas as pd
 from pprint import pprint as pp
-from etl import df_all
+import etl
 
-pp(df_all)
+pp(etl.df_all)
+pp(etl.for_country('France'))
 
 # TODO: Actual tests
