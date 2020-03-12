@@ -66,12 +66,12 @@ To stay in sync with the Johns Hopkins data
 ```
 ./update_data.sh
 ```
-
-For answering your own questions, `etl.py` currently provides these dataframes and functions:
-* `df_all` all global cases
-* `df_us` all US cases, by city-or-county and state
-* `for_states()` filters `df_us` on a region from `lib/regions.py`
-* `sum_by_date()` group by date and sum case counts 
+For answering your own questions, `etl.py` currently provides one dataframe an some wranging fucntions:
+* `df_all` A dataframe with all global cases, long format, dates as Pandas timestamps
+* `filter(column, vlaue)` Generic filter
+* `for_country(country)` Filter by country
+* `for_province_state(province_state)` Filter by province_state
+* `sum_by_date()` Group by date and sum case counts 
 
 Regarding analytical features, a [generalized-growth model](https://www.sciencedirect.com/science/article/pii/S1755436516000037)
 generator is under development.

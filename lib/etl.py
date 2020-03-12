@@ -18,15 +18,14 @@ _df_all.date = pd.to_datetime(_df_all.date, format='%m/%d/%y')
 _df_all['day'] = (_df_all.date - pd.to_datetime(_df_all.date.iloc[0])).astype('timedelta64[D]')
 df_all = _df_all
 
-# Prefer adding semantic functions rather than using this one
-def _filter(column, value):
+def filter(column, value):
     return df_all[df_all[column] == value].reset_index()
 
 def for_country(country):
-    return _filter('country', country)
+    return filter('country', country)
 
 def for_province_state(province_state):
-    return _filter('province_state', province_state)
+    return filter('province_state', province_state)
 
 def state_to_col_destructive(df):
     df.province_state, df['state'] = itemgetter(
