@@ -7,7 +7,7 @@ displayed on their
 This repo aims to provide a sensible starting point and some useful functions for ongoing work in
 Pandas/Python using the JH data.
 
-Cloning vs forking: no breaking changes to `etl.py` are anticipated. Only additional features.
+Cloning vs forking: no breaking changes to `etl.py` are anticipated, only additional features.
 Current development priorities are:
 * Integration with 2019 US census data
 * Integrating the JH recorvered data
