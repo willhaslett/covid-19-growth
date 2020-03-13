@@ -9,7 +9,7 @@ Pandas/Python using the JH data.
 
 Cloning vs forking: no breaking changes to `etl.py` are anticipated, only additional features.
 Current development priorities are:
-* Integrating the 2019 US census population data by state, sub-region and region
+* Integrating the 2019 US census population data by state, sub-region, and region
 * Integrating the JH recovered data
 * Integrating the JH deaths data
 
