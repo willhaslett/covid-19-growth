@@ -10,7 +10,7 @@ Pandas/Python using the JH data.
 Cloning vs forking: no breaking changes to `etl.py` are anticipated, only additional features.
 Current development priorities are:
 * Integration with 2019 US census data
-* Integrating the JH recorvered data
+* Integrating the JH recovered data
 * Integrating the JH deaths data
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
