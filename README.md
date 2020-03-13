@@ -31,36 +31,20 @@ Verify installation
 $ python lib/tests.py
 
 Main dataframe:
-       province_state    country      lat      long       date  cases   day
-0                 NaN   Thailand  15.0000  101.0000 2020-01-22      2   0.0
-1                 NaN      Japan  36.0000  138.0000 2020-01-22      2   0.0
-2                 NaN  Singapore   1.2833  103.8333 2020-01-22      0   0.0
-3                 NaN      Nepal  28.1667   84.2500 2020-01-22      0   0.0
-4                 NaN   Malaysia   2.5000  112.5000 2020-01-22      0   0.0
-...               ...        ...      ...       ...        ...    ...   ...
-20195     Socorro, NM         US  33.8837 -106.7235 2020-03-11      2  49.0
-20196  Bernalillo, NM         US  35.0178 -106.6291 2020-03-11      1  49.0
-20197     Oakland, MI         US  42.5922  -83.3362 2020-03-11      1  49.0
-20198       Wayne, MI         US  42.2791  -83.3362 2020-03-11      1  49.0
-20199  New Castle, DE         US  39.5393  -75.6674 2020-03-11      1  49.0
-
-[20200 rows x 7 columns]
+  province_state    country      lat      long       date  cases  day
+0            NaN   Thailand  15.0000  101.0000 2020-01-22      2  0.0
+1            NaN      Japan  36.0000  138.0000 2020-01-22      2  0.0
+2            NaN  Singapore   1.2833  103.8333 2020-01-22      0  0.0
+3            NaN      Nepal  28.1667   84.2500 2020-01-22      0  0.0
+4            NaN   Malaysia   2.5000  112.5000 2020-01-22      0  0.0
 
 Cases for one country:
-     index    province_state country      lat     long       date  cases   day
-0      159            France  France  46.2276   2.2137 2020-01-22      0   0.0
-1      201         St Martin  France  18.0708 -63.0501 2020-01-22      0   0.0
-2      208  Saint Barthelemy  France  17.9000 -62.8333 2020-01-22      0   0.0
-3      563            France  France  46.2276   2.2137 2020-01-23      0   1.0
-4      605         St Martin  France  18.0708 -63.0501 2020-01-23      0   1.0
-..     ...               ...     ...      ...      ...        ...    ...   ...
-145  19593         St Martin  France  18.0708 -63.0501 2020-03-10      2  48.0
-146  19600  Saint Barthelemy  France  17.9000 -62.8333 2020-03-10      1  48.0
-147  19955            France  France  46.2276   2.2137 2020-03-11   2281  49.0
-148  19997         St Martin  France  18.0708 -63.0501 2020-03-11      2  49.0
-149  20004  Saint Barthelemy  France  17.9000 -62.8333 2020-03-11      1  49.0
-
-[150 rows x 8 columns]
+   index    province_state country      lat     long       date  cases  day
+0    159            France  France  46.2276   2.2137 2020-01-22      0  0.0
+1    201         St Martin  France  18.0708 -63.0501 2020-01-22      0  0.0
+2    208  Saint Barthelemy  France  17.9000 -62.8333 2020-01-22      0  0.0
+3    563            France  France  46.2276   2.2137 2020-01-23      0  1.0
+4    605         St Martin  France  18.0708 -63.0501 2020-01-23      0  1.0
 
 Cases for one province_state:
    index    province_state country      lat      long       date  cases  day
