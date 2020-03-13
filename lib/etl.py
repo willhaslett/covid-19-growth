@@ -34,7 +34,7 @@ def filter(df, column, value):
 def for_country(df, country):
     return filter(df, 'country', country)
 
-# Filter on country province_state
+# Filter on province_state
 def for_province_state(df, province_state):
     return filter(df, 'province_state', province_state)
 
