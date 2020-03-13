@@ -91,7 +91,7 @@ To stay in sync with the Johns Hopkins data
 ./update_data.sh
 ```
 
-`etl.py` currently provides one dataframe and these fucntions:
+`etl.py` currently provides one dataframe and four fucntions:
 * `df_all` A dataframe with all global cases, long format, dates as Pandas timestamps
 * `filter(column, vlaue)` Generic filter
 * `for_country(country)` Filter by country
