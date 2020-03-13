@@ -29,20 +29,49 @@ pip install -r requirements.txt
 Verify installation
 ```
 $ python lib/tests.py
-             city_county      lat      long       date  cases state
-35           King County  47.6062 -122.3321 2020-01-22      1    WA
-36           Cook County  41.7377  -87.6976 2020-01-22      0    IL
-46           Los Angeles  34.0522 -118.2437 2020-01-22      0    CA
-64            San Benito  36.5761 -120.9876 2020-01-22      0    CA
-66               Madison  43.0731  -89.4012 2020-01-22      0    WI
-...                  ...      ...       ...        ...    ...   ...
-10345      Pierce County  47.0676 -122.1295 2020-03-07      1    WA
-10346    Plymouth County  42.1615  -70.7928 2020-03-07      1    MA
-10347  Santa Cruz County  36.9741 -122.0308 2020-03-07      1    CA
-10348       Tulsa County  36.1593  -95.9410 2020-03-07      1    OK
-10349  Montgomery County  30.3213  -95.4778 2020-03-07      0    TX
 
-[3772 rows x 6 columns]
+Main dataframe:
+       province_state    country      lat      long       date  cases   day
+0                 NaN   Thailand  15.0000  101.0000 2020-01-22      2   0.0
+1                 NaN      Japan  36.0000  138.0000 2020-01-22      2   0.0
+2                 NaN  Singapore   1.2833  103.8333 2020-01-22      0   0.0
+3                 NaN      Nepal  28.1667   84.2500 2020-01-22      0   0.0
+4                 NaN   Malaysia   2.5000  112.5000 2020-01-22      0   0.0
+...               ...        ...      ...       ...        ...    ...   ...
+20195     Socorro, NM         US  33.8837 -106.7235 2020-03-11      2  49.0
+20196  Bernalillo, NM         US  35.0178 -106.6291 2020-03-11      1  49.0
+20197     Oakland, MI         US  42.5922  -83.3362 2020-03-11      1  49.0
+20198       Wayne, MI         US  42.2791  -83.3362 2020-03-11      1  49.0
+20199  New Castle, DE         US  39.5393  -75.6674 2020-03-11      1  49.0
+
+[20200 rows x 7 columns]
+
+Cases for one country:
+     index    province_state country      lat     long       date  cases   day
+0      159            France  France  46.2276   2.2137 2020-01-22      0   0.0
+1      201         St Martin  France  18.0708 -63.0501 2020-01-22      0   0.0
+2      208  Saint Barthelemy  France  17.9000 -62.8333 2020-01-22      0   0.0
+3      563            France  France  46.2276   2.2137 2020-01-23      0   1.0
+4      605         St Martin  France  18.0708 -63.0501 2020-01-23      0   1.0
+..     ...               ...     ...      ...      ...        ...    ...   ...
+145  19593         St Martin  France  18.0708 -63.0501 2020-03-10      2  48.0
+146  19600  Saint Barthelemy  France  17.9000 -62.8333 2020-03-10      1  48.0
+147  19955            France  France  46.2276   2.2137 2020-03-11   2281  49.0
+148  19997         St Martin  France  18.0708 -63.0501 2020-03-11      2  49.0
+149  20004  Saint Barthelemy  France  17.9000 -62.8333 2020-03-11      1  49.0
+
+[150 rows x 8 columns]
+
+Cases for one province_state:
+   index    province_state country      lat      long       date  cases  day
+0      5  British Columbia  Canada  49.2827 -123.1207 2020-01-22      0  0.0
+1    409  British Columbia  Canada  49.2827 -123.1207 2020-01-23      0  1.0
+2    813  British Columbia  Canada  49.2827 -123.1207 2020-01-24      0  2.0
+3   1217  British Columbia  Canada  49.2827 -123.1207 2020-01-25      0  3.0
+4   1621  British Columbia  Canada  49.2827 -123.1207 2020-01-26      0  4.0
+
+Tests passed
+$
 ```
 
 ### VSCode/Docker
