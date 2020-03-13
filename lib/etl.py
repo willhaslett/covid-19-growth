@@ -8,15 +8,35 @@ import constants
 #   for_province_state()
 #   sum_by_date()
 
-# df_all
-_df_all = pd.read_csv('confirmed_cases.csv')
-_df_all = _df_all.rename(columns=constants.RENAMED_COLUMNS)
-_date_cols = _df_all.filter(regex=('^\d+/\d+/\d+$')).columns.array
-_df_all = pd.melt(_df_all, id_vars=['province_state', 'country', 'lat',
+# df_cases
+_df_cases = pd.read_csv('confirmed_cases.csv')
+_df_cases = _df_cases.rename(columns=constants.RENAMED_COLUMNS)
+_date_cols = _df_cases.filter(regex=('^\d+/\d+/\d+$')).columns.array
+_df_cases = pd.melt(_df_cases, id_vars=['province_state', 'country', 'lat',
                                   'long'], value_vars=_date_cols, var_name='date', value_name='cases')
-_df_all.date = pd.to_datetime(_df_all.date, format='%m/%d/%y')
-_df_all['day'] = (_df_all.date - pd.to_datetime(_df_all.date.iloc[0])).astype('timedelta64[D]')
-df_all = _df_all
+_df_cases.date = pd.to_datetime(_df_cases.date, format='%m/%d/%y')
+_df_cases['day'] = (_df_cases.date - pd.to_datetime(_df_cases.date.iloc[0])).astype('timedelta64[D]')
+df_cases = _df_cases
+
+# df_deaths
+_df_deaths = pd.read_csv('confirmed_cases.csv')
+_df_deaths = _df_deaths.rename(columns=constants.RENAMED_COLUMNS)
+_date_cols = _df_deaths.filter(regex=('^\d+/\d+/\d+$')).columns.array
+_df_deaths = pd.melt(_df_deaths, id_vars=['province_state', 'country', 'lat',
+                                  'long'], value_vars=_date_cols, var_name='date', value_name='cases')
+_df_deaths.date = pd.to_datetime(_df_deaths.date, format='%m/%d/%y')
+_df_deaths['day'] = (_df_deaths.date - pd.to_datetime(_df_deaths.date.iloc[0])).astype('timedelta64[D]')
+df_deaths = _df_deaths
+
+# df_recovered
+_df_recovered = pd.read_csv('confirmed_cases.csv')
+_df_recovered = _df_recovered.rename(columns=constants.RENAMED_COLUMNS)
+_date_cols = _df_recovered.filter(regex=('^\d+/\d+/\d+$')).columns.array
+_df_recovered = pd.melt(_df_recovered, id_vars=['province_state', 'country', 'lat',
+                                  'long'], value_vars=_date_cols, var_name='date', value_name='cases')
+_df_recovered.date = pd.to_datetime(_df_recovered.date, format='%m/%d/%y')
+_df_recovered['day'] = (_df_recovered.date - pd.to_datetime(_df_recovered.date.iloc[0])).astype('timedelta64[D]')
+df_recovered = _df_recovered
 
 # General purpose filter.
 def filter(column, value):
