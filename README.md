@@ -8,10 +8,7 @@ This repo aims to provide a sensible starting point and some useful functions fo
 Pandas/Python using the JH data.
 
 Cloning vs forking: no breaking changes to `etl.py` are anticipated, only additional features.
-Current development priorities are:
-* Integrating the JH recovered data
-* Integrating the JH deaths data
-* Integrating the 2019 US census population data by state, sub-region, and region
+Current development priority is integrating the 2019 US census population data by state, sub-region, and region
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
@@ -97,12 +94,14 @@ To stay in sync with the Johns Hopkins data
 ./update_data.sh
 ```
 
-`etl.py` currently provides one dataframe and four functions:
-* `df_all` A dataframe with all global cases, long format, dates as Pandas timestamps
-* `filter(column, vlaue)` Generic filter
-* `for_country(country)` Filter by country
-* `for_province_state(province_state)` Filter by province_state
-* `sum_by_date()` Group by date and sum case counts 
+`etl.py` currently provides three dataframes and four manipulation functions:
+* `df_cases` All global cases, long format, dates as Pandas timestamps
+* `df_deaths` All global deaths, long format, dates as Pandas timestamps
+* `df_recovered` All global recoveries, long format, dates as Pandas timestamps
+* `filter(df, column, vlaue)` Generic filter
+* `for_country(df, country)` Filter by country
+* `for_province_state(df, province_state)` Filter by province_state
+* `sum_by_date(df)` Group by date and sum case counts 
 
 ## License
 
