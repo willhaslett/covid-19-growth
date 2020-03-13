@@ -7,6 +7,8 @@ displayed on their
 This repo aims to provide a sensible starting point and some useful functions for ongoing work in
 Pandas/Python using the JH data.
 
+The Jupyter Notebook contains a stub demonstrating the use of `lmfit` with these data
+
 Cloning vs forking: no breaking changes to `etl.py` are anticipated, only additional features.
 Current development priority is integrating the 2019 US census population data by state, sub-region, and region
 
