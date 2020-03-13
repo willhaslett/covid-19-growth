@@ -1,5 +1,5 @@
 venv/
 .vscode/
 *.swp
-*.pickle/
+pickles/
 lib/__pycache__/
