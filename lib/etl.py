@@ -3,10 +3,13 @@ from operator import itemgetter
 import constants
 
 # Exposes
-#   df_all: All raw data converted to long format with dates as Pandas timestamps
-#   for_country()
-#   for_province_state()
-#   sum_by_date()
+# `df_cases` All global cases, long format, dates as Pandas timestamps
+# `df_deaths` All global deaths, long format, dates as Pandas timestamps
+# `df_recovered` All global recoveries, long format, dates as Pandas timestamps
+# `filter(df, column, vlaue)` Generic filter
+# `for_country(df, country)` Filter by country
+# `for_province_state(df, province_state)` Filter by province_state
+# `sum_by_date(df)` Group by date and sum case counts 
 
 # Perform ETL on a COVID-19 CSV file
 def df_from_csv(file_name):
