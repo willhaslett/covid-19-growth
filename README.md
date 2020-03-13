@@ -7,7 +7,7 @@ displayed on their
 This repo aims to provide a sensible starting point and some useful functions for ongoing work in
 Pandas/Python using the JH data.
 
-Cloning vs forking: No breaking changes to `etl.py` are anticipated. Only additional features, such 
+Cloning vs forking: no breaking changes to `etl.py` are anticipated. Only additional features, such 
 as integration with population data.
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
