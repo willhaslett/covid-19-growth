@@ -7,7 +7,7 @@ displayed on their
 This repo aims to provide a sensible starting point and some useful functions for ongoing work in
 Pandas/Python using the JH data.
 
-The Jupyter Notebook contains a stub demonstrating the use of `lmfit` with these data
+`modeling_stub.ipynb` contains a template demonstrating the use of `lmfit` with these data
 
 No breaking changes to `etl.py` or `us.py` are anticipated, only additional features.
 
