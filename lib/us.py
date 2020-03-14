@@ -16,8 +16,7 @@ from pprint import pprint as pp
 #       for that column
 # Split province_state on the string ', ' creating new columns 'is_state' and 'state'
 def us_data(df):
-    df.province_state, df['state'] = itemgetter(
-        0, 1)(df.province_state.str.split(', ').str)
+    df.province_state, df['state'] = itemgetter(0, 1)(df.province_state.str.split(', ').str)
     return df
 
 # US data
