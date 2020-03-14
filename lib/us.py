@@ -5,8 +5,8 @@ import etl
 from pprint import pprint as pp
 
 # Dataframes
-# `df_us` A Dictionary of case, death, and recovery data for the US
-# `df_us_states` A Dictionary of state-level case, death, and recovery data for the US
+# `df_us` A Dictionary of case, death, and recovery dataframes for the US
+# `df_us_states` A Dictionary of state-level case, death, and recovery dataframes for the US
 # `df_us_population` 2019 US census population data by state, sub-region, and region
 
 # Functions
