@@ -65,22 +65,29 @@ To stay in sync with the Johns Hopkins data
 ./update_data.sh
 ```
 
-`etl.py` currently provides three dataframes and four functions. Dataframes are long
-format with dates as Pandas timestamps
-* `df_cases` All global cases
-* `df_deaths` All global deaths
-* `df_recovered` All global recoveries
-* `filter(df, column, vlaue)` Generic filter
-* `for_country(df, country)` Filter by country
-* `for_province_state(df, province_state)` Filter by province_state
-* `sum_by_date(df)` Group by date and sum case counts 
+### Available in `etl.py`
+* Dataframes
+  - `df_cases` All global cases
+  - `df_deaths` All global deaths
+  - `df_recovered` All global recoveries
+  - `df_all` A dictionary containing the above three dataframes
 
-`us.py` currently provides case dataframes with states split into a new column, and a US
-population dataframe
-* `df_cases_us` All US cases
-* `df_deaths_us` All US deaths
-* `df_recovered_us` All US recoveries
-* `df_population_us` United Staes population by state, sub_region, and region
+* Functions
+  - `filter(df, column, vlaue)` Generic filter
+  - `for_country(df, country)` Filter by country
+  - `for_province_state(df, province_state)` Filter by province_state
+  - `sum_by_date(df)` Group by date and sum case counts 
+
+### Available in `us.py`
+* Dataframes
+  - `df_us` A Dictionary of case, death, recovery data for the US
+  - `df_us_states` A Dictionary of state-level case, death, recovery data for the US
+  - `df_us_population` 2019 US census population data by state, sub-region, and region
+
+* Functions
+  - `us_data(df)` Filter input dataframe on US rows.
+  - `us_data_state(df)` Filter input US dataframe state-level records.
+  - `population_for_state(state_name)`
 
 ## License
 

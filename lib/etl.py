@@ -6,6 +6,7 @@ import constants
 #   `df_cases` All global cases
 #   `df_deaths` All global deaths
 #   `df_recovered` All global recoveries
+#   `df_all` A dictionary containing the above three dataframes
 
 # Data manipulation functions
 #   `filter(df, column, vlaue)` Generic filter
