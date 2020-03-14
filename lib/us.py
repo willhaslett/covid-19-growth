@@ -14,7 +14,7 @@ from pprint import pprint as pp
 # `us_data_state(df)` Filter input US dataframe state-level records.
 # `population_for_state(state_name)`
 
-# All US data. Applied to cases, deaths, recoveries in the dictionary `df_us`
+# All US data. Applied to cases, deaths, and recoveries in the dictionary `df_us`
 def us_data(df):
     df = df.rename(columns={'province_state': 'state'})
     # For consistency with census data
@@ -22,10 +22,10 @@ def us_data(df):
     df.state, df['state_abbrev'] = itemgetter(0, 1)(df.state.str.split(', ').str)
     return df
 
-# Sate-level US data. Applied to cases, deaths, recoveries in the dictionary `df_us_states`
+# Sate-level US data. Applied to cases, deaths, and recoveries in the dictionary `df_us_states`
 def us_data_state(df):
     df = df[df['state'].isin(df_us_population['state'])]
-    return df[['state', 'cases']]
+    return df[['day', 'state', 'cases']]
 
 # Unused at present
 def population_for_state(state_name):
