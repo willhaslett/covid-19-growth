@@ -1,1 +1,1 @@
-global.py
+all.py

@@ -9,7 +9,7 @@ Pandas/Python using the JH data.
 
 `modeling_stub.ipynb` contains a template demonstrating the use of `lmfit` with these data.
 
-No breaking changes to `global.py` or `us.py` are anticipated.
+No breaking changes to `all.py` or `us.py` are anticipated.
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
@@ -65,7 +65,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 ./update_data.sh
 ```
 
-### Available in `global.py`
+### Available in `all.py`
 * Dataframes
   - `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries
   - `df_cases` All global cases. Deprecated. Use `df_all`.
