@@ -1,8 +1,8 @@
 import pickle
 import etl
-import united_states as us
+import us
 
-from pprint  import pprint as pp
+# Pickles are written for Jupyter, which is sometimes unhappy about importing local .py files
 
 dfs = [
     {'name': 'df_cases', 'df': etl.df_cases},
