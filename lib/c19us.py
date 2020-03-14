@@ -7,6 +7,7 @@ from pprint import pprint as pp
 # Dataframes
 # `df_us` A Dictionary of case, death, and recovery dataframes for the US
 # `df_us_states` A Dictionary of state-level case, death, and recovery dataframes for the US
+# `df_us_counties` A Dictionary of county-level case, death, and recovery dataframes for the US
 # `df_us_population` 2019 US census population data by state, sub-region, and region
 
 # Functions
@@ -27,6 +28,11 @@ def us_data_state(df):
     df = df[df['state'].isin(df_us_population['state'])]
     return df[['day', 'state', 'cases']]
 
+# County-level US data. Applied to cases, deaths, and recoveries in the dictionary `df_us_states`
+def us_data_county(df):
+    df = df[~df['state'].isin(df_us_population['state'])]
+    return df[['day', 'state', 'cases']]
+
 # Unused at present
 def population_for_state(state_name):
     return df_us_population[df_us_population.state == state_name].iloc[0].population_2019
@@ -42,8 +48,15 @@ df_us = {
 }
 
 # Dict of US state-level data
-df_us_states = {
+df_us_state = {
     'cases': us_data_state(df_us['cases']),
     'deaths': us_data_state(df_us['deaths']),
     'recovered': us_data_state(df_us['recovered']),
+}
+
+# Dict of US county-level data
+df_us_county = {
+    'cases': us_data_county(df_us['cases']),
+    'deaths': us_data_county(df_us['deaths']),
+    'recovered': us_data_county(df_us['recovered']),
 }

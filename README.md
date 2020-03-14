@@ -81,9 +81,8 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 ### Available in `c19us.py`
 * Dataframes
   - `df_us` A dictionary of case, death, and recovery dataframes for the US. The `state` column contains both states and counties, as is the case upstream.
-  - `df_us_states` A dictionary of state-level case, death, and recovery dataframes for the US
-  - `df_us_counties` A dictionary of county-level case, death, and recovery dataframes for the US
-    (coming soon)
+  - `df_us_state` A dictionary of state-level case, death, and recovery dataframes for the US
+  - `df_us_county` A dictionary of county-level case, death, and recovery dataframes for the US
   - `df_us_population` 2019 US census population data by state, sub-region, and region
 
 * Functions
