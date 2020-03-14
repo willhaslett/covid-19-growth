@@ -65,10 +65,11 @@ To stay in sync with the Johns Hopkins data
 ./update_data.sh
 ```
 
-`etl.py` currently provides three dataframes and four manipulation functions:
-* `df_cases` All global cases, long format, dates as Pandas timestamps
-* `df_deaths` All global deaths, long format, dates as Pandas timestamps
-* `df_recovered` All global recoveries, long format, dates as Pandas timestamps
+`etl.py` currently provides three dataframes and four manipulation functions. Dataframes are long
+format with dates as Pandas timestamps
+* `df_cases` All global cases
+* `df_deaths` All global deaths
+* `df_recovered` All global recoveries
 * `filter(df, column, vlaue)` Generic filter
 * `for_country(df, country)` Filter by country
 * `for_province_state(df, province_state)` Filter by province_state
