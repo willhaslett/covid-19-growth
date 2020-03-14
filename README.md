@@ -13,7 +13,7 @@ Cloning vs forking: no breaking changes to `etl.py` are anticipated, only additi
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
-![Screenshot](.screenshot.png)
+![Screenshot](._screenshot.png)
 
 ## Installing
 ### Vanilla
