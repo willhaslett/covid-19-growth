@@ -82,7 +82,6 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 #### NOTE: the three dataframes in `df_us_state` will soon have columns for subregion and region, like this:
 `['day', 'cases', 'state', 'subregion', 'region']`.
 * Dataframes
-  - `df_us` A dictionary of case, death, and recovery dataframes for the US. Best to use one of the following dataframes, not this one. The `state` column contains both states and counties, as is the case upstream.
   - `df_us_state` A dictionary of state-level case, death, and recovery dataframes for the US
   - `df_us_county` A dictionary of county-level case, death, and recovery dataframes for the US
 
