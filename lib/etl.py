@@ -32,7 +32,7 @@ def filter(df, column, value):
 def for_country(df, country):
     return filter(df, 'country', country)
 
-# Filter on province_state
+# Filter on province_state. us.py has its own function for this
 def for_province_state(df, province_state):
     return filter(df, 'province_state', province_state)
 
@@ -44,3 +44,10 @@ def sum_by_date(df):
 df_cases = df_from_csv('csv/confirmed_cases.csv')
 df_deaths = df_from_csv('csv/deaths.csv')
 df_recovered = df_from_csv('csv/recovered_cases.csv')
+
+# Dict of base dataframs
+df_all = {
+    'cases': df_cases,
+    'deaths': df_deaths,
+    'recovered': df_recovered
+}
