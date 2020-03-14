@@ -16,14 +16,6 @@ print("\nCases for one province_state (head):")
 pp(c19all.for_province_state(c19all.df_all['cases'], 'British Columbia').head())
 
 # c19us.py
-# Country
-print("\nUS Cases (head):")
-pp(c19us.df_us['cases'].head())
-print("\nUS Deaths (head):")
-pp(c19us.df_us['deaths'].head())
-print("\nUS Recovered (head):")
-pp(c19us.df_us['recovered'].head())
-print("\nUS Cases by state (head):")
 # State
 pp(c19us.df_us_state['cases'].head())
 print("\nUS Deaths by state (head):")
