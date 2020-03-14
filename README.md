@@ -9,7 +9,7 @@ Pandas/Python using the JH data.
 
 The Jupyter Notebook contains a stub demonstrating the use of `lmfit` with these data
 
-Cloning vs forking: no breaking changes to `etl.py` are anticipated, only additional features.
+No breaking changes to `etl.py` or `us.py` are anticipated, only additional features.
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
