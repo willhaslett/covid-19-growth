@@ -13,7 +13,7 @@ No breaking changes to `c19all.py` or `c19us.py` are anticipated.
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
-![Screenshot](.screenshot.png)
+![](.screenshot.png)
 
 ## Installing
 ### Vanilla
@@ -81,8 +81,8 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 ### Available in `c19us.py`
 * Dataframes
   - `df_us` A dictionary of case, death, and recovery dataframes for the US. Best to use one of the following dataframes, not this one. The `state` column contains both states and counties, as is the case upstream.
-  - `df_us_region` A dictionary of region-level case, death, and recovery dataframes for the US. Membership defined [here.](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region) (Coming soon)
-  - `df_us_subregion` A dictionary of subregion-level case, death, and recovery dataframes for the US. Membership defined [here.](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region) (Coming soon)
+  - `df_us_region` A dictionary of region-level case, death, and recovery dataframes for the US. (Coming soon)
+  - `df_us_subregion` A dictionary of subregion-level case, death, and recovery dataframes for the US. (Coming soon)
   - `df_us_state` A dictionary of state-level case, death, and recovery dataframes for the US
   - `df_us_county` A dictionary of county-level case, death, and recovery dataframes for the US
   - `df_us_population` 2019 US census population data by state, sub-region, and region
@@ -91,6 +91,9 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   - `us_data(df)` Filter input dataframe on US rows.
   - `us_data_state(df)` Filter input US dataframe state-level records.
   - `population_for_state(state_name)`
+  
+* Population `csv/us_population.csv`. Region membership defined [here.](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region)
+![](.us_population.png)
 
 ## License
 
