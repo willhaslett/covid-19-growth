@@ -81,8 +81,10 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 
 ### Available in `us.py`
 * Dataframes
-  - `df_us` A Dictionary of case, death, and recovery dataframes for the US. `state` column is of mixed types, as upstream. Will become `state`, `county` and `city`.
+  - `df_us` A Dictionary of case, death, and recovery dataframes for the US. The `state` column contains both states and counties, as is the case upstream.
   - `df_us_states` A Dictionary of state-level case, death, and recovery dataframes for the US
+  - `df_us_counties` A Dictionary of county-level case, death, and recovery dataframes for the US
+    (coming soon)
   - `df_us_population` 2019 US census population data by state, sub-region, and region
 
 * Functions
