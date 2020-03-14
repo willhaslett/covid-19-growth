@@ -4,11 +4,11 @@ import c19all
 import c19us
 
 # c19all.py
-print("\nCases (head):")
+print("\nGlobal cases (head):")
 pp(c19all.df_all['cases'].head())
-print("\nDeaths (head):")
+print("\nGlobal deaths (head):")
 pp(c19all.df_all['deaths'].head())
-print("\nRecovered (head):")
+print("\nGlobal recovered (head):")
 pp(c19all.df_all['recovered'].head())
 print("\nCases for one country (head):")
 pp(c19all.for_country(c19all.df_all['cases'], 'France').head())
