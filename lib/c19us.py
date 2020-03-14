@@ -18,49 +18,41 @@ from pprint import pprint as pp
 # US population by state, region and subregion
 df_us_population = pd.read_csv('csv/us_population.csv')
 
-# All US data. Used to build `df_us`, which should not be used unless you want to preserve the
-# mixed types in the province_state column of the JH US data
-def us_data(df):
+def _us_data(df):
     df = df.rename(columns={'province_state': 'state'})
     # For consistency with census data
     df.state = df.state.apply(lambda state: (state, 'District of Columbia') [state == 'Washington, D.C.'])
     df.state, df['state_abbrev'] = itemgetter(0, 1)(df.state.str.split(', ').str)
     return df
 
-# Dict of all US data
-df_us = {
-    'cases': us_data(c19all.for_country(c19all.df_cases, 'US')),
-    'deaths': us_data(c19all.for_country(c19all.df_deaths, 'US')),
-    'recovered': us_data(c19all.for_country(c19all.df_recovered, 'US'))
+# Dict of all US data. Flagged as private bevcause of inconsistent types in the `state` column from upstream
+_df_us = {
+    'cases': _us_data(c19all.for_country(c19all.df_cases, 'US')),
+    'deaths': _us_data(c19all.for_country(c19all.df_deaths, 'US')),
+    'recovered': _us_data(c19all.for_country(c19all.df_recovered, 'US'))
 }
 
-# State-level US data. Used to build `df_us_state`
-def us_data_state(df):
+# df_us as a public dataframe is deprecated and this will be removed
+df_us = _df_us
+
+def _us_data_state(df):
     df = df[df['state'].isin(df_us_population['state'])]
     return df[['day', 'state', 'cases']]
 
 # Dict of US state-level data
 df_us_state = {
-    'cases': us_data_state(df_us['cases']),
-    'deaths': us_data_state(df_us['deaths']),
-    'recovered': us_data_state(df_us['recovered']),
+    'cases': _us_data_state(df_us['cases']),
+    'deaths': _us_data_state(df_us['deaths']),
+    'recovered': _us_data_state(df_us['recovered']),
 }
 
-# County-level US data. Used to build `df_us_county`
-def us_data_county(df):
+def _us_data_county(df):
     df = df[~df['state'].isin(df_us_population['state'])]
     return df[['day', 'state', 'cases']]
 
 # Dict of US county-level data
 df_us_county = {
-    'cases': us_data_county(df_us['cases']),
-    'deaths': us_data_county(df_us['deaths']),
-    'recovered': us_data_county(df_us['recovered']),
+    'cases': _us_data_county(df_us['cases']),
+    'deaths': _us_data_county(df_us['deaths']),
+    'recovered': _us_data_county(df_us['recovered']),
 }
-
-# Region-level US data. Used to build `df_us_region`
-def us_data_region(df):
-    regions = df_us_population.region.unique().tolist()
-    pp(regions)
-
-us_data_region(df_us_state['cases'])
