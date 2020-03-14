@@ -9,7 +9,8 @@ Pandas/Python using the JH data.
 
 `modeling_stub.ipynb` contains a template demonstrating the use of `lmfit` with these data
 
-No breaking changes to `etl.py` or `us.py` are anticipated, only additional features.
+No breaking changes to `etl.py` or `us.py` are anticipated, except for the `state` column in
+`us.py`. See below.
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
