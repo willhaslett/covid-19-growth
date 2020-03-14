@@ -41,6 +41,6 @@ def sum_by_date(df):
     return df.groupby('date').sum().reset_index()
 
 # Create base dataframes
-df_cases = df_from_csv('confirmed_cases.csv')
-df_deaths = df_from_csv('deaths.csv')
-df_recovered = df_from_csv('recovered_cases.csv')
+df_cases = df_from_csv('csv/confirmed_cases.csv')
+df_deaths = df_from_csv('csv/deaths.csv')
+df_recovered = df_from_csv('csv/recovered_cases.csv')
