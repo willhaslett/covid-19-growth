@@ -2,6 +2,8 @@ import pickle
 import etl
 import united_states as us
 
+from pprint  import pprint as pp
+
 dfs = [
     {'name': 'df_cases', 'df': etl.df_cases},
     {'name': 'df_deaths', 'df': etl.df_deaths},
@@ -12,6 +14,6 @@ dfs = [
     {'name': 'df_population_us', 'df': us.df_population_us}
 ]
 
-for name, df in dfs:
-    pickle_file = open(f'pickles/{name}.p', 'wb')
-    pickle.dump(df, pickle_file)
+for df_dict in dfs:
+    pickle_file = open(f'pickles/{df_dict["name"]}.p', 'wb')
+    pickle.dump(df_dict["df"], pickle_file)
