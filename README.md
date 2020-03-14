@@ -61,7 +61,7 @@ Verify the installation as above.
 
 ## Usage
 
-This repo is updated with the latest JH data nightly. To verify:
+The JH submodule is pulled nightly, updating the source data. To force a pull locally:
 ```
 ./update_data.sh
 ```
