@@ -80,8 +80,8 @@ To stay in sync with the Johns Hopkins data
 
 ### Available in `us.py`
 * Dataframes
-  - `df_us` A Dictionary of case, death, recovery data for the US
-  - `df_us_states` A Dictionary of state-level case, death, recovery data for the US
+  - `df_us` A Dictionary of case, death, and recovery data for the US
+  - `df_us_states` A Dictionary of state-level case, death, and recovery data for the US
   - `df_us_population` 2019 US census population data by state, sub-region, and region
 
 * Functions
