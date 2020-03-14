@@ -79,7 +79,8 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   - `sum_by_date(df)` Group by date and sum case counts 
 
 ### Available in `c19us.py`
-#### NOTE: `df_us_state` will soon have columns for subregion and region, like this: `['day', 'cases', 'state', 'subregion', 'region']`.
+#### NOTE: `df_us_state` will soon have columns for subregion and region, like this:
+`['day', 'cases', 'state', 'subregion', 'region']`.
 * Dataframes
   - `df_us` A dictionary of case, death, and recovery dataframes for the US. Best to use one of the following dataframes, not this one. The `state` column contains both states and counties, as is the case upstream.
   - `df_us_state` A dictionary of state-level case, death, and recovery dataframes for the US
