@@ -41,14 +41,14 @@ def for_province_state(df, province_state):
 def sum_by_date(df):
     return df.groupby('date').sum().reset_index()
 
-# Create base dataframes
-df_cases = df_from_csv('csv/confirmed_cases.csv')
-df_deaths = df_from_csv('csv/deaths.csv')
-df_recovered = df_from_csv('csv/recovered_cases.csv')
-
-# Dict of base dataframs
+# Dictionary containing dataframes for all global data
 df_all = {
-    'cases': df_cases,
-    'deaths': df_deaths,
-    'recovered': df_recovered
+    'cases': df_from_csv('csv/confirmed_cases.csv'),
+    'deaths': df_from_csv('csv/deaths.csv'),
+    'recovered': df_from_csv('csv/recovered_cases.csv')
 }
+
+# NOTE: These are deprecated. Use df_all.
+df_cases = df_all['cases']
+df_deaths = df_all['deaths'] 
+df_recovered = df_all['recovered'] 
