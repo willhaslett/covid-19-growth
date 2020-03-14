@@ -9,7 +9,7 @@ Pandas/Python using the JH data.
 
 `modeling_stub.ipynb` contains a template demonstrating the use of `lmfit` with these data.
 
-No breaking changes to `all.py` or `us.py` are anticipated.
+No breaking changes to `c19all.py` or `c19us.py` are anticipated.
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
@@ -65,7 +65,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 ./update_data.sh
 ```
 
-### Available in `all.py`
+### Available in `c19all.py`
 * Dataframes
   - `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries
   - `df_cases` All global cases. Deprecated. Use `df_all`.
@@ -78,7 +78,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   - `for_province_state(df, province_state)` Filter by province_state
   - `sum_by_date(df)` Group by date and sum case counts 
 
-### Available in `us.py`
+### Available in `c19us.py`
 * Dataframes
   - `df_us` A dictionary of case, death, and recovery dataframes for the US. The `state` column contains both states and counties, as is the case upstream.
   - `df_us_states` A dictionary of state-level case, death, and recovery dataframes for the US
