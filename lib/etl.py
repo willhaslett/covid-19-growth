@@ -2,16 +2,18 @@ import pandas as pd
 from operator import itemgetter
 import constants
 
-# Exposes
-# `df_cases` All global cases, long format, dates as Pandas timestamps
-# `df_deaths` All global deaths, long format, dates as Pandas timestamps
-# `df_recovered` All global recoveries, long format, dates as Pandas timestamps
-# `filter(df, column, vlaue)` Generic filter
-# `for_country(df, country)` Filter by country
-# `for_province_state(df, province_state)` Filter by province_state
-# `sum_by_date(df)` Group by date and sum case counts 
+# Global data, long format, dates as Pandas timestamps
+#   `df_cases` All global cases
+#   `df_deaths` All global deaths
+#   `df_recovered` All global recoveries
 
-# Perform ETL on a COVID-19 CSV data. Return dataframe and write pickle file
+# Data manipulation functions
+#   `filter(df, column, vlaue)` Generic filter
+#   `for_country(df, country)` Filter by country
+#   `for_province_state(df, province_state)` Filter by province_state
+#   `sum_by_date(df)` Group by date and sum case counts 
+
+# Perform ETL on a Johns Hopkins COVID-19 CSV file, Returning a dataframe
 def df_from_csv(file_name):
     df = pd.read_csv(file_name)
     df = df.rename(columns=constants.RENAMED_COLUMNS)
@@ -21,13 +23,6 @@ def df_from_csv(file_name):
     df.date = pd.to_datetime(df.date, format='%m/%d/%y')
     df['day'] = (df.date - pd.to_datetime(df.date.iloc[0])).astype('timedelta64[D]')
     return df
-
-# Create base dataframes
-df_cases = df_from_csv('confirmed_cases.csv')
-df_deaths = df_from_csv('deaths.csv')
-df_recovered = df_from_csv('recovered_cases.csv')
-
-# Create pickle files
 
 # General purpose filter.
 def filter(df, column, value):
@@ -41,12 +36,11 @@ def for_country(df, country):
 def for_province_state(df, province_state):
     return filter(df, 'province_state', province_state)
 
-# Split province_state on the string ', ' creating a new column 'state'
-def state_to_col_destructive(df):
-    df.province_state, df['state'] = itemgetter(
-        0, 1)(df.province_state.str.split(', ').str)
-    return df
-
 # Return input with all rows collapsed by date and cases summed
 def sum_by_date(df):
     return df.groupby('date').sum().reset_index()
+
+# Create base dataframes
+df_cases = df_from_csv('confirmed_cases.csv')
+df_deaths = df_from_csv('deaths.csv')
+df_recovered = df_from_csv('recovered_cases.csv')
