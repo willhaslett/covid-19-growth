@@ -42,37 +42,7 @@ Cases (head):
 3            NaN      Nepal  28.1667   84.2500 2020-01-22      0  0.0
 4            NaN   Malaysia   2.5000  112.5000 2020-01-22      0  0.0
 
-Deaths (head):
-  province_state    country      lat      long       date  cases  day
-0            NaN   Thailand  15.0000  101.0000 2020-01-22      0  0.0
-1            NaN      Japan  36.0000  138.0000 2020-01-22      0  0.0
-2            NaN  Singapore   1.2833  103.8333 2020-01-22      0  0.0
-3            NaN      Nepal  28.1667   84.2500 2020-01-22      0  0.0
-4            NaN   Malaysia   2.5000  112.5000 2020-01-22      0  0.0
-
-Recovered (head):
-  province_state    country      lat      long       date  cases  day
-0            NaN   Thailand  15.0000  101.0000 2020-01-22      0  0.0
-1            NaN      Japan  36.0000  138.0000 2020-01-22      0  0.0
-2            NaN  Singapore   1.2833  103.8333 2020-01-22      0  0.0
-3            NaN      Nepal  28.1667   84.2500 2020-01-22      0  0.0
-4            NaN   Malaysia   2.5000  112.5000 2020-01-22      0  0.0
-
-Cases for one country (head):
-   index    province_state country      lat     long       date  cases  day
-0    159            France  France  46.2276   2.2137 2020-01-22      0  0.0
-1    201         St Martin  France  18.0708 -63.0501 2020-01-22      0  0.0
-2    208  Saint Barthelemy  France  17.9000 -62.8333 2020-01-22      0  0.0
-3    565            France  France  46.2276   2.2137 2020-01-23      0  1.0
-4    607         St Martin  France  18.0708 -63.0501 2020-01-23      0  1.0
-
-Cases for one province_state (head):
-   index    province_state country      lat      long       date  cases  day
-0      5  British Columbia  Canada  49.2827 -123.1207 2020-01-22      0  0.0
-1    411  British Columbia  Canada  49.2827 -123.1207 2020-01-23      0  1.0
-2    817  British Columbia  Canada  49.2827 -123.1207 2020-01-24      0  2.0
-3   1223  British Columbia  Canada  49.2827 -123.1207 2020-01-25      0  3.0
-4   1629  British Columbia  Canada  49.2827 -123.1207 2020-01-26      0  4.0
+...
 
 Tests passed
 $
