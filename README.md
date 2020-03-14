@@ -65,7 +65,7 @@ To stay in sync with the Johns Hopkins data
 ./update_data.sh
 ```
 
-`etl.py` currently provides three dataframes and four manipulation functions. Dataframes are long
+`etl.py` currently provides three dataframes and four functions. Dataframes are long
 format with dates as Pandas timestamps
 * `df_cases` All global cases
 * `df_deaths` All global deaths
