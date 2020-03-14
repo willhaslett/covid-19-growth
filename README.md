@@ -67,10 +67,10 @@ To stay in sync with the Johns Hopkins data
 
 ### Available in `etl.py`
 * Dataframes
-  - `df_cases` All global cases
-  - `df_deaths` All global deaths
-  - `df_recovered` All global recoveries
-  - `df_all` A dictionary containing the above three dataframes
+  - `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries
+  - `df_cases` All global cases. Deprecated. Use `df_all`
+  - `df_deaths` All global deaths. Deprecated. Use `df_all`
+  - `df_recovered` All global recoveries. Deprecated. Use `df_all`
 
 * Functions
   - `filter(df, column, vlaue)` Generic filter
