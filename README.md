@@ -69,9 +69,9 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 ### Available in `etl.py`
 * Dataframes
   - `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries
-  - `df_cases` All global cases. Deprecated. Use `df_all`
-  - `df_deaths` All global deaths. Deprecated. Use `df_all`
-  - `df_recovered` All global recoveries. Deprecated. Use `df_all`
+  - `df_cases` All global cases. Deprecated. Use `df_all`.
+  - `df_deaths` All global deaths. Deprecated. Use `df_all`.
+  - `df_recovered` All global recoveries. Deprecated. Use `df_all`.
 
 * Functions
   - `filter(df, column, vlaue)` Generic filter
