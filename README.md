@@ -74,7 +74,7 @@ To stay in sync with the Johns Hopkins data
 * `for_province_state(df, province_state)` Filter by province_state
 * `sum_by_date(df)` Group by date and sum case counts 
 
-`united_states.py` currently provides case dataframes with states split into a new column, and a US
+`us.py` currently provides case dataframes with states split into a new column, and a US
 population dataframe
 * `df_cases_us` All US cases
 * `df_deaths_us` All US deaths
