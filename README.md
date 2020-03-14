@@ -14,7 +14,7 @@ Current development priority is integrating the 2019 US census population data b
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
-![Screenshot](.screenshot.png)
+![Screenshot](._screenshot.png)
 
 ## Installing
 ### Vanilla
