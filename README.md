@@ -10,7 +10,6 @@ Pandas/Python using the JH data.
 The Jupyter Notebook contains a stub demonstrating the use of `lmfit` with these data
 
 Cloning vs forking: no breaking changes to `etl.py` are anticipated, only additional features.
-Current development priority is integrating the 2019 US census population data by state, sub-region, and region
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
@@ -104,6 +103,13 @@ To stay in sync with the Johns Hopkins data
 * `for_country(df, country)` Filter by country
 * `for_province_state(df, province_state)` Filter by province_state
 * `sum_by_date(df)` Group by date and sum case counts 
+
+`united_states.py` currently provides case dataframes with states split into a new column, and a US
+population dataframe
+* `df_cases_us` All US cases
+* `df_deaths_us` All US deaths
+* `df_recovered_us` All US recoveries
+* `df_population_us` United Staes population by state, sub_region, and region
 
 ## License
 
