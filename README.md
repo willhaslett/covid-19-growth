@@ -93,7 +93,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   - `population_for_state(state_name)`
   
 * Population `csv/us_population.csv`. Region membership defined [here.](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region)
-![](.us_population.png)
+![](.us_regions.png)
 
 ## License
 
