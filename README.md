@@ -61,7 +61,7 @@ Verify the installation as above.
 
 ## Usage
 
-To stay in sync with the Johns Hopkins data
+This repo is updated with the latest JH data nightly. To verify:
 ```
 ./update_data.sh
 ```
