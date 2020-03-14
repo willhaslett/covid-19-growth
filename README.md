@@ -13,7 +13,7 @@ No breaking changes to `etl.py` or `us.py` are anticipated, only additional feat
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
-![Screenshot](._screenshot.png)
+![Screenshot](.screenshot.png)
 
 ## Installing
 ### Vanilla
