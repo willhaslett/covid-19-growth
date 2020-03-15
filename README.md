@@ -116,7 +116,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   ```
   [Population and region data source](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region)
   
-* `df_us_county` Be wary. The US county-level data have not been consistently reported.
+* `df_us_county` **Be wary**. The US county-level data have not been consistently reported.
   ```
   print(df_us_county['cases'])
 
