@@ -34,13 +34,13 @@ Verify installation
 ```
 $ python lib/tests.py
 
-Cases (head):
-  province_state    country      lat      long       date  cases  day
-0            NaN   Thailand  15.0000  101.0000 2020-01-22      2  0.0
-1            NaN      Japan  36.0000  138.0000 2020-01-22      2  0.0
-2            NaN  Singapore   1.2833  103.8333 2020-01-22      0  0.0
-3            NaN      Nepal  28.1667   84.2500 2020-01-22      0  0.0
-4            NaN   Malaysia   2.5000  112.5000 2020-01-22      0  0.0
+Global cases (head):
+        date  day  cases province_state    country      lat      long
+0 2020-01-22    0      2            NaN   Thailand  15.0000  101.0000
+1 2020-01-22    0      2            NaN      Japan  36.0000  138.0000
+2 2020-01-22    0      0            NaN  Singapore   1.2833  103.8333
+3 2020-01-22    0      0            NaN      Nepal  28.1667   84.2500
+4 2020-01-22    0      0            NaN   Malaysia   2.5000  112.5000
 
 ...
 
