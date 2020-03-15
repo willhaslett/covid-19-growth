@@ -20,6 +20,17 @@ output_columns = [
     'long'
 ]
 
+def _parse_locations(df):
+    # Iteration rather than vector functions for clarity and bug prevention
+    for i in range(len(df)):
+        location = df.loc[i, '_location']
+        # Is it a state-level record?
+        if location.isin(population.keys():
+            df.loc[i, 'is_state'] = True
+            df.loc[i, 'state'] = location
+        # Is it a county-level record? (brittle)
+        elif location.str.contains(', ')
+
 def _us_data(df):
     df = df.rename(columns={'province_state': '_location'})
     df['state'] = None
@@ -30,7 +41,7 @@ def _us_data(df):
     df = df[~df._location.isin(cruise_ships)]
     # Rename Washington D.C. records
     df.state_county = df._location.apply(lambda state: (state, 'District of Columbia') [state == 'Washington, D.C.'])
-    df = df.drop(['country'], axis=1)
+    _parse_locations(df)
     return df
 
 df = _us_data(c19all.for_country(c19all.df_cases, 'US'))
