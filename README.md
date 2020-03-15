@@ -135,7 +135,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 
   [10036 rows x 3 columns]
   ```
-  ![](.us_county_cases.png)
+  ![](.us_county_level_cases.png)
 
 ## License
 
