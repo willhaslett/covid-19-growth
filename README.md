@@ -116,7 +116,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   ```
   [Population and region data source](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region)
   
-* `df_us_county` Be wary. The county-level case, death, and recovery data have not been reported consistently and appear to have been abondoned. See image.
+* `df_us_county` Be wary. The US county-level data have not been consistently reported.
   ```
   print(df_us_county['cases'])
 
@@ -135,7 +135,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 
   [10036 rows x 3 columns]
   ```
-    ![](.us_county_over_time.png)
+  ![](.us_county_data_trend.png)
 
 ## License
 
