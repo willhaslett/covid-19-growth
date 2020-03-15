@@ -1,6 +1,8 @@
 import pandas as pd
 from operator import itemgetter
 import c19all
+import csv
+from constants import US_POPULATION as us_population
 
 from pprint import pprint as pp
 
@@ -13,10 +15,6 @@ from pprint import pprint as pp
 # Functions
 # `us_data(df)` Filter input dataframe on US rows
 # `us_data_state(df)` Filter input US dataframe state-level records
-# `population_for_state(state_name)`
-
-# US population by state, region and subregion
-df_us_population = pd.read_csv('csv/us_population.csv')
 
 def _us_data(df):
     df = df.rename(columns={'province_state': 'state'})
@@ -36,18 +34,21 @@ _df_us = {
 df_us = _df_us
 
 def _us_data_state(df):
-    df = df[df['state'].isin(df_us_population['state'])]
-    return df[['day', 'state', 'cases']]
+    df = df[df.state.isin(us_population.keys())].reindex()
+    df['population'] = df.state.apply(lambda state: us_population[state]['population'])
+    df['sub_region'] = df.state.apply(lambda state: us_population[state]['sub_region'])
+    df['region'] = df.state.apply(lambda state: us_population[state]['region'])
+    return df[['day', 'cases', 'state', 'population', 'sub_region', 'region']].reindex()
 
 # Dict of US state-level data
 df_us_state = {
-    'cases': _us_data_state(df_us['cases']),
-    'deaths': _us_data_state(df_us['deaths']),
-    'recovered': _us_data_state(df_us['recovered']),
+    'cases': _us_data_state(_df_us['cases']),
+    'deaths': _us_data_state(_df_us['deaths']),
+    'recovered': _us_data_state(_df_us['cases'])
 }
 
 def _us_data_county(df):
-    df = df[~df['state'].isin(df_us_population['state'])]
+    df = df[~df.state.isin(us_population.keys())].reindex()
     return df[['day', 'state', 'cases']]
 
 # Dict of US county-level data
