@@ -151,7 +151,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   13037 2020-03-14   52  Virgin Islands, U.S.      1
   ```
 
-* A caution about using the US data below the national level. Reporting regions have been evolving over time. As shown in the figure below, the makeup of overall US data beetween
+* A caution about using the US data below the national level. Reporting regions have been evolving over time. As shown in the figure below, the makeup of overall US data between
 counties and states has been shifting toward the state level. It's unclear on 2020-03-15 how this will play out.
   ![](.us_cases.png)
 

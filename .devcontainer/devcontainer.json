@@ -8,6 +8,7 @@
 	"extensions": [
     "ms-python.python",
     "ryuta46.multi-command",
-    "himanoa.python-autopep8"
+    "himanoa.python-autopep8",
+    "randomfractalsinc.vscode-data-preview"
   ]
 }
