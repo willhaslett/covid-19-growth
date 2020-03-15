@@ -47,6 +47,8 @@ df_us_state = {
     'recovered': _us_data_state(_df_us['cases'])
 }
 
+print(df_us_state['cases'])
+
 def _us_data_county(df):
     df = df[~df.state.isin(us_population.keys())].reindex()
     return df[['day', 'state', 'cases']]

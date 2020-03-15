@@ -23,6 +23,7 @@ def df_from_csv(file_name):
                                       'long'], value_vars=date_cols, var_name='date', value_name='cases')
     df.date = pd.to_datetime(df.date, format='%m/%d/%y')
     df['day'] = (df.date - pd.to_datetime(df.date.iloc[0])).astype('timedelta64[D]')
+    df.day = df.day.apply(lambda day: int(round(day)))
     return df
 
 # General purpose filter.
