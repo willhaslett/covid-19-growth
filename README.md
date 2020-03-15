@@ -69,19 +69,21 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 * `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
   ```
   print(df_all['cases'])
+
+              date  day  cases  province_state              country      lat      long
+  0     2020-01-22    0      2             NaN             Thailand  15.0000  101.0000
+  1     2020-01-22    0      2             NaN                Japan  36.0000  138.0000
+  2     2020-01-22    0      0             NaN            Singapore   1.2833  103.8333
+  3     2020-01-22    0      0             NaN                Nepal  28.1667   84.2500
+  4     2020-01-22    0      0             NaN             Malaysia   2.5000  112.5000
+  ...          ...  ...    ...             ...                  ...      ...       ...
+  21887 2020-03-13   51      2             NaN                Aruba  12.5211  -69.9683
+  21888 2020-03-13   51      2  Grand Princess               Canada  37.6489 -122.6655
+  21889 2020-03-13   51      1             NaN                Kenya  -0.0236   37.9062
+  21890 2020-03-13   51      1             NaN  Antigua and Barbuda  17.0608  -61.7964
+  21891 2020-03-13   51      5         Alabama                   US  32.3182  -86.9023
   
-         province_state              country      lat      long       date  cases  day
-  0                 NaN             Thailand  15.0000  101.0000 2020-01-22      2    0
-  1                 NaN                Japan  36.0000  138.0000 2020-01-22      2    0
-  2                 NaN            Singapore   1.2833  103.8333 2020-01-22      0    0
-  3                 NaN                Nepal  28.1667   84.2500 2020-01-22      0    0
-  4                 NaN             Malaysia   2.5000  112.5000 2020-01-22      0    0
-  ...               ...                  ...      ...       ...        ...    ...  ...
-  21887             NaN                Aruba  12.5211  -69.9683 2020-03-13      2   51
-  21888  Grand Princess               Canada  37.6489 -122.6655 2020-03-13      2   51
-  21889             NaN                Kenya  -0.0236   37.9062 2020-03-13      1   51
-  21890             NaN  Antigua and Barbuda  17.0608  -61.7964 2020-03-13      1   51
-  21891         Alabama                   US  32.3182  -86.9023 2020-03-13      5   51
+  [21892 rows x 7 columns] 
   ```
 
 * Functions
