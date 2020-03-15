@@ -38,7 +38,7 @@ def _us_data_state(df):
     df['population'] = df.state.apply(lambda state: us_population[state]['population'])
     df['sub_region'] = df.state.apply(lambda state: us_population[state]['sub_region'])
     df['region'] = df.state.apply(lambda state: us_population[state]['region'])
-    return df[['day', 'cases', 'state', 'population', 'sub_region', 'region']].reindex()
+    return df[['date', 'day', 'cases', 'state', 'population', 'sub_region', 'region']].reindex()
 
 # Dict of US state-level data
 df_us_state = {
@@ -46,8 +46,6 @@ df_us_state = {
     'deaths': _us_data_state(_df_us['deaths']),
     'recovered': _us_data_state(_df_us['cases'])
 }
-
-print(df_us_state['cases'])
 
 def _us_data_county(df):
     df = df[~df.state.isin(us_population.keys())].reindex()

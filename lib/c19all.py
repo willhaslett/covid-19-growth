@@ -49,8 +49,6 @@ df_all = {
     'recovered': df_from_csv('csv/recovered_cases.csv')
 }
 
-print(df_all['cases'])
-
 # NOTE: These are deprecated. Use df_all.
 df_cases = df_all['cases']
 df_deaths = df_all['deaths'] 
