@@ -156,7 +156,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 counties and states has been shifting toward the state level. It's unclear on 2020-03-15 how this will play out.
   ![](.us_cases.png)
   
-**Deprecation warning:** A dataframe is under construction that facilitates analyis of the US data at the national level as well as at the state, county and territory level, rather than breaking things up as they are now. There will separate columns for each type of record. This will be the only US dataframe in v0.2.0.
+**Deprecation warning:** A dataframe is under construction that facilitates analyis of the US data at the national level as well as at the state, county and territory level, rather than breaking things up as they are now. There will separate columns for each type of record. This will be the only US dataframe in the next release.
 
 
 ## License
