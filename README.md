@@ -9,8 +9,6 @@ Pandas/Python using the JH data.
 
 `modeling_stub.ipynb` contains a template demonstrating the use of [lmfit](https://lmfit.github.io/lmfit-py/) with these data.
 
-No breaking changes to `c19all.py` or `c19us.py` are anticipated.
-
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
 ![](.screenshot.png)
