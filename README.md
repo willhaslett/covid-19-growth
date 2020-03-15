@@ -152,7 +152,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   ```
 
 * A caution about using the US data below the national level. Reporting regions have been evolving over time. As shown in the figure below, the makeup of overall US data beetween
-counties and states has been shifting toward the state level. It's unclear on 2020-03-15 how this will play out. A dataframe that includes all US data, but also breaks records out by county/state/territory is under construction. `df_us_state` and `df_us_county` will then be deprecated. 
+counties and states has been shifting toward the state level. It's unclear on 2020-03-15 how this will play out.
   ![](.us_cases.png)
 
 
