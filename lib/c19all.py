@@ -24,7 +24,7 @@ def df_from_csv(file_name):
     df.date = pd.to_datetime(df.date, format='%m/%d/%y')
     df['day'] = (df.date - pd.to_datetime(df.date.iloc[0])).astype('timedelta64[D]')
     df.day = df.day.apply(lambda day: int(round(day)))
-    return df
+    return df[['date', 'day', 'cases', 'province_state', 'country', 'lat', 'long']]
 
 # General purpose filter.
 def filter(df, column, value):
@@ -48,6 +48,8 @@ df_all = {
     'deaths': df_from_csv('csv/deaths.csv'),
     'recovered': df_from_csv('csv/recovered_cases.csv')
 }
+
+print(df_all['cases'])
 
 # NOTE: These are deprecated. Use df_all.
 df_cases = df_all['cases']
