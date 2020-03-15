@@ -121,7 +121,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   ```
   print(df_us_county['cases'])
 
-        day             state  cases
+         day             state  cases
   4        0  Diamond Princess      0
   5        0    Grand Princess      0
   18       0         Tennessee      0
