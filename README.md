@@ -68,7 +68,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 ### Available in `c19all.py`
 * `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
   ```
-  print(df_all['cases']
+  print(df_all['cases'])
   
          province_state              country      lat      long       date  cases  day
   0                 NaN             Thailand  15.0000  101.0000 2020-01-22      2    0
