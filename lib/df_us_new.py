@@ -2,9 +2,11 @@ import pandas as pd
 import pickle
 import c19all
 import constants
-from constants import US_LOCATIONS_IN_SOURCE as locations
-from constants import US_POPULATION as population
-from constants import CRUISE_SHIPS as cruise_ships
+
+locations = constants.US_LOCATIONS_IN_SOURCE
+population = constants.US_POPULATION
+cruise_ships = constants.CRUISE_SHIPS
+stabbrev = constants.US_STATE_ABBREVS
 
 output_columns = [
     'date',
@@ -21,6 +23,9 @@ output_columns = [
 def _us_data(df):
     df = df.rename(columns={'province_state': '_location'})
     df['state'] = None
+    df['county'] = None
+    df['territory'] = None
+    df['is_state'] = None
     # Remove cruise ship data
     df = df[~df._location.isin(cruise_ships)]
     # Rename Washington D.C. records
