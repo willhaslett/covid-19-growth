@@ -65,7 +65,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 ./update_data.sh
 ```
 
-### Available in `c19all.py`
+### `c19all.py`
 * `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
   ```
   print(df_all['cases'])
@@ -92,7 +92,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   - `for_province_state(df, province_state)` Filter by province_state
   - `sum_by_date(df)` Group by date and sum case counts 
 
-### Available in `c19us.py`
+### `c19us.py`
 
 * `df_us_state` A dictionary of state-level case, death, and recovery dataframes for the US
 
