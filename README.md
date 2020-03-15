@@ -84,7 +84,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 * Dataframes
   - `df_us_state` A dictionary of state-level case, death, and recovery dataframes for the US
   - `df_us_county` A dictionary of county-level case, death, and recovery dataframes for the US
-  - `df_us_population`. [Data source.](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region)
+  - `df_us_population` By state, subregion, and region [Data source.](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region)
 
 * Functions
   - `population_for_state(state_name)`
