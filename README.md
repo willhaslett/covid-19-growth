@@ -80,29 +80,28 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 
 ### Available in `c19us.py`
 
-* Dataframes
-  - `df_us_state` A dictionary of state-level case, death, and recovery dataframes for the US
-    ```
-    print(df_us_state['cases'])
-    
-    day  cases                        state  population          sub_region     region
-    0        0      0            Washington     7614893             pacific       west
-    1        0      0              New York    19453561        mid_atlantic  northeast
-    2        0      0            California    39512223             pacific       west
-    3        0      0         Massachusetts     6892503         new_england  northeast
-    6        0      0               Georgia    10617423      south_atlantic      south
-    ...    ...    ...                   ...         ...                 ...        ...
-    12493   51      8          South Dakota      884659  west_north_central    midwest
-    12494   51      0         West Virginia     1792147      south_atlantic      south
-    12495   51      1               Wyoming      578759            mountain       west
-    12566   51      0  District of Columbia      705749      south_atlantic      south
-    12687   51      5               Alabama     4903185  east_south_central      south
+* `df_us_state` A dictionary of state-level case, death, and recovery dataframes for the US
+  ```
+  print(df_us_state['cases'])
+  
+  day  cases                        state  population          sub_region     region
+  0        0      0            Washington     7614893             pacific       west
+  1        0      0              New York    19453561        mid_atlantic  northeast
+  2        0      0            California    39512223             pacific       west
+  3        0      0         Massachusetts     6892503         new_england  northeast
+  6        0      0               Georgia    10617423      south_atlantic      south
+  ...    ...    ...                   ...         ...                 ...        ...
+  12493   51      8          South Dakota      884659  west_north_central    midwest
+  12494   51      0         West Virginia     1792147      south_atlantic      south
+  12495   51      1               Wyoming      578759            mountain       west
+  12566   51      0  District of Columbia      705749      south_atlantic      south
+  12687   51      5               Alabama     4903185  east_south_central      south
 
-    [2652 rows x 6 columns] 
-    ```
-    [Population and region data source](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region)
-    
-  - `df_us_county` A dictionary of county-level case, death, and recovery dataframes for the US. State and population columns forthcoming.
+  [2652 rows x 6 columns] 
+  ```
+  [Population and region data source](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region)
+  
+* `df_us_county` A dictionary of county-level case, death, and recovery dataframes for the US. State and population columns forthcoming.
 
 ## License
 
