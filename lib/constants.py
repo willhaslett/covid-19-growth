@@ -5,6 +5,7 @@ RENAMED_COLUMNS = {
     'Long': 'long',
 }
 
+# https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region
 US_POPULATION = {
         'Massachusetts':        {'population': 6892503,  'sub_region': 'new_england',        'region': 'northeast'},
         'Connecticut':          {'population': 3565287,  'sub_region': 'new_england',        'region': 'northeast'},
@@ -57,6 +58,10 @@ US_POPULATION = {
         'Oregon':               {'population': 4217737,  'sub_region': 'pacific',            'region': 'west'},
         'Hawaii':               {'population': 1415872,  'sub_region': 'pacific',            'region': 'west'},
         'Alaska':               {'population': 731545,   'sub_region': 'pacific',            'region': 'west'}
+}
+
+# https://www.census.gov/data/datasets/time-series/demo/popest/2010s-counties-total.html
+US_COUNTIES = {
 }
 
 CRUISE_SHIPS = [
