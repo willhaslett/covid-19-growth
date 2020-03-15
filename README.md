@@ -94,48 +94,70 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 
 ### `c19us.py`
 
+* `df_us` A dictionary of US case, death, and recovery dataframes for the US.
+  ```
+  print(df_us['cases'])
+
+         index       date  day  cases          state_county      lat      long
+  0        100 2020-01-22    0      0            Washington  47.4009 -121.4905
+  1        101 2020-01-22    0      0              New York  42.1657  -74.9481
+  2        102 2020-01-22    0      0            California  36.1162 -119.6816
+  3        103 2020-01-22    0      0         Massachusetts  42.2302  -71.5301
+  6        106 2020-01-22    0      0               Georgia  33.0406  -83.6431
+  ...      ...        ...  ...    ...                   ...      ...       ...
+  13033  23385 2020-03-14   52      0             Wayne, MI  42.2791  -83.3362
+  13034  23386 2020-03-14   52      0        New Castle, DE  39.5393  -75.6674
+  13035  23404 2020-03-14   52      6               Alabama  32.3182  -86.9023
+  13036  23408 2020-03-14   52      3           Puerto Rico  18.2208  -66.5901
+  13037  23424 2020-03-14   52      1  Virgin Islands, U.S.  18.3358  -64.8963
+
+  [12932 rows x 7 columns]
+  ```
 * `df_us_state` A dictionary of state-level case, death, and recovery dataframes for the US.
 
   ```
   print(df_us_state['cases'])
   
-              date  day  cases                 state  population          sub_region     region
+               date  day  cases                 state  population          sub_region     region
   0     2020-01-22    0      0            Washington     7614893             pacific       west
   1     2020-01-22    0      0              New York    19453561        mid_atlantic  northeast
   2     2020-01-22    0      0            California    39512223             pacific       west
   3     2020-01-22    0      0         Massachusetts     6892503         new_england  northeast
   6     2020-01-22    0      0               Georgia    10617423      south_atlantic      south
   ...          ...  ...    ...                   ...         ...                 ...        ...
-  12493 2020-03-13   51      8          South Dakota      884659  west_north_central    midwest
-  12494 2020-03-13   51      0         West Virginia     1792147      south_atlantic      south
-  12495 2020-03-13   51      1               Wyoming      578759            mountain       west
-  12566 2020-03-13   51      0  District of Columbia      705749      south_atlantic      south
-  12687 2020-03-13   51      5               Alabama     4903185  east_south_central      south
+  12841 2020-03-14   52      9          South Dakota      884659  west_north_central    midwest
+  12842 2020-03-14   52      0         West Virginia     1792147      south_atlantic      south
+  12843 2020-03-14   52      2               Wyoming      578759            mountain       west
+  12914 2020-03-14   52      0  District of Columbia      705749      south_atlantic      south
+  13035 2020-03-14   52      6               Alabama     4903185  east_south_central      south
 
-  [2652 rows x 7 columns]
+  [2703 rows x 7 columns]
   ```
   [Population and region data source](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region)
   
-* `df_us_county` A dictionary of state-level case, death, and recovery dataframes for the US.
+* `df_us_county` A dictionary of county-level case, death, and recovery dataframes for the US. US territory data are mixed in with county data at present.
   ```
   print(df_us_county['cases'])
 
-              date  day      county  cases
-  18    2020-01-22    0   Tennessee      0
-  52    2020-01-22    0      Kitsap      0
-  53    2020-01-22    0      Solano      0
-  54    2020-01-22    0  Santa Cruz      0
-  55    2020-01-22    0        Napa      0
-  ...          ...  ...         ...    ...
-  12682 2020-03-13   51     Socorro      0
-  12683 2020-03-13   51  Bernalillo      0
-  12684 2020-03-13   51     Oakland      0
-  12685 2020-03-13   51       Wayne      0
-  12686 2020-03-13   51  New Castle      0
-
-  [10036 rows x 3 columns]
+              date  day                county  cases
+  18    2020-01-22    0             Tennessee      0
+  52    2020-01-22    0            Kitsap, WA      0
+  53    2020-01-22    0            Solano, CA      0
+  54    2020-01-22    0        Santa Cruz, CA      0
+  55    2020-01-22    0              Napa, CA      0
+  ...          ...  ...                   ...    ...
+  13032 2020-03-14   52           Oakland, MI      0
+  13033 2020-03-14   52             Wayne, MI      0
+  13034 2020-03-14   52        New Castle, DE      0
+  13036 2020-03-14   52           Puerto Rico      3
+  13037 2020-03-14   52  Virgin Islands, U.S.      1
   ```
-  ![](.us_county_level_cases.png)
+
+* A caution about using the US data below the national level. Reporting regions have been evolving over time. As shown in the figure below, the makeup of overall US data beetween
+counties and states has been shifting toward the state level. It's unclear on 2020-03-15 how this will play out. A dataframe that includes all US data, but also breaks records out by county/state/territory is under construction. `df_us_state` and `df_us_county` will then be deprecated. 
+  ![](.us_cases.png)
+
+
 
 ## License
 
