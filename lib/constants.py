@@ -60,10 +60,6 @@ US_POPULATION = {
         'Alaska':               {'population': 731545,   'sub_region': 'pacific',            'region': 'west'}
 }
 
-# https://www.census.gov/data/datasets/time-series/demo/popest/2010s-counties-total.html
-US_COUNTIES = {
-}
-
 CRUISE_SHIPS = [
     'Diamond Princess',
     'Grand Princess',
