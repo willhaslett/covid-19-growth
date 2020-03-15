@@ -66,7 +66,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 ```
 
 ### Available in `c19all.py`
-* `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries
+* `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
   ```
   print(df_all['cases']
   
