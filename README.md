@@ -112,7 +112,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   12566 2020-03-13   51      0  District of Columbia      705749      south_atlantic      south
   12687 2020-03-13   51      5               Alabama     4903185  east_south_central      south
 
-[2652 rows x 7 columns]
+  [2652 rows x 7 columns]
   ```
   [Population and region data source](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region)
   
