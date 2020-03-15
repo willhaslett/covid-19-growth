@@ -60,4 +60,3 @@ df_us_county = {
     'deaths': _us_data_county(df_us['deaths']),
     'recovered': _us_data_county(df_us['recovered']),
 }
-print(df_us_county['cases'])
