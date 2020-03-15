@@ -118,6 +118,25 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   
 * `df_us_county` A dictionary of county-level case, death, and recovery dataframes for the US. State and population columns forthcoming.
 
+  ```
+  print(df_us_county['cases'])
+
+        day             state  cases
+  4        0  Diamond Princess      0
+  5        0    Grand Princess      0
+  18       0         Tennessee      0
+  52       0            Kitsap      0
+  53       0            Solano      0
+  ...    ...               ...    ...
+  12682   51           Socorro      0
+  12683   51        Bernalillo      0
+  12684   51           Oakland      0
+  12685   51             Wayne      0
+  12686   51        New Castle      0
+
+  [10036 rows x 3 columns]
+  ```
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for details

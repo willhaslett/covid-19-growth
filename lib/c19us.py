@@ -49,7 +49,7 @@ df_us_state = {
 
 def _us_data_county(df):
     df = df[~df.state.isin(us_population.keys())].reindex()
-    return df[['day', 'state', 'cases']]
+    return df[['day', 'state', 'cases']].reindex()
 
 # Dict of US county-level data
 df_us_county = {
@@ -57,3 +57,5 @@ df_us_county = {
     'deaths': _us_data_county(df_us['deaths']),
     'recovered': _us_data_county(df_us['recovered']),
 }
+
+print(df_us_county['cases'])
