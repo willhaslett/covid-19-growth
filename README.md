@@ -91,6 +91,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   - `sum_by_date(df)` Group by date and sum case counts 
 
 ### `c19us.py`
+####Deprecation warning: A dataframe is under construction that facilitates analyis at the national level as well as at the state, county and territory level, rather than breaking thinigs up as they are now. There will be boolean columns indicating the type of each record. This is needed because, e.g., county and state reords both have a state associated with them.  v0.2.0.
 
 * `df_us` A dictionary of US case, death, and recovery dataframes for the US.
   ```
@@ -154,7 +155,8 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 * A caution about using the US data below the national level. Reporting regions have been evolving over time. As shown in the figure below, the makeup of overall US data between
 counties and states has been shifting toward the state level. It's unclear on 2020-03-15 how this will play out.
   ![](.us_cases.png)
-
+  
+**Deprecation warning:** A dataframe is under construction that facilitates analyis of the US data at the national level as well as at the state, county and territory level, rather than breaking things up as they are now. There will separate columns for each type of record. This will be the only US dataframe in v0.2.0.
 
 
 ## License
