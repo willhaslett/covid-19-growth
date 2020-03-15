@@ -66,11 +66,23 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
 ```
 
 ### Available in `c19all.py`
-* Dataframes
-  - `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries
-  - `df_cases` All global cases. Deprecated. Use `df_all`. Will be removed 2020-03-15.
-  - `df_deaths` All global deaths. Deprecated. Use `df_all`. Will be removed 2020-03-15.
-  - `df_recovered` All global recoveries. Deprecated. Use `df_all`. Will be removed 2020-03-15.
+* `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
+  ```
+  print(df_all['cases'])
+  
+         province_state              country      lat      long       date  cases  day
+  0                 NaN             Thailand  15.0000  101.0000 2020-01-22      2    0
+  1                 NaN                Japan  36.0000  138.0000 2020-01-22      2    0
+  2                 NaN            Singapore   1.2833  103.8333 2020-01-22      0    0
+  3                 NaN                Nepal  28.1667   84.2500 2020-01-22      0    0
+  4                 NaN             Malaysia   2.5000  112.5000 2020-01-22      0    0
+  ...               ...                  ...      ...       ...        ...    ...  ...
+  21887             NaN                Aruba  12.5211  -69.9683 2020-03-13      2   51
+  21888  Grand Princess               Canada  37.6489 -122.6655 2020-03-13      2   51
+  21889             NaN                Kenya  -0.0236   37.9062 2020-03-13      1   51
+  21890             NaN  Antigua and Barbuda  17.0608  -61.7964 2020-03-13      1   51
+  21891         Alabama                   US  32.3182  -86.9023 2020-03-13      5   51
+  ```
 
 * Functions
   - `filter(df, column, vlaue)` Generic filter
