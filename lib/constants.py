@@ -58,3 +58,8 @@ US_POPULATION = {
         'Hawaii':               {'population': 1415872,  'sub_region': 'pacific',            'region': 'west'},
         'Alaska':               {'population': 731545,   'sub_region': 'pacific',            'region': 'west'}
 }
+
+CRUISE_SHIPS = [
+    'Diamond Princess',
+    'Grand Princess',
+]

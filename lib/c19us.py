@@ -3,6 +3,7 @@ from operator import itemgetter
 import c19all
 import csv
 from constants import US_POPULATION as us_population
+from constants import CRUISE_SHIPS as cruise_ships
 
 from pprint import pprint as pp
 
@@ -48,8 +49,10 @@ df_us_state = {
 }
 
 def _us_data_county(df):
-    df = df[~df.state.isin(us_population.keys())].reindex()
-    return df[['day', 'state', 'cases']].reindex()
+    df = df.rename(columns={'state': 'county'})
+    df = df[~df.county.isin(us_population.keys())]
+    df = df[~df.county.isin(cruise_ships)]
+    return df[['date', 'day', 'county', 'cases']].reindex()
 
 # Dict of US county-level data
 df_us_county = {
@@ -57,3 +60,4 @@ df_us_county = {
     'deaths': _us_data_county(df_us['deaths']),
     'recovered': _us_data_county(df_us['recovered']),
 }
+print(df_us_county['cases'])
