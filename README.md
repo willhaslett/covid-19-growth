@@ -84,7 +84,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   ```
   print(df_us_state['cases'])
   
-  day  cases                        state  population          sub_region     region
+         day  cases                 state  population          sub_region     region
   0        0      0            Washington     7614893             pacific       west
   1        0      0              New York    19453561        mid_atlantic  northeast
   2        0      0            California    39512223             pacific       west
