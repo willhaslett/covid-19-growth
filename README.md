@@ -7,8 +7,6 @@ displayed on their
 This repo aims to provide a sensible starting point and some useful functions for ongoing work in
 Pandas/Python using the JH data.
 
-`modeling_stub.ipynb` contains a template demonstrating the use of [lmfit](https://lmfit.github.io/lmfit-py/) with these data.
-
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
 ![](.screenshot.png)
@@ -91,73 +89,35 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   - `sum_by_date(df)` Group by date and sum case counts 
 
 ### `c19us.py`
-####Deprecation warning: A dataframe is under construction that facilitates analyis at the national level as well as at the state, county and territory level, rather than breaking thinigs up as they are now. There will be boolean columns indicating the type of each record. This is needed because, e.g., county and state reords both have a state associated with them.  v0.2.0.
-
-* `df_us` A dictionary of US case, death, and recovery dataframes for the US.
+* `df_us` A dictionary with dataframes for US cases, deaths, and recoveries. Ambiguous location data
+from upstream are parsed into idividual columns for different location types. For state-level data,
+sub_region, region, and population are added.
   ```
-  print(df_us['cases'])
+              date  day  cases          state     county       territory             other is_state      lat      long          sub_region     region  population
+  0     2020-01-22    0      0     Washington       None            None              None     True  47.4009 -121.4905             pacific       west   7614893.0
+  1     2020-01-22    0      0       New York       None            None              None     True  42.1657  -74.9481        mid_atlantic  northeast  19453561.0
+  2     2020-01-22    0      0     California       None            None              None     True  36.1162 -119.6816             pacific       west  39512223.0
+  3     2020-01-22    0      0  Massachusetts       None            None              None     True  42.2302  -71.5301         new_england  northeast   6892503.0
+  4     2020-01-22    0      0           None       None            None  Diamond Princess    False  35.4437  139.6380                 NaN        NaN         NaN
+  ...          ...  ...    ...            ...        ...             ...               ...      ...      ...       ...                 ...        ...         ...
+  13333 2020-03-15   53      0       Delaware  NewCastle            None              None    False  39.5393  -75.6674                 NaN        NaN         NaN
+  13334 2020-03-15   53     12        Alabama       None            None              None     True  32.3182  -86.9023  east_south_central      south   4903185.0
+  13335 2020-03-15   53      3           None       None     Puerto Rico              None    False  18.2208  -66.5901                 NaN        NaN         NaN
+  13336 2020-03-15   53      1           None       None  Virgin Islands              None    False  18.3358  -64.8963                 NaN        NaN         NaN
+  13337 2020-03-15   53      3           None       None            Guam              None    False  13.4443  144.7937                 NaN        NaN         NaN
 
-         index       date  day  cases          state_county      lat      long
-  0        100 2020-01-22    0      0            Washington  47.4009 -121.4905
-  1        101 2020-01-22    0      0              New York  42.1657  -74.9481
-  2        102 2020-01-22    0      0            California  36.1162 -119.6816
-  3        103 2020-01-22    0      0         Massachusetts  42.2302  -71.5301
-  6        106 2020-01-22    0      0               Georgia  33.0406  -83.6431
-  ...      ...        ...  ...    ...                   ...      ...       ...
-  13033  23385 2020-03-14   52      0             Wayne, MI  42.2791  -83.3362
-  13034  23386 2020-03-14   52      0        New Castle, DE  39.5393  -75.6674
-  13035  23404 2020-03-14   52      6               Alabama  32.3182  -86.9023
-  13036  23408 2020-03-14   52      3           Puerto Rico  18.2208  -66.5901
-  13037  23424 2020-03-14   52      1  Virgin Islands, U.S.  18.3358  -64.8963
-
-  [12932 rows x 7 columns]
-  ```
-* `df_us_state` A dictionary of state-level case, death, and recovery dataframes for the US.
-
-  ```
-  print(df_us_state['cases'])
-  
-               date  day  cases                 state  population          sub_region     region
-  0     2020-01-22    0      0            Washington     7614893             pacific       west
-  1     2020-01-22    0      0              New York    19453561        mid_atlantic  northeast
-  2     2020-01-22    0      0            California    39512223             pacific       west
-  3     2020-01-22    0      0         Massachusetts     6892503         new_england  northeast
-  6     2020-01-22    0      0               Georgia    10617423      south_atlantic      south
-  ...          ...  ...    ...                   ...         ...                 ...        ...
-  12841 2020-03-14   52      9          South Dakota      884659  west_north_central    midwest
-  12842 2020-03-14   52      0         West Virginia     1792147      south_atlantic      south
-  12843 2020-03-14   52      2               Wyoming      578759            mountain       west
-  12914 2020-03-14   52      0  District of Columbia      705749      south_atlantic      south
-  13035 2020-03-14   52      6               Alabama     4903185  east_south_central      south
-
-  [2703 rows x 7 columns]
-  ```
-  [Population and region data source](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region)
-  
-* `df_us_county` A dictionary of county-level case, death, and recovery dataframes for the US. US territory data are mixed in with county data at present.
-  ```
-  print(df_us_county['cases'])
-
-              date  day                county  cases
-  18    2020-01-22    0             Tennessee      0
-  52    2020-01-22    0            Kitsap, WA      0
-  53    2020-01-22    0            Solano, CA      0
-  54    2020-01-22    0        Santa Cruz, CA      0
-  55    2020-01-22    0              Napa, CA      0
-  ...          ...  ...                   ...    ...
-  13032 2020-03-14   52           Oakland, MI      0
-  13033 2020-03-14   52             Wayne, MI      0
-  13034 2020-03-14   52        New Castle, DE      0
-  13036 2020-03-14   52           Puerto Rico      3
-  13037 2020-03-14   52  Virgin Islands, U.S.      1
+  [13338 rows x 13 columns]
   ```
 
-* A caution about using the US data below the national level. Reporting regions have been evolving over time. As shown in the figure below, the makeup of overall US data beetween
+* `df_us.p` is a pickle file that stores the `df_us` dictionary. You'll want to load this pickle for downstream analysis rather than locding the `c19us.py` module.
+
+* A caution about using the US data below the national level. Reporting regions have been evolving over time. As shown in the figure below, the makeup of overall US data between
 counties and states has been shifting toward the state level. It's unclear on 2020-03-15 how this will play out.
   ![](.us_cases.png)
   
-**Deprecation warning:** A dataframe is under construction that facilitates analyis of the US data at the national level as well as at the state, county and territory level, rather than breaking things up as they are now. There will separate columns for each type of record. This will be the only US dataframe in the next release.
-
+* Jupyter Notebooks
+  `modeling_stub.ipynb` contains a template demonstrating the use of [lmfit](https://lmfit.github.io/lmfit-py/) with these data.
+  `all.ipynb` and `us.ipynb` contain starting points for work with global or US data.
 
 ## License
 
