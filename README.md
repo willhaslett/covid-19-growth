@@ -19,7 +19,7 @@ git clone https://github.com/willhaslett/covid-19-growth.git
 cd covid-19-growth
 virtualenv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install -q -r requirements.txt
 
 ```
 Verify installation
