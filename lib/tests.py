@@ -1,7 +1,7 @@
 import pandas as pd
 from pprint import pprint as pp
-import c19all
 print('Takes a couple of minutes because the US data parser has a lot to do')
+import c19all
 import c19us
 
 # c19all.py

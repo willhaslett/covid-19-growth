@@ -107,7 +107,7 @@ df_us = {
     'recovered': _us_data(c19all.for_country(c19all.df_all['recovered'], 'US'))
 }
 
-# TODO
+# TODO:
 # def _cases_by_state(df):
 #
 # df_us_states = {

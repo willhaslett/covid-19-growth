@@ -5,9 +5,7 @@ The Johns Hopkins University Center for Systems Science and Engineering is provi
 displayed on their
 [ArcGIS dashboard for COVID-19](https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6).
 This repo aims to provide a sensible starting point and some useful functions for ongoing work in
-Pandas/Python using the JH data.
-
-Deprecation warning: The JH submodule will be removed in the next release in favor of accessing the JH CSV files directly on GitHub with Pandas. This will simplify things and remove the need for any synchronization steps.
+Pandas/Python using the JH data. The latest JH CSV files are pulled from GitHub at runtime.
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
@@ -15,12 +13,6 @@ For VSCode users, available as a self-contained, system-independent environment 
 
 ## Installing
 ### Vanilla
-
-Clone the repo **with --recursive**
-```
-git clone --recursive git@github.com:willhaslett/covid-19-growth.git
-```
-
 Set up your Python environmet. For example, with virtualenv
 ```
 cd covid-19-growth
@@ -47,9 +39,6 @@ $
 ```
 
 ### VSCode/Docker
-
-Clone the repo as above (--recursive!)
-
 Have the [VSCode extension for Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) installed. Here 'remote' means in a local Docker container (Debian).
 
 In VSCode, [Open the project folder in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
@@ -57,11 +46,6 @@ In VSCode, [Open the project folder in a container](https://code.visualstudio.co
 Verify the installation as above.
 
 ## Usage
-
-The JH submodule is pulled nightly, updating the source data. To force a pull locally:
-```
-./update_data.sh
-```
 
 ### `c19all.py`
 * `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
@@ -129,4 +113,3 @@ This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md)
 ## Acknowledgments
 
 The Johns Hopkins University Center for Systems Science and Engineering is doing a great public service by sharing these data.
-
