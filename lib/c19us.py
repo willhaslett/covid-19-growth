@@ -1,68 +1,106 @@
 import pandas as pd
-from operator import itemgetter
+import pickle
 import c19all
-import csv
-from constants import US_POPULATION as us_population
-from constants import CRUISE_SHIPS as cruise_ships
+import constants
 
-from pprint import pprint as pp
+# Creates `df_us`, a dictionary containing three dataframes, all of the same shape
+#   `cases` US confirmed cases
+#   `deaths` US deaths
+#   `recovered` US recoveries
 
-# Dataframes
-# `df_us` A Dictionary of case, death, and recovery dataframes for the US
-# `df_us_states` A Dictionary of state-level case, death, and recovery dataframes for the US
-# `df_us_counties` A Dictionary of county-level case, death, and recovery dataframes for the US
-# `df_us_population` 2019 US census population data by state, sub-region, and region
+# NOTE: This takes a minute or two due to row-wise parsing of location fields
+#       Consider using the associated pickle file for downstream work instead of importing this module
 
-# Functions
-# `us_data(df)` Filter input dataframe on US rows
-# `us_data_state(df)` Filter input US dataframe state-level records
+locations = constants.US_LOCATIONS_IN_SOURCE
+population = constants.US_POPULATION
+cruise_ships = constants.CRUISE_SHIPS
+stabbrevs = constants.US_STATE_ABBREVS
+
+
+_output_columns = [
+    'date',
+    'day',
+    'cases',
+    'state',
+    'county',
+    'territory',
+    'other',
+    'unkown_type',
+    'is_state',
+    'lat',
+    'long',
+    'sub_region',  # only state-level records
+    'region',      # only state-level records
+    'population',  # only state-level records
+]
+
+# Add any new US locations in the JH data as unkown_type
+_new_locations = {}
+df = c19all.for_country(c19all.df_cases, 'US')
+df = df.province_state.unique()
+df = pd.DataFrame(data=df)
+for i in range(len(df)):
+    location = df.iloc[i, 0]
+    if location not in locations:
+        _new_locations[location] = 'unkown_type'
+if bool(_new_locations):
+    print('New locations found. constants.US_LOCATIONS_IN_SOURCE needs to be updated')
+
+
+def _parse_locations(df):
+    for i in range(len(df)):
+        location = df.loc[i, '_location']
+        if locations[location] == 'state':
+            df.loc[i, 'is_state'] = True
+            df.loc[i, 'state'] = location
+            df.loc[i, 'sub_region'] = population[location]['sub_region']
+            df.loc[i, 'region'] = population[location]['region']
+            df.loc[i, 'population'] = int(
+                round(population[location]['population']))
+        elif locations[location] == 'county':
+            df.loc[i, 'is_state'] = False
+            # TODO: Error trapping here
+            county_and_abbrev = location.split(', ')
+            df.loc[i, 'county'] = county_and_abbrev[0].replace(' ', '')
+            df.loc[i, 'state'] = stabbrevs[county_and_abbrev[1].replace(
+                ' ', '')]
+        elif locations[location] == 'territory':
+            df.loc[i, 'is_state'] = False
+            df.loc[i, 'territory'] = location
+        elif locations[location] == 'other':
+            df.loc[i, 'is_state'] = False
+            df.loc[i, 'other'] = location
+        else:
+            df.loc[i, 'unknown_type'] = location
+    return df
+
+
+def _handle_special_cases(df):
+    # Merge names for the District of Columbia
+    df.other = df.other.apply(lambda other: (
+        other, 'District of Columbia')[other == 'Washington, D.C.'])
+    # Remove U.S. from the Virgin Islands
+    df.territory = df.territory.apply(lambda territory: (
+        territory, 'Virgin Islands')[territory == 'Virgin Islands, U.S.'])
+    return df
+
 
 def _us_data(df):
-    df = df.rename(columns={'province_state': 'state_county'})
-    df = df[~df.state_county.isin(cruise_ships)]
-    # For consistency with census data
-    df.state_county = df.state_county.apply(lambda state: (state, 'District of Columbia') [state == 'Washington, D.C.'])
-    df = df.drop(['country'], axis=1)
-    return df
-    # Dict of all US data.
+    df = df.rename(columns={'province_state': '_location'})
+    df['state'] = None
+    df['county'] = None
+    df['territory'] = None
+    df['other'] = None
+    df['unknown_type'] = None
+    df['is_state'] = None
+    df = _parse_locations(df)
+    df = _handle_special_cases(df)
+    df = df.reset_index(drop=True)
+    return df.filter(items=_output_columns)
+
 
 df_us = {
     'cases': _us_data(c19all.for_country(c19all.df_cases, 'US')),
     'deaths': _us_data(c19all.for_country(c19all.df_deaths, 'US')),
     'recovered': _us_data(c19all.for_country(c19all.df_recovered, 'US'))
 }
-
-print("\ndf_us:")
-print(df_us['cases'])
-
-def _us_data_state(df):
-    df = df.rename(columns={'state_county': 'state'})
-    df = df[df.state.isin(us_population.keys())]
-    df['population'] = df.state.apply(lambda state: us_population[state]['population'])
-    df['sub_region'] = df.state.apply(lambda state: us_population[state]['sub_region'])
-    df['region'] = df.state.apply(lambda state: us_population[state]['region'])
-    return df[['date', 'day', 'cases', 'state', 'population', 'sub_region', 'region']]
-
-# Dict of US state-level data
-df_us_state = {
-    'cases': _us_data_state(df_us['cases']),
-    'deaths': _us_data_state(df_us['deaths']),
-    'recovered': _us_data_state(df_us['cases'])
-}
-print("\ndf_us_state:")
-print(df_us_state['cases'])
-
-def _us_data_county(df):
-    df = df.rename(columns={'state_county': 'county'})
-    df = df[~df.county.isin(us_population.keys())]
-    df = df[~df.county.isin(cruise_ships)]
-    return df[['date', 'day', 'county', 'cases']]
-
-# Dict of US county-level data
-df_us_county = {
-    'cases': _us_data_county(df_us['cases']),
-    'deaths': _us_data_county(df_us['deaths']),
-    'recovered': _us_data_county(df_us['recovered']),
-}
-print("\ndf_us_county:")
-print(df_us_county['cases'])
