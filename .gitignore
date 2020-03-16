@@ -1,6 +1,5 @@
 venv/
 .vscode/
 *.swp
-pickles/*
 plots/
 lib/__pycache__/
