@@ -3,10 +3,6 @@ from operator import itemgetter
 import pickle
 import constants
 
-_cases = pd.read_csv('https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv')
-print(_cases)
-print(_cases.__class__)
-
 # Global data, long format, dates as Pandas timestamps
 #   `df_cases` All global cases
 #   `df_deaths` All global deaths
@@ -49,9 +45,9 @@ def sum_by_date(df):
 
 # Dictionary containing dataframes for all global data
 df_all = {
-    'cases': df_from_csv('csv/confirmed_cases.csv'),
-    'deaths': df_from_csv('csv/deaths.csv'),
-    'recovered': df_from_csv('csv/recovered_cases.csv')
+    'cases': df_from_csv('https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv'),
+    'deaths': df_from_csv('https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv'),
+    'recovered': df_from_csv('https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv')
 }
 
 pickle_file = open('pickles/df_all.p', 'wb')

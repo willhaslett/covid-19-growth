@@ -115,11 +115,11 @@ df_us = {
 #     'deaths': _cases_by_state(df_us['deaths']),
 #     'recovered': _cases_by_state(df_us['recovered']),
 # }
+# pickle_file = open('pickles/df_us_states.p', 'wb')
+# pickle.dump(df_us_states, pickle_file)
 
 pickle_file = open('pickles/df_us.p', 'wb')
 pickle.dump(df_us, pickle_file)
 
-# pickle_file = open('pickles/df_us_states.p', 'wb')
-# pickle.dump(df_us_states, pickle_file)
 
-print('Updated pickles files pickles/df_us.p and pickles/df_us_states.p')
+print('Updated pickles file pickles/df_us.p')
