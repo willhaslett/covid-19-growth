@@ -36,7 +36,7 @@ _output_columns = [
 
 # Add any new US locations in the JH data as unkown_type
 _new_locations = {}
-df = c19all.for_country(c19all.df_cases, 'US')
+df = c19all.for_country(c19all.df_all['cases'], 'US')
 df = df.province_state.unique()
 df = pd.DataFrame(data=df)
 for i in range(len(df)):
@@ -102,9 +102,9 @@ def _us_data(df):
 
 
 df_us = {
-    'cases': _us_data(c19all.for_country(c19all.df_cases, 'US')),
-    # 'deaths': _us_data(c19all.for_country(c19all.df_deaths, 'US')),
-    # 'recovered': _us_data(c19all.for_country(c19all.df_recovered, 'US'))
+    'cases': _us_data(c19all.for_country(c19all.df_all['cases'], 'US')),
+    'deaths': _us_data(c19all.for_country(c19all.df_all['deaths'], 'US')),
+    'recovered': _us_data(c19all.for_country(c19all.df_all['recovered'], 'US'))
 }
 
 print(df_us['cases'])
@@ -118,3 +118,11 @@ print(df_us['cases'])
 # df_us_states = _cases_by_state(df_us['cases'])
 # print(df_us_states)
 # df.to_csv('csv/foo.csv', index=False)
+
+pickle_file = open('pickles/df_us.p', 'wb')
+pickle.dump(df_us, pickle_file)
+
+# pickle_file = open('pickles/df_us_states.p', 'wb')
+# pickle.dump(df_us_states, pickle_file)
+
+print('Updated pickles files pickles/df_us.p and pickles/df_us_states.p')
