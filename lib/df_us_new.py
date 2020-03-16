@@ -8,6 +8,7 @@ population = constants.US_POPULATION
 cruise_ships = constants.CRUISE_SHIPS
 stabbrev = constants.US_STATE_ABBREVS
 
+
 output_columns = [
     'date',
     'day',
@@ -18,11 +19,24 @@ output_columns = [
     'unkown_type',
     'is_state',
     'lat',
-    'long'
+    'long',
+    'sub_region',
+    'region',
 ]
 
+# Add any new US locations in the JH data as unkown_type
+_new_locations = {}
+df = c19all.for_country(c19all.df_cases, 'US')
+df = df.province_state.unique()
+df = pd.DataFrame(data=df)
+for i in range(len(df)):
+    location = df.iloc[i, 0]
+    if location in locations:
+        _new_locations[location] = 'unkown_type'
+locations = locations.update(_new_locations)
+
 def _parse_locations(df):
-    # Washington, D.C is treated as a state
+    # The District of Columbia is treated as a state
     for i in range(len(df)):
         location = df.loc[i, '_location']
         if locations[location] == 'state':
@@ -50,7 +64,11 @@ def _us_data(df):
     _parse_locations(df)
     return df
 
-df = _us_data(c19all.for_country(c19all.df_cases, 'US'))
+# df = _us_data(c19all.for_country(c19all.df_cases, 'US'))
+df = c19all.for_country(c19all.df_cases, 'US')
+df = df.province_state.unique()
+df = pd.DataFrame(data=df)
+df.to_csv('foo.csv', index=False)
 
 print(df)
 
