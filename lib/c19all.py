@@ -3,14 +3,14 @@ from operator import itemgetter
 import pickle
 import constants
 
-# Exposes df_all: a dictionary with dataframes holding all global data
+# Exposes df_all, a dictionary with dataframes holding all global data
 #     df_all = {
 #         'cases': <all global cases dataframe>,
 #         'deaths': <all global deaths dataframe>,
 #         'recovered': <all global recoveries dataframe>
 #     }
 
-# Data manipulation functions
+# Dataframe functions
 #   `filter(df, column, vlaue)` Generic filter
 #   `for_country(df, country)` Filter by country
 #   `for_province_state(df, province_state)` Filter by province_state
