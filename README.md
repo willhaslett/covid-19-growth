@@ -109,7 +109,7 @@ sub_region, region, and population are added.
   [13338 rows x 13 columns]
   ```
 
-* `df_us.p` is a pickle file that stores the `df_us` dictionary. You'll want to load this pickle for downstream analysis rather than locding the `c19us.py` module.
+* `df_us.p` is a pickle file that stores the `df_us` dictionary. You'll want to load this pickle for downstream analysis rather than loading the `c19us.py` module.
 
 * A caution about using the US data below the national level. Reporting regions have been evolving over time. As shown in the figure below, the makeup of overall US data between
 counties and states has been shifting toward the state level. It's unclear on 2020-03-15 how this will play out.
