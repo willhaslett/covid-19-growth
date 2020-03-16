@@ -10,7 +10,7 @@ import constants
 locations = constants.US_LOCATIONS_IN_SOURCE
 population = constants.US_POPULATION
 cruise_ships = constants.CRUISE_SHIPS
-stabbrev = constants.US_STATE_ABBREVS
+stabbrevs = constants.US_STATE_ABBREVS
 
 
 _output_columns = [
@@ -44,7 +44,6 @@ if bool(_new_locations):
 
 
 def _parse_locations(df):
-    # The District of Columbia is treated as a state
     for i in range(len(df)):
         location = df.loc[i, '_location']
         if locations[location] == 'state':
@@ -52,10 +51,14 @@ def _parse_locations(df):
             df.loc[i, 'state'] = location
             df.loc[i, 'sub_region'] = population[location]['sub_region']
             df.loc[i, 'region'] = population[location]['region']
-            df.loc[i, 'population'] = population[location]['population']
+            df.loc[i, 'population'] = int(round(population[location]['population']))
         elif locations[location] == 'county':
             df.loc[i, 'is_state'] = False
-            df.loc[i, 'county'] = location
+            # TODO: Error trapping here
+            county_and_abbrev = location.split(', ')
+            df.loc[i, 'county'] = county_and_abbrev[0].replace(' ', '')
+            df.loc[i, 'state'] = stabbrevs[county_and_abbrev[1].replace(
+                ' ', '')]
         elif locations[location] == 'territory':
             df.loc[i, 'is_state'] = False
             df.loc[i, 'territory'] = location
@@ -64,6 +67,17 @@ def _parse_locations(df):
             df.loc[i, 'other'] = location
         else:
             df.loc[i, 'unknown_type'] = location
+    return df
+
+
+def _handle_special_cases(df):
+    # Merge names for the District of Columbia
+    df.other = df.other.apply(lambda other: (
+        other, 'District of Columbia')[other == 'Washington, D.C.'])
+    # Remove U.S. from the Virgin Islands
+    df.territory = df.territory.apply(lambda territory: (
+        territory, 'Virgin Islands')[territory == 'Virgin Islands, U.S.'])
+    return df
 
 
 def _us_data(df):
@@ -74,23 +88,13 @@ def _us_data(df):
     df['other'] = None
     df['unknown_type'] = None
     df['is_state'] = None
-    # Remove cruise ship data
-    df = df[~df._location.isin(cruise_ships)]
-    # Merge names for the District of Columbia
-    df._location = df._location.apply(lambda state: (
-        state, 'District of Columbia')[state == 'Washington, D.C.'])
+    df = _parse_locations(df)
+    df = _handle_special_cases(df)
     df = df.reset_index(drop=True)
-    _parse_locations(df)
     return df.filter(items=_output_columns)
 
-
-df = _us_data(c19all.for_country(c19all.df_cases, 'US'))
-print(df)
-# df.to_csv('csv/foo.csv', index=False)
-
-# Raw US data
-# df_us = {
-#     'cases': _us_data(c19all.for_country(c19all.df_cases, 'US')),
-#     'deaths': _us_data(c19all.for_country(c19all.df_deaths, 'US')),
-#     'recovered': _us_data(c19all.for_country(c19all.df_recovered, 'US'))
-# }
+df_us = {
+    'cases': _us_data(c19all.for_country(c19all.df_cases, 'US')),
+    'deaths': _us_data(c19all.for_country(c19all.df_deaths, 'US')),
+    'recovered': _us_data(c19all.for_country(c19all.df_recovered, 'US'))
+}
