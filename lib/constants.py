@@ -4,8 +4,7 @@ DATA_URLS = {
     'recovered': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv'
 }
 
-# Latest dictionary for US locatation values. Updated if necessary below and assigned as a constant.
-# New locations will be unkown_type until assigned a type here
+# Latest dictionary for US locatation values
 US_LOCATIONS_IN_SOURCE = {
     "Alabama":                    'state',
     "Washington":                 'state',
