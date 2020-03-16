@@ -20,6 +20,7 @@ cd covid-19-growth
 virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
+
 ```
 Verify installation
 ```
