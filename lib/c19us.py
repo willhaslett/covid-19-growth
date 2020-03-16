@@ -104,5 +104,3 @@ df_us = {
     'deaths': _us_data(c19all.for_country(c19all.df_deaths, 'US')),
     'recovered': _us_data(c19all.for_country(c19all.df_recovered, 'US'))
 }
-
-print(df_us['cases'])
