@@ -3,11 +3,12 @@ from operator import itemgetter
 import pickle
 import constants
 
-# Global data, long format, dates as Pandas timestamps
-#   `df_cases` All global cases
-#   `df_deaths` All global deaths
-#   `df_recovered` All global recoveries
-#   `df_all` A dictionary containing the above three dataframes
+# Exposes df_all: a dictionary with dataframes holding all global data
+#     df_all = {
+#         'cases': <all global cases dataframe>,
+#         'deaths': <all global deaths dataframe>,
+#         'recovered': <all global recoveries dataframe>
+#     }
 
 # Data manipulation functions
 #   `filter(df, column, vlaue)` Generic filter
