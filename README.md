@@ -13,7 +13,7 @@ For VSCode users, available as a self-contained, system-independent environment 
 
 ## Installing
 ### Vanilla
-Clone and set up your Python environmet. For example, with virtualenv:
+Clone and set up your Python environmet. For Virtualenv, just copy/paste:
 ```
 git clone https://github.com/willhaslett/covid-19-growth.git
 cd covid-19-growth
