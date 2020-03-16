@@ -1,5 +1,6 @@
 import pandas as pd
 import pickle
+import os
 import c19all
 import constants
 
@@ -118,6 +119,7 @@ df_us = {
 # pickle_file = open('pickles/df_us_states.p', 'wb')
 # pickle.dump(df_us_states, pickle_file)
 
+os.system('touch pickles/df_us.p')
 pickle_file = open('pickles/df_us.p', 'wb')
 pickle.dump(df_us, pickle_file)
 
