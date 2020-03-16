@@ -1,6 +1,7 @@
 import pandas as pd
 from pprint import pprint as pp
 import c19all
+print('Takes a couple of minutes because the US data parser has a lot to do')
 import c19us
 
 # c19all.py
@@ -16,26 +17,11 @@ print("\nCases for one province_state (head):")
 pp(c19all.for_province_state(c19all.df_all['cases'], 'British Columbia').head())
 
 # c19us.py
-# National
 print("\nUS Cases (head):")
-pp(c19us.df_us_state['cases'].head())
+pp(c19us.df_us['cases'].head())
 print("\nUS Deaths (head):")
-pp(c19us.df_us_state['deaths'].head())
+pp(c19us.df_us['deaths'].head())
 print("\nUS Recovered (head):")
-pp(c19us.df_us_state['recovered'].head())
-# State
-print("\nUS Cases by state (head):")
-pp(c19us.df_us_state['cases'].head())
-print("\nUS Deaths by state (head):")
-pp(c19us.df_us_state['deaths'].head())
-print("\nUS Recovered by state (head):")
-pp(c19us.df_us_state['recovered'].head())
-# County
-print("\nUS Cases by county (head):")
-pp(c19us.df_us_county['cases'].head())
-print("\nUS Deaths by county (head):")
-pp(c19us.df_us_county['deaths'].head())
-print("\nUS Recovered by county (head):")
-pp(c19us.df_us_county['recovered'].head())
+pp(c19us.df_us['recovered'].head())
 
 print("\nTests passed")
