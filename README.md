@@ -7,6 +7,8 @@ displayed on their
 This repo aims to provide a sensible starting point and some useful functions for ongoing work in
 Pandas/Python using the JH data.
 
+Deprecation warning: The JH submodule will be removed in the next release in favor of accessing the JH CSV files directly on GitHub with Pandas. This will simplify things and remove the need for any synchronization steps.
+
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
 ![](.screenshot.png)
@@ -89,7 +91,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   - `sum_by_date(df)` Group by date and sum case counts 
 
 ### `c19us.py`
-* `df_us` A dictionary with dataframes for US cases, deaths, and recoveries. Ambiguous location data
+* `df_us` A dictionary with dataframes for US cases, deaths, and recoveries. Mixed location data
 from upstream are parsed into idividual columns for different location types. For state-level data,
 sub_region, region, and population are added.
   ```
@@ -109,14 +111,16 @@ sub_region, region, and population are added.
   [13338 rows x 13 columns]
   ```
 
-* `df_us.p` is a pickle file that stores the `df_us` dictionary. You'll want to load this pickle for downstream analysis rather than locding the `c19us.py` module.
+* `df_us.p` is a pickle file that stores the `df_us` dictionary. You'll want to load this pickle for downstream analysis rather than loading the `c19us.py` module.
 
 * A caution about using the US data below the national level. Reporting regions have been evolving over time. As shown in the figure below, the makeup of overall US data between
 counties and states has been shifting toward the state level. It's unclear on 2020-03-15 how this will play out.
   ![](.us_cases.png)
   
 * Jupyter Notebooks
+
   `modeling_stub.ipynb` contains a template demonstrating the use of [lmfit](https://lmfit.github.io/lmfit-py/) with these data.
+  
   `all.ipynb` and `us.ipynb` contain starting points for work with global or US data.
 
 ## License
