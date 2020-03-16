@@ -107,17 +107,14 @@ df_us = {
     'recovered': _us_data(c19all.for_country(c19all.df_all['recovered'], 'US'))
 }
 
-print(df_us['cases'])
-
-
+# TODO
 # def _cases_by_state(df):
-#     df = df.groupby('dsay').sum().reset_index(drop=True)
-#     return df
-
-
-# df_us_states = _cases_by_state(df_us['cases'])
-# print(df_us_states)
-# df.to_csv('csv/foo.csv', index=False)
+#
+# df_us_states = {
+#     'cases': _cases_by_state(df_us['cases']),
+#     'deaths': _cases_by_state(df_us['deaths']),
+#     'recovered': _cases_by_state(df_us['recovered']),
+# }
 
 pickle_file = open('pickles/df_us.p', 'wb')
 pickle.dump(df_us, pickle_file)
