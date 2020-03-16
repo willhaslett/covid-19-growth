@@ -3,6 +3,10 @@ from operator import itemgetter
 import pickle
 import constants
 
+_cases = pd.read_csv('https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv')
+print(_cases)
+print(_cases.__class__)
+
 # Global data, long format, dates as Pandas timestamps
 #   `df_cases` All global cases
 #   `df_deaths` All global deaths
