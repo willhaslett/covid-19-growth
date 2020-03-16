@@ -116,6 +116,7 @@ counties and states has been shifting toward the state level. It's unclear on 20
   ![](.us_cases.png)
   
 * Jupyter Notebooks
+
   `modeling_stub.ipynb` contains a template demonstrating the use of [lmfit](https://lmfit.github.io/lmfit-py/) with these data.
   `all.ipynb` and `us.ipynb` contain starting points for work with global or US data.
 
