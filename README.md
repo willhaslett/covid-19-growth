@@ -13,12 +13,14 @@ For VSCode users, available as a self-contained, system-independent environment 
 
 ## Installing
 ### Vanilla
-Set up your Python environmet. For example, with virtualenv
+Clone and set up your Python environmet. For Virtualenv, just copy/paste:
 ```
+git clone https://github.com/willhaslett/covid-19-growth.git
 cd covid-19-growth
 virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
+
 ```
 Verify installation
 ```
@@ -95,7 +97,7 @@ sub_region, region, and population are added.
   [13338 rows x 13 columns]
   ```
 
-* `df_us.p` is a pickle file that stores the `df_us` dictionary. You'll want to load this pickle for downstream analysis rather than loading the `c19us.py` module. It is updated whenever `c19us.py` runs.
+* `df_us.p` is a pickle file that stores the `df_us` dictionary. You'll want to load this pickle for downstream analysis rather than importing the `c19us.py` module. It is updated whenever `c19us.py` runs.
 
 * How to work at the state level: Reporting regions for US data have been evolving over time. As shown in the figure below, the makeup of overall US data between counties and states has been shifting toward the state level. For state-level analyses, you can rely on the `state` column in the `df_us` dataframes. It is populated for both state-level records and for county-level records. To work with state-level records only, filter on the boolean `is_state` column.
   ![](.us_cases.png)
