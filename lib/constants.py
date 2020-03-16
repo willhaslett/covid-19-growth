@@ -61,7 +61,7 @@ US_POPULATION = {
 }
 
 # Everything but cruise ships that is associated with a US record
-US_LOCATIONS_IN_SOURCE = [
+US_LOCATIONS_IN_SOURCE = {
     "Alabama":                    'state',
     "Washington":                 'state',
     "New York":                   'state',
@@ -84,7 +84,6 @@ US_LOCATIONS_IN_SOURCE = [
     "Arizona":                    'state',
     "Indiana":                    'state',
     "Kentucky":                   'state',
-    "District of Columbia":       'state',
     "Nevada":                     'state',
     "New Hampshire":              'state',
     "Minnesota":                  'state',
@@ -113,6 +112,7 @@ US_LOCATIONS_IN_SOURCE = [
     "South Dakota":               'state',
     "West Virginia":              'state',
     "Wyoming":                    'state',
+    "Washington, D.C.":           'state',
     "Kitsap, WA":                 'county',
     "Solano, CA":                 'county',
     "Santa Cruz, CA":             'county',
@@ -305,7 +305,7 @@ US_LOCATIONS_IN_SOURCE = [
     "New Castle, DE":             'county',
     "Puerto Rico":                'territory',
     "Virgin Islands, U.S.":       'territory',
-]
+}
 
 CRUISE_SHIPS = [
     'Diamond Princess',

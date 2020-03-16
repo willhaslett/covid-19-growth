@@ -15,32 +15,38 @@ output_columns = [
     'state',
     'county',
     'territory',
+    'unkown_type',
     'is_state',
     'lat',
     'long'
 ]
 
 def _parse_locations(df):
-    # Iteration rather than vector functions for clarity and bug prevention
+    # Washington, D.C is treated as a state
     for i in range(len(df)):
         location = df.loc[i, '_location']
-        # Is it a state-level record?
-        if location.isin(population.keys():
+        if locations[location] == 'state':
             df.loc[i, 'is_state'] = True
             df.loc[i, 'state'] = location
-        # Is it a county-level record? (brittle)
-        elif location.str.contains(', ')
+        elif locations[location] == 'county':
+            df.loc[i, 'is_state'] = False
+            df.loc[i, 'county'] = location
+        elif locations[location] == 'territory':
+            df.loc[i, 'is_state'] = False
+            df.loc[i, 'territory'] = location
+        else:
+            df.loc[i, 'unknown_type'] = location
 
 def _us_data(df):
     df = df.rename(columns={'province_state': '_location'})
     df['state'] = None
     df['county'] = None
     df['territory'] = None
+    df['unknown_type'] = None
     df['is_state'] = None
     # Remove cruise ship data
     df = df[~df._location.isin(cruise_ships)]
-    # Rename Washington D.C. records
-    df.state_county = df._location.apply(lambda state: (state, 'District of Columbia') [state == 'Washington, D.C.'])
+    df = df.reset_index(drop=True)
     _parse_locations(df)
     return df
 
