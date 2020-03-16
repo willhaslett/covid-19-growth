@@ -107,19 +107,7 @@ df_us = {
     'recovered': _us_data(c19all.for_country(c19all.df_all['recovered'], 'US'))
 }
 
-# TODO:
-# def _cases_by_state(df):
-#
-# df_us_states = {
-#     'cases': _cases_by_state(df_us['cases']),
-#     'deaths': _cases_by_state(df_us['deaths']),
-#     'recovered': _cases_by_state(df_us['recovered']),
-# }
-# pickle_file = open('pickles/df_us_states.p', 'wb')
-# pickle.dump(df_us_states, pickle_file)
-
 pickle_file = open('pickles/df_us.p', 'wb')
 pickle.dump(df_us, pickle_file)
-
 
 print('Updated pickles file pickles/df_us.p')
