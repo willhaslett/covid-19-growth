@@ -20,18 +20,18 @@ stabbrevs = constants.US_STATE_ABBREVS
 _output_columns = [
     'date',
     'day',
-    'cases',
     'state',
     'county',
     'territory',
     'other',
     'unkown_type',
+    'sub_region',  # only state-level records
+    'region',      # only state-level records
     'is_state',
     'lat',
     'long',
-    'sub_region',  # only state-level records
-    'region',      # only state-level records
     'population',  # only state-level records
+    'cases',
 ]
 
 # Add any new US locations in the JH data as unkown_type
@@ -44,7 +44,7 @@ for i in range(len(df)):
     if location not in locations:
         _new_locations[location] = 'unkown_type'
 if bool(_new_locations):
-    print('New locations found. constants.US_LOCATIONS_IN_SOURCE needs to be updated')
+    print('New locations found and assigned as unkown_type. constants.US_LOCATIONS_IN_SOURCE needs to be updated')
 
 
 def _parse_locations(df):
@@ -96,11 +96,25 @@ def _us_data(df):
     df = _parse_locations(df)
     df = _handle_special_cases(df)
     df = df.reset_index(drop=True)
+    df.set_index(['date', 'day', 'state', 'county', 'territory',
+                  'other', 'unknown_type', 'sub_region', 'region', 'is_state'])
     return df.filter(items=_output_columns)
 
 
 df_us = {
     'cases': _us_data(c19all.for_country(c19all.df_cases, 'US')),
-    'deaths': _us_data(c19all.for_country(c19all.df_deaths, 'US')),
-    'recovered': _us_data(c19all.for_country(c19all.df_recovered, 'US'))
+    # 'deaths': _us_data(c19all.for_country(c19all.df_deaths, 'US')),
+    # 'recovered': _us_data(c19all.for_country(c19all.df_recovered, 'US'))
 }
+
+print(df_us['cases'])
+
+
+# def _cases_by_state(df):
+#     df = df.groupby('dsay').sum().reset_index(drop=True)
+#     return df
+
+
+# df_us_states = _cases_by_state(df_us['cases'])
+# print(df_us_states)
+# df.to_csv('csv/foo.csv', index=False)
