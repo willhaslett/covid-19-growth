@@ -1,7 +1,6 @@
 import pandas as pd
 from operator import itemgetter
 import pickle
-import os
 import constants
 
 # Global data, long format, dates as Pandas timestamps
@@ -51,7 +50,6 @@ df_all = {
     'recovered': df_from_csv(constants.DATA_URLS['recovered'])
 }
 
-os.system('touch pickles/df_all.p')
 pickle_file = open('pickles/df_all.p', 'wb')
 pickle.dump(df_all, pickle_file)
 print('Updated pickle file pickles/df_all.p for global data')
