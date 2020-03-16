@@ -246,6 +246,8 @@ US_LOCATIONS_IN_SOURCE = {
     "Puerto Rico":                'territory',
     "Virgin Islands, U.S.":       'territory',
     "Guam":                       'territory',
+    "Diamond Princess":           'other',
+    "Grand Princess":             'other',
 }
 
 CRUISE_SHIPS = [
@@ -333,7 +335,7 @@ US_POPULATION = {
     'West Virginia':        {'population': 1792147,  'sub_region': 'south_atlantic',     'region': 'south'},
     'Delaware':             {'population': 973764,   'sub_region': 'south_atlantic',     'region': 'south'},
     'District of Columbia': {'population': 705749,   'sub_region': 'south_atlantic',     'region': 'south'},
-    'Tenessee':             {'population': 6346105,  'sub_region': 'east_south_central', 'region': 'south'},
+    'Tennessee':             {'population': 6346105,  'sub_region': 'east_south_central', 'region': 'south'},
     'Alabama':              {'population': 4903185,  'sub_region': 'east_south_central', 'region': 'south'},
     'Kentucky':             {'population': 4467673,  'sub_region': 'east_south_central', 'region': 'south'},
     'Mississippi':          {'population': 2976149,  'sub_region': 'east_south_central', 'region': 'south'},
