@@ -89,7 +89,7 @@ The JH submodule is pulled nightly, updating the source data. To force a pull lo
   - `sum_by_date(df)` Group by date and sum case counts 
 
 ### `c19us.py`
-* `df_us` A dictionary with dataframes for US cases, deaths, and recoveries. Ambiguous location data
+* `df_us` A dictionary with dataframes for US cases, deaths, and recoveries. Mixed location data
 from upstream are parsed into idividual columns for different location types. For state-level data,
 sub_region, region, and population are added.
   ```
