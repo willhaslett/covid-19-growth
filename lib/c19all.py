@@ -45,9 +45,9 @@ def sum_by_date(df):
 
 # Dictionary containing dataframes for all global data
 df_all = {
-    'cases': df_from_csv('https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv'),
-    'deaths': df_from_csv('https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv'),
-    'recovered': df_from_csv('https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv')
+    'cases': df_from_csv(constants.DATA_URLS['cases']),
+    'deaths': df_from_csv(constants.DATA_URLS['deaths']),
+    'recovered': df_from_csv(constants.DATA_URLS['recovered'])
 }
 
 pickle_file = open('pickles/df_all.p', 'wb')

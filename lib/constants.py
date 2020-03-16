@@ -1,3 +1,9 @@
+DATA_URLS = {
+    'cases': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv',
+    'deaths': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv',
+    'recovered': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv'
+}
+
 # Latest dictionary for US locatation values. Updated if necessary below and assigned as a constant.
 # New locations will be unkown_type until assigned a type here
 US_LOCATIONS_IN_SOURCE = {
