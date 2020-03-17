@@ -3,13 +3,14 @@ import pickle
 import c19all
 import constants
 
-# Creates `df_us`, a dictionary containing three dataframes, all of the same shape
-#   `cases` US confirmed cases
-#   `deaths` US deaths
-#   `recovered` US recoveries
+""" Creates `df_us`, a dictionary containing three dataframes, all of the same shape
+   `cases` US confirmed cases
+   `deaths` US deaths
+   `recovered` US recoveries
 
-# NOTE: This takes a minute or two due to row-wise parsing of location fields
-#       Consider using the associated pickle file for downstream work instead of importing this module
+ NOTE: This takes a minute or two due to row-wise parsing of location fields
+       Consider using the associated pickle file for downstream work instead of importing this module
+"""
 
 locations = constants.US_LOCATIONS_IN_SOURCE
 population = constants.US_POPULATION
@@ -34,7 +35,7 @@ _output_columns = [
     'cases',
 ]
 
-# Add any new US locations in the JH data as unkown_type
+""" Add any new US locations in the JH data as unkown_type """
 _new_locations = {}
 df = c19all.for_country(c19all.df_all['cases'], 'US')
 df = df.province_state.unique()
@@ -46,10 +47,10 @@ for i in range(len(df)):
 if bool(_new_locations):
     print('New locations found and assigned as unkown_type. constants.US_LOCATIONS_IN_SOURCE needs to be updated')
 
-
-# Parse mixed locations in what was the Province/State column into distinct columne fore each
-# location type. TODO: Vectorize
 def _parse_locations(df):
+    """ Parse mixed locations in what was the Province/State column into distinct columne fore each
+    location type. TODO: Vectorize
+    """
     for i in range(len(df)):
         location = df.loc[i, '_location']
         if locations[location] == 'state':
@@ -76,8 +77,10 @@ def _parse_locations(df):
             df.loc[i, 'unknown_type'] = location
     return df
 
-# Special case renaming of locations
+
+
 def _handle_special_cases(df):
+    """ Special case renaming of locations """
     # Merge names for the District of Columbia
     df.other = df.other.apply(lambda other: (
         other, 'District of Columbia')[other == 'Washington, D.C.'])
@@ -86,8 +89,10 @@ def _handle_special_cases(df):
         territory, 'Virgin Islands')[territory == 'Virgin Islands, U.S.'])
     return df
 
-# Produce output dataframe from raw JH data filtered on US records
+
+
 def _us_data(df):
+    """ Produce output dataframe from raw JH data filtered on US records """
     df = df.rename(columns={'province_state': '_location'})
     df['state'] = None
     df['county'] = None
@@ -102,17 +107,28 @@ def _us_data(df):
                   'other', 'unknown_type', 'sub_region', 'region', 'is_state'])
     return df.filter(items=_output_columns)
 
-# Output dictionary of dataframes
+
 df_us = {
+    """ Output dictionary of dataframes with all US records """
     'cases': _us_data(c19all.for_country(c19all.df_all['cases'], 'US')),
     'deaths': _us_data(c19all.for_country(c19all.df_all['deaths'], 'US')),
     'recovered': _us_data(c19all.for_country(c19all.df_all['recovered'], 'US'))
 }
 
-def _us_state_data(df):
-
-
 pickle_file = open('pickles/df_us.p', 'wb')
 pickle.dump(df_us, pickle_file)
+print('Updated pickle file pickles/df_us.p with all US data')
 
-print('Updated pickle file pickles/df_us.p with US data')
+
+# def _us_state_data(df):
+#     # TODO
+# df_us_by_state = {
+#     """ Output dictionary of dataframes grouped by state (county/state merged) """
+#     'cases': _us_state_data(df_us['cases']),
+#     'deaths': _us_state_data(df_us['deaths']),
+#     'recovered': _us_state_data(df_us['recovered']),
+# }
+
+# pickle_file = open('pickles/df_us_by_state.p', 'wb')
+# pickle.dump(df_us_by_state, pickle_file)
+# print('Updated pickle file pickles/df_us_by_state.p with US data grouped by state')
