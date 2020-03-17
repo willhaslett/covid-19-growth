@@ -47,6 +47,8 @@ if bool(_new_locations):
     print('New locations found and assigned as unkown_type. constants.US_LOCATIONS_IN_SOURCE needs to be updated')
 
 
+# Parse mixed locations in what was the Province/State column into distinct columne fore each
+# location type. TODO: Vectorize
 def _parse_locations(df):
     for i in range(len(df)):
         location = df.loc[i, '_location']
@@ -74,7 +76,7 @@ def _parse_locations(df):
             df.loc[i, 'unknown_type'] = location
     return df
 
-
+# Special case renaming of locations
 def _handle_special_cases(df):
     # Merge names for the District of Columbia
     df.other = df.other.apply(lambda other: (
@@ -84,7 +86,7 @@ def _handle_special_cases(df):
         territory, 'Virgin Islands')[territory == 'Virgin Islands, U.S.'])
     return df
 
-
+# Produce output dataframe from raw JH data filtered on US records
 def _us_data(df):
     df = df.rename(columns={'province_state': '_location'})
     df['state'] = None
@@ -100,12 +102,15 @@ def _us_data(df):
                   'other', 'unknown_type', 'sub_region', 'region', 'is_state'])
     return df.filter(items=_output_columns)
 
-
+# Output dictionary of dataframes
 df_us = {
     'cases': _us_data(c19all.for_country(c19all.df_all['cases'], 'US')),
     'deaths': _us_data(c19all.for_country(c19all.df_all['deaths'], 'US')),
     'recovered': _us_data(c19all.for_country(c19all.df_all['recovered'], 'US'))
 }
+
+def _us_state_data(df):
+
 
 pickle_file = open('pickles/df_us.p', 'wb')
 pickle.dump(df_us, pickle_file)
