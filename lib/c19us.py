@@ -110,4 +110,4 @@ df_us = {
 pickle_file = open('pickles/df_us.p', 'wb')
 pickle.dump(df_us, pickle_file)
 
-print('Updated pickles file pickles/df_us.p')
+print('Updated pickle file pickles/df_us.p with US data')
