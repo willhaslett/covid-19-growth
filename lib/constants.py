@@ -250,6 +250,7 @@ US_LOCATIONS_IN_SOURCE = {
     "New Castle, DE":             'county',
     "Puerto Rico":                'territory',
     "Virgin Islands, U.S.":       'territory',
+    "Virgin Islands":             'territory',
     "Guam":                       'territory',
     "Diamond Princess":           'other',
     "Grand Princess":             'other',
