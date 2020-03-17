@@ -101,7 +101,6 @@ def _us_data(df):
 
 
 df_us = {
-    """ Output dictionary of dataframes with all US records """
     'cases': _us_data(c19all.for_country(c19all.df_all['cases'], 'US')),
     'deaths': _us_data(c19all.for_country(c19all.df_all['deaths'], 'US')),
     'recovered': _us_data(c19all.for_country(c19all.df_all['recovered'], 'US'))
