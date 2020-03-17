@@ -1,4 +1,6 @@
-print('Takes a couple of minutes because the US data parser has a lot to do')
+print("\nTakes a couple of minutes because the US data parser has a lot to do")
+print("When this finishes, `/pickes/df_us.p` will be up-to-date with the Johns Hopkins repo")
+print("To update the US data at any time: `python c19us.py`\n")
 import pandas as pd
 import c19all
 import c19us
