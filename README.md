@@ -7,6 +7,8 @@ displayed on their
 This repo aims to provide a sensible starting point and some useful functions for reporting/analysis/modeling
  using the JH COVID-19 data. The latest JH CSV files are pulled from GitHub at runtime.
 
+**2020-03-18 13:30 UTC:** c19us.py is erroring out due to a new location. Fixing location merge function. Fix expected 15:00 and should prevent similar bugs in the future.
+
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
 ![](.devcontainer/.screenshot.png)
