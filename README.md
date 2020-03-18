@@ -97,9 +97,10 @@ sub_region, region, and population are added.
   [13338 rows x 13 columns]
   ```
 
-* `df_us.p` is a pickle file that stores the `df_us` dictionary. You'll want to load this pickle for downstream analysis rather than importing the `c19us.py` module. It is updated whenever `c19us.py` runs.
+* `df_us.p` is a pickle file that stores the `df_us` dictionary. `c19us.py` takes about 10 seconds to run, so you may want to use the pickle for downstream work, rather than importing the `c19us.py` module. Note however that the `df_us.p` pickle goes stale when new data are posted in the JH repo. Pickles do go stale.
 
 * How to work at the state level: Reporting regions for US data have been evolving over time. As shown in the figure below, the makeup of overall US data between counties and states has been shifting toward the state level. For state-level analyses, you can rely on the `state` column in the `df_us` dataframes. It is populated for both state-level records and for county-level records. To work with state-level records only, filter on the boolean `is_state` column.
+
   ![](.devcontainer/.us_cases.png)
   
 * Jupyter Notebooks

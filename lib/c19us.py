@@ -10,8 +10,7 @@ import constants
     `deaths` US deaths
     `recovered` US recoveries
 
-NOTE: This takes a minute or two due to row-wise parsing of location fields
-      Consider using the associated pickle file for downstream work instead of importing this module
+    Takes about 10 seconds to run. After running once, use `pickles/df_us.p` instead of importing this module to avoid the wait 
 """
 
 KNOWN_LOCATIONS = constants.US_LOCATIONS_IN_SOURCE
@@ -36,40 +35,37 @@ _output_columns = [
     'cases',
 ]
 
-        # print('New locations found and assigned as unkown_type. constants.US_LOCATIONS_IN_SOURCE needs to be updated')
 
+def _parse_location(row):
+    location = row._location
+    if location not in KNOWN_LOCATIONS:
+        row.unkown_type = location
+        print(f'Location {location} assigend as unkown_type. Update constants.US_LOCATIONS_IN_SOURCE')
+        print('New locations found and assigned as unkown_type. constants.US_LOCATIONS_IN_SOURCE needs to be updated')
+        return row
+    if KNOWN_LOCATIONS[location] == 'state':
+        row.is_state = True
+        row.state = location
+        row.sub_region = POPULATION[location]['sub_region']
+        row.region = POPULATION[location]['region']
+        row.population = int(round(POPULATION[location]['population']))
+        return row
+    row.is_state = False
+    if KNOWN_LOCATIONS[location] == 'county':
+        # TODO: Error trapping here
+        county_and_abbrev = location.split(', ')
+        row.county = county_and_abbrev[0].replace(' ', '')
+        row.state = STABBREVS[county_and_abbrev[1].replace(' ', '')]
+        return row
+    if KNOWN_LOCATIONS[location] == 'territory':
+        row.territory = location
+        return row
+    if KNOWN_LOCATIONS[location] == 'other':
+        row.other = location
+        return row
+    print(f'Failed to parse {location} as known or unkown_type')
+    raise ValueError('A very specific bad thing happened.')
 
-def _parse_locations(df):
-    """ Parse mixed locations in what was the Province/State column into distinct columne fore each
-    location type. TODO: Vectorize
-    """
-    for i in range(len(df)):
-        location = df.loc[i, '_location']
-        if location not in KNOWN_LOCATIONS:
-            df.loc[i, 'uknown_type'] = location
-            print(f'Location {location} assigend as unkown_type. Update constants.US_LOCATIONS_IN_SOURCE')
-            continue
-        if KNOWN_LOCATIONS[location] == 'state':
-            df.loc[i, 'is_state'] = True
-            df.loc[i, 'state'] = location
-            df.loc[i, 'sub_region'] = POPULATION[location]['sub_region']
-            df.loc[i, 'region'] = POPULATION[location]['region']
-            df.loc[i, 'population'] = int(
-                round(POPULATION[location]['population']))
-        elif KNOWN_LOCATIONS[location] == 'county':
-            df.loc[i, 'is_state'] = False
-            # TODO: Error trapping here
-            county_and_abbrev = location.split(', ')
-            df.loc[i, 'county'] = county_and_abbrev[0].replace(' ', '')
-            df.loc[i, 'state'] = STABBREVS[county_and_abbrev[1].replace(
-                ' ', '')]
-        elif KNOWN_LOCATIONS[location] == 'territory':
-            df.loc[i, 'is_state'] = False
-            df.loc[i, 'territory'] = location
-        elif KNOWN_LOCATIONS[location] == 'other':
-            df.loc[i, 'is_state'] = False
-            df.loc[i, 'other'] = location
-    return df
 
 
 def _handle_special_cases(df):
@@ -92,7 +88,10 @@ def _us_data(df):
     df['other'] = None
     df['unknown_type'] = None
     df['is_state'] = None
-    df = _parse_locations(df)
+    df['sub_region'] = None
+    df['region'] = None
+    df['population'] = None
+    df = df.apply(lambda row: _parse_location(row), axis=1)
     df = _handle_special_cases(df)
     df = df.reset_index(drop=True)
     df.set_index(['date', 'day', 'state', 'county', 'territory',
