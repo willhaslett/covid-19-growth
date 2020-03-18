@@ -110,15 +110,16 @@ pickle.dump(df_us, pickle_file)
 print("Updated pickle file pickles/df_us.p with all US data")
 
 
-# def _us_state_data(df):
-#     # TODO
-# df_us_by_state = {
-#     """ Output dictionary of dataframes grouped by state (county/state merged) """
-#     'cases': _us_state_data(df_us['cases']),
-#     'deaths': _us_state_data(df_us['deaths']),
-#     'recovered': _us_state_data(df_us['recovered']),
-# }
+""" Output dictionary of dataframes grouped by state (county/state merged)
+def _us_state_data(df):
+  TODO
 
-# pickle_file = open('pickles/df_us_by_state.p', 'wb')
-# pickle.dump(df_us_by_state, pickle_file)
-# print('Updated pickle file pickles/df_us_by_state.p with US data grouped by state')
+df_us_by_state = {
+    'cases': _us_state_data(df_us['cases']),
+    'deaths': _us_state_data(df_us['deaths']),
+    'recovered': _us_state_data(df_us['recovered']),
+}
+pickle_file = open('pickles/df_us_by_state.p', 'wb')
+pickle.dump(df_us_by_state, pickle_file)
+print('Updated pickle file pickles/df_us_by_state.p with US data grouped by state')
+"""
