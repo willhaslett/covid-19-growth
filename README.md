@@ -25,6 +25,7 @@ pip install -q -r requirements.txt
 Verify installation
 ```
 $ python lib/tests.py
+
 Updated pickle file pickles/df_all.p with global data
 Updated pickle file pickles/df_us.p with all US data
 

@@ -107,7 +107,7 @@ df_us = {
 
 pickle_file = open('pickles/df_us.p', 'wb')
 pickle.dump(df_us, pickle_file)
-print('Updated pickle file pickles/df_us.p with all US data')
+print("Updated pickle file pickles/df_us.p with all US data")
 
 
 # def _us_state_data(df):
