@@ -25,7 +25,6 @@ pip install -q -r requirements.txt
 Verify installation
 ```
 $ python lib/tests.py
-(venv) will@wh-2~/Desktop/covid-19-growth$ p lib/tests.py
 Updated pickle file pickles/df_all.p with global data
 Updated pickle file pickles/df_us.p with all US data
 
@@ -51,8 +50,6 @@ Pickle files for global and US data are up-to-date with the Johns Hopkins CSV fi
 `python c19us.py` (~10 seconds) refreshes both pickles
 `python c19all.py` (snappy) refreshes the global pickle
 Tests passed
-
-(venv) will@wh-2~/Desktop/covid-19-growth$
 
 $
 ```
