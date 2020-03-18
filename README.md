@@ -25,6 +25,9 @@ pip install -q -r requirements.txt
 Verify installation
 ```
 $ python lib/tests.py
+(venv) will@wh-2~/Desktop/covid-19-growth$ p lib/tests.py
+Updated pickle file pickles/df_all.p with global data
+Updated pickle file pickles/df_us.p with all US data
 
 Global cases (head):
         date  day  cases province_state    country      lat      long
@@ -36,7 +39,21 @@ Global cases (head):
 
 ...
 
+US Recovered (head):
+        date  day          state county territory             other    sub_region     region  is_state      lat      long  population  cases
+0 2020-01-22    0     Washington   None      None              None       pacific       west      True  47.4009 -121.4905   7614893.0      0
+1 2020-01-22    0       New York   None      None              None  mid_atlantic  northeast      True  42.1657  -74.9481  19453561.0      0
+2 2020-01-22    0     California   None      None              None       pacific       west      True  36.1162 -119.6816  39512223.0      0
+3 2020-01-22    0  Massachusetts   None      None              None   new_england  northeast      True  42.2302  -71.5301   6892503.0      0
+4 2020-01-22    0           None   None      None  Diamond Princess          None       None     False  35.4437  139.6380         NaN      0
+
+Pickle files for global and US data are up-to-date with the Johns Hopkins CSV files
+`python c19us.py` (~10 seconds) refreshes both pickles
+`python c19all.py` (snappy) refreshes the global pickle
 Tests passed
+
+(venv) will@wh-2~/Desktop/covid-19-growth$
+
 $
 ```
 
