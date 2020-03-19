@@ -6,11 +6,11 @@ import constants
 
 
 """ Creates `df_us`, a dictionary containing three dataframes, all of the same shape
-    `cases` US confirmed cases
-    `deaths` US deaths
-    `recovered` US recoveries
+`cases` US confirmed cases
+`deaths` US deaths
+`recovered` US recoveries
 
-    Takes about 10 seconds to run. After running once, use `pickles/df_us.p` instead of importing this module to avoid the wait 
+This takes about 10 seconds to run. After running once, use `pickles/df_us.p` instead of importing this module to avoid the wait 
 """
 
 KNOWN_LOCATIONS = constants.US_LOCATIONS_IN_SOURCE
