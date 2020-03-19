@@ -8,7 +8,7 @@ This repo aims to provide a sensible starting point and some useful functions fo
  using the JH COVID-19 data. The latest JH CSV files are pulled from GitHub at runtime.
 
  ```
-$ print(df_us_region_and_state['cases'])
+>>> print(df_us_region_and_state['cases'])
 
             date   region          sub_region       state  population  cases
 0    2020-01-22  midwest  east_north_central    Illinois  12671821.0      0
@@ -24,7 +24,7 @@ $ print(df_us_region_and_state['cases'])
 2849 2020-03-18     west             pacific  Washington   7614893.0   1014
 
 [2850 rows x 6 columns]
-$
+>>>  
 ```
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
@@ -132,7 +132,7 @@ sub_region, region, and population are added.
 
 * `df_us_region_state` A dictionary of US data by date, aggregated at the state level, with columns for sub_region, region, and population.
   ```
-  $ print(df_us_region_and_state['cases'])
+  >>> print(df_us_region_and_state['cases'])
 
              date   region          sub_region       state  population  cases
   0    2020-01-22  midwest  east_north_central    Illinois  12671821.0      0
@@ -148,7 +148,7 @@ sub_region, region, and population are added.
   2849 2020-03-18     west             pacific  Washington   7614893.0   1014
 
   [2850 rows x 6 columns]
-  $
+  >>>
   ```
 
 * `df_us.p` and `df_us_region_and_state.p` are pickle files that perist the correspondnig dictionaries of dataframes. For performance reasons, it is recommended to use these pickles for downstream work with the US data rather than importing the `c19us.py` module.
