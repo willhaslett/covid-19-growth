@@ -125,6 +125,10 @@ sub_region, region, and population are added.
 
   [13338 rows x 13 columns]
   ```
+  Be wary of the county-level US data. The makeup of the US data between counties and states has been, understandably, inconsistent over time. `df_us_region_and_state` aggregates both county and state-level records.
+
+  ![](.devcontainer/.us_cases.png)
+  
 
 * `df_us_region_state` A dictionary of US data by date, aggregated at the state level, with columns for sub_region, region, and population.
   ```
@@ -146,11 +150,6 @@ sub_region, region, and population are added.
   [2850 rows x 6 columns]
   $
   ```
-  Be wary of the county-level data. The makeup of the US data between counties and states has been, understandably, inconsistent over time. `df_us_region_and_state` aggregates both county and state-level records.
-
-
-  ![](.devcontainer/.us_cases.png)
-  
 
 * `df_us.p` and `df_us_region_and_state.p` are pickle files that perist the correspondnig dictioiinaries of dataframes. For performance reasons, it is recommended to use these pickles for downstream work with the US data rather than importing the `c19us.py` module.
 
