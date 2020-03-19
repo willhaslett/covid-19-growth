@@ -10,7 +10,7 @@ This repo aims to provide a sensible starting point and some useful functions fo
  ```
 $ print(df_us_region_and_state['cases'])
 
-           date   region          sub_region       state  population  cases
+            date   region          sub_region       state  population  cases
 0    2020-01-22  midwest  east_north_central    Illinois  12671821.0      0
 1    2020-01-22  midwest  east_north_central     Indiana   6732219.0      0
 2    2020-01-22  midwest  east_north_central    Michigan   9986857.0      0
@@ -134,7 +134,7 @@ sub_region, region, and population are added.
   ```
   $ print(df_us_region_and_state['cases'])
 
-            date   region          sub_region       state  population  cases
+             date   region          sub_region       state  population  cases
   0    2020-01-22  midwest  east_north_central    Illinois  12671821.0      0
   1    2020-01-22  midwest  east_north_central     Indiana   6732219.0      0
   2    2020-01-22  midwest  east_north_central    Michigan   9986857.0      0
