@@ -104,10 +104,12 @@ df_us = {
     'recovered': _us_data(c19all.for_country(c19all.df_all['recovered'], 'US'))
 }
 
-pickle_file = open('pickles/df_us.p', 'wb')
-pickle.dump(df_us, pickle_file)
-print("Updated pickle file pickles/df_us.p with all US data")
+def _by_region_and_state(df):
+    df = df[['date', 'region', 'sub_region', 'state', 'cases']]
+    return df.groupby(['date', 'region', 'sub_region', 'state'], as_index=False).sum()
 
+
+print(_by_region_and_state(df_us['cases']))
 
 """ Output dictionary of dataframes grouped by state (county/state merged)
 def _us_state_data(df):
@@ -122,3 +124,8 @@ pickle_file = open('pickles/df_us_by_state.p', 'wb')
 pickle.dump(df_us_by_state, pickle_file)
 print('Updated pickle file pickles/df_us_by_state.p with US data grouped by state')
 """
+
+
+pickle_file = open('pickles/df_us.p', 'wb')
+pickle.dump(df_us, pickle_file)
+print("Updated pickle file pickles/df_us.p with all US data")
