@@ -5,18 +5,16 @@ import c19all
 import constants
 
 
-""" Creates `df_us`, a dictionary containing three dataframes, all of the same shape
-`cases` US confirmed cases
-`deaths` US deaths
-`recovered` US recoveries
-
-This takes about 10 seconds to run. After running once, use `pickles/df_us.p` instead of importing this module to avoid the wait 
+""" Exposes two functions that each return a dictionary of three dataframes
+df_us()
+    Contains all US data by date with location type parsed into columns for each type
+df_region_and_state()
+    Contains all US data by date, aggregated by state, with columns for us 2019 census region, sub_region, and population
 """
 
 KNOWN_LOCATIONS = constants.US_LOCATIONS_IN_SOURCE
 POPULATION = constants.US_POPULATION
 STABBREVS = constants.US_STATE_ABBREVS
-
 
 _output_columns = [
     'date',
@@ -66,7 +64,6 @@ def _parse_location(row):
     raise ValueError('A very specific bad thing happened.')
 
 
-
 def _handle_special_cases(df):
     """ Special case renaming of locations """
     # Merge names for the District of Columbia
@@ -87,8 +84,8 @@ def _us_data(df):
     df['other'] = None
     df['unknown_type'] = None
     df['is_state'] = None
-    df['sub_region'] = None
     df['region'] = None
+    df['sub_region'] = None
     df['population'] = None
     df = df.apply(lambda row: _parse_location(row), axis=1)
     df = _handle_special_cases(df)
@@ -104,28 +101,22 @@ df_us = {
     'recovered': _us_data(c19all.for_country(c19all.df_all['recovered'], 'US'))
 }
 
+
 def _by_region_and_state(df):
-    df = df[['date', 'region', 'sub_region', 'state', 'cases']]
+    df = df[['date', 'region', 'sub_region', 'state', 'population', 'cases']]
     return df.groupby(['date', 'region', 'sub_region', 'state'], as_index=False).sum()
 
 
-print(_by_region_and_state(df_us['cases']))
-
-""" Output dictionary of dataframes grouped by state (county/state merged)
-def _us_state_data(df):
-  TODO
-
-df_us_by_state = {
-    'cases': _us_state_data(df_us['cases']),
-    'deaths': _us_state_data(df_us['deaths']),
-    'recovered': _us_state_data(df_us['recovered']),
+df_us_region_and_state = {
+    'cases': _by_region_and_state(df_us['cases']),
+    'deaths': _by_region_and_state(df_us['deaths']),
+    'recovered': _by_region_and_state(df_us['recovered']),
 }
-pickle_file = open('pickles/df_us_by_state.p', 'wb')
-pickle.dump(df_us_by_state, pickle_file)
-print('Updated pickle file pickles/df_us_by_state.p with US data grouped by state')
-"""
-
 
 pickle_file = open('pickles/df_us.p', 'wb')
 pickle.dump(df_us, pickle_file)
-print("Updated pickle file pickles/df_us.p with all US data")
+print('Updated pickle file pickles/df_us.p')
+
+pickle_file = open('pickles/df_us_region_and_state.p', 'wb')
+pickle.dump(df_us, pickle_file)
+print('Updated pickle file pickles/df_us_region_and_state.p')
