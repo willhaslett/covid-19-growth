@@ -151,7 +151,7 @@ sub_region, region, and population are added.
   [2850 rows x 6 columns]
   $
   ```
-  Be wary of the county-level data. The makeup of overall US data between counties and states has been, understandably, inconsistent over time. `df_us_region_and_state` aggregates both county and state-level records.
+  Be wary of the county-level data. The makeup of the US data between counties and states has been, understandably, inconsistent over time. `df_us_region_and_state` aggregates both county and state-level records.
 
 
   ![](.devcontainer/.us_cases.png)
