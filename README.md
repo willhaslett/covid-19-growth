@@ -45,30 +45,25 @@ Verify installation
 ```
 $ python lib/tests.py
 
-Updated pickle file pickles/df_all.p with global data
-Updated pickle file pickles/df_us.p with all US data
-
-Global cases (head):
-        date  day  cases province_state    country      lat      long
-0 2020-01-22    0      2            NaN   Thailand  15.0000  101.0000
-1 2020-01-22    0      2            NaN      Japan  36.0000  138.0000
-2 2020-01-22    0      0            NaN  Singapore   1.2833  103.8333
-3 2020-01-22    0      0            NaN      Nepal  28.1667   84.2500
-4 2020-01-22    0      0            NaN   Malaysia   2.5000  112.5000
+Global recovered (tail):
+            date  day  cases province_state         country      lat     long
+26329 2020-03-18   56      0          Aruba     Netherlands  12.5186 -70.0358
+26330 2020-03-18   56      0            NaN          Zambia -15.4167  28.2833
+26331 2020-03-18   56      0            NaN        Djibouti  11.8251  42.5903
+26332 2020-03-18   56      0            NaN     Gambia, The  13.4432 -15.3101
+26333 2020-03-18   56      0     Montserrat  United Kingdom  16.7425 -62.1874
 
 ...
 
-US Recovered (head):
-        date  day          state county territory             other    sub_region     region  is_state      lat      long  population  cases
-0 2020-01-22    0     Washington   None      None              None       pacific       west      True  47.4009 -121.4905   7614893.0      0
-1 2020-01-22    0       New York   None      None              None  mid_atlantic  northeast      True  42.1657  -74.9481  19453561.0      0
-2 2020-01-22    0     California   None      None              None       pacific       west      True  36.1162 -119.6816  39512223.0      0
-3 2020-01-22    0  Massachusetts   None      None              None   new_england  northeast      True  42.2302  -71.5301   6892503.0      0
-4 2020-01-22    0           None   None      None  Diamond Princess          None       None     False  35.4437  139.6380         NaN      0
+US Cases by region/state(tail):
+           date region sub_region       state  population  cases
+2845 2020-03-18   west    pacific      Alaska    731545.0      6
+2846 2020-03-18   west    pacific  California  39512223.0    751
+2847 2020-03-18   west    pacific      Hawaii   1415872.0     14
+2848 2020-03-18   west    pacific      Oregon   4217737.0     68
+2849 2020-03-18   west    pacific  Washington   7614893.0   1014
 
 Pickle files for global and US data are up-to-date with the Johns Hopkins CSV files
-`python c19us.py` (~10 seconds) refreshes both pickles
-`python c19all.py` (snappy) refreshes the global pickle
 Tests passed
 
 $
