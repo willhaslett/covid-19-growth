@@ -7,6 +7,25 @@ displayed on their
 This repo aims to provide a sensible starting point and some useful functions for reporting/analysis/modeling
  using the JH COVID-19 data. The latest JH CSV files are pulled from GitHub at runtime.
 
+ ```
+$ print(df_us_region_and_state['cases'])
+
+           date   region          sub_region       state  population  cases
+0    2020-01-22  midwest  east_north_central    Illinois  12671821.0      0
+1    2020-01-22  midwest  east_north_central     Indiana   6732219.0      0
+2    2020-01-22  midwest  east_north_central    Michigan   9986857.0      0
+3    2020-01-22  midwest  east_north_central        Ohio  11689100.0      0
+4    2020-01-22  midwest  east_north_central   Wisconsin   5822434.0      0
+...         ...      ...                 ...         ...         ...    ...
+2845 2020-03-18     west             pacific      Alaska    731545.0      6
+2846 2020-03-18     west             pacific  California  39512223.0    751
+2847 2020-03-18     west             pacific      Hawaii   1415872.0     14
+2848 2020-03-18     west             pacific      Oregon   4217737.0     68
+2849 2020-03-18     west             pacific  Washington   7614893.0   1014
+
+[2850 rows x 6 columns]
+$
+```
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
 ![](.devcontainer/.screenshot.png)
@@ -112,12 +131,34 @@ sub_region, region, and population are added.
   [13338 rows x 13 columns]
   ```
 
-* `df_us.p` is a pickle file that stores the `df_us` dictionary. `c19us.py` takes about 10 seconds to run, so you may want to use the pickle for downstream work rather than importing the `c19us.py` module. Note however that the `df_us.p` pickle goes stale when new data are posted in the JH repo. Pickles do go stale.
+* `df_us_region_state` A dictionary of US data by date, aggregated at the state level, with columns for sub_region, region, and population.
+  ```
+  $ print(df_us_region_and_state['cases'])
 
-* How to work at the state level: Reporting regions for US data have been evolving over time. As shown in the figure below, the makeup of overall US data between counties and states has been shifting toward the state level. For state-level analyses, you can rely on the `state` column in the `df_us` dataframes. It is populated for both state-level records and for county-level records. To work with state-level records only, filter on the boolean `is_state` column.
+            date   region          sub_region       state  population  cases
+  0    2020-01-22  midwest  east_north_central    Illinois  12671821.0      0
+  1    2020-01-22  midwest  east_north_central     Indiana   6732219.0      0
+  2    2020-01-22  midwest  east_north_central    Michigan   9986857.0      0
+  3    2020-01-22  midwest  east_north_central        Ohio  11689100.0      0
+  4    2020-01-22  midwest  east_north_central   Wisconsin   5822434.0      0
+  ...         ...      ...                 ...         ...         ...    ...
+  2845 2020-03-18     west             pacific      Alaska    731545.0      6
+  2846 2020-03-18     west             pacific  California  39512223.0    751
+  2847 2020-03-18     west             pacific      Hawaii   1415872.0     14
+  2848 2020-03-18     west             pacific      Oregon   4217737.0     68
+  2849 2020-03-18     west             pacific  Washington   7614893.0   1014
+
+  [2850 rows x 6 columns]
+  $
+  ```
+  Be wary of the county-level data. The makeup of overall US data between counties and states has been, understandably, inconsistent over time. `df_us_region_and_state` aggregates both county and state-level records.
+
 
   ![](.devcontainer/.us_cases.png)
   
+
+* `df_us.p` and `df_us_region_and_state.p` are pickle files that perist the correspondnig dictioiinaries of dataframes. For performance reasons, it is recommended to use these pickles for downstream work with the US data rather than importing the `c19us.py` module.
+
 * Jupyter Notebooks
   
   `all.ipynb` and `us.ipynb` contain starting points for work with global or US data.

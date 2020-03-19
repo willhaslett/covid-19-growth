@@ -120,3 +120,5 @@ print('Updated pickle file pickles/df_us.p')
 pickle_file = open('pickles/df_us_region_and_state.p', 'wb')
 pickle.dump(df_us, pickle_file)
 print('Updated pickle file pickles/df_us_region_and_state.p')
+
+print(df_us_region_and_state['cases'])
