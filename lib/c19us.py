@@ -41,7 +41,6 @@ def _parse_location(row):
     if location not in KNOWN_LOCATIONS:
         row.unkown_type = location
         print(f'Location {location} assigend as unkown_type. Update constants.US_LOCATIONS_IN_SOURCE')
-        print('New locations found and assigned as unkown_type. constants.US_LOCATIONS_IN_SOURCE needs to be updated')
         return row
     if KNOWN_LOCATIONS[location] == 'state':
         row.is_state = True
