@@ -25,7 +25,7 @@ _output_columns = [
     'county',
     'territory',
     'other',
-    'unkown_type',
+    'unknown_type',
     'sub_region',  # only state-level records
     'region',      # only state-level records
     'is_state',
@@ -39,8 +39,8 @@ _output_columns = [
 def _parse_location(row):
     location = row._location
     if location not in KNOWN_LOCATIONS:
-        row.unkown_type = location
-        print(f'Location {location} assigend as unkown_type. Update constants.US_LOCATIONS_IN_SOURCE')
+        row.unknown_type = location
+        print(f'Location {location} assigend as unknown_type. Update constants.US_LOCATIONS_IN_SOURCE')
         return row
     if KNOWN_LOCATIONS[location] == 'state':
         row.is_state = True
@@ -62,7 +62,7 @@ def _parse_location(row):
     if KNOWN_LOCATIONS[location] == 'other':
         row.other = location
         return row
-    print(f'Failed to parse {location} as known or unkown_type')
+    print(f'Failed to parse {location} as known or unknown_type')
     raise ValueError('A very specific bad thing happened.')
 
 
