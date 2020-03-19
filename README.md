@@ -28,7 +28,7 @@ This repo aims to provide a sensible starting point and some useful functions fo
 ```
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
-![](.devcontainer/.screenshot.png)
+![](.devcontainer/._screenshot.png)
 
 ## Installing
 ### Vanilla
