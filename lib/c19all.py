@@ -56,3 +56,7 @@ df_all = {
 pickle_file = open('pickles/df_all.p', 'wb')
 pickle.dump(df_all, pickle_file)
 print("\nUpdated pickle file pickles/df_all.p with global data")
+
+df_all['cases'].to_csv('all_cases.csv')
+df_all['deaths'].to_csv('all_deaths.csv')
+df_all['recovered'].to_csv('all_recovered.csv')

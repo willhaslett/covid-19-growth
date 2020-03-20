@@ -113,6 +113,14 @@ df_us_region_and_state = {
     'recovered': _by_region_and_state(df_us['recovered']),
 }
 
+df_us['cases'].to_csv('us_cases.csv')
+df_us['deaths'].to_csv('us_deaths.csv')
+df_us['recovered'].to_csv('us_recovered.csv')
+
+df_us_region_and_state['cases'].to_csv('us_cases_region_and_state.csv')
+df_us_region_and_state['deaths'].to_csv('us_deaths_region_and_state.csv')
+df_us_region_and_state['recovered'].to_csv('us_recovered_region_and_state.csv')
+
 pickle_file = open('pickles/df_us.p', 'wb')
 pickle.dump(df_us, pickle_file)
 print('Updated pickle file pickles/df_us.p')
@@ -120,5 +128,3 @@ print('Updated pickle file pickles/df_us.p')
 pickle_file = open('pickles/df_us_region_and_state.p', 'wb')
 pickle.dump(df_us, pickle_file)
 print('Updated pickle file pickles/df_us_region_and_state.p')
-
-print(df_us_region_and_state['cases'])
