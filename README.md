@@ -44,12 +44,6 @@ DATAFRAMES = {
 }
 ```
 
-for filename in DATAFRAMES:
-    DATAFRAMES[filename].to_csv(f'csv_out/{filename}.csv')
-
-print('Generated up-to-date CSV files')
-
-
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
 ![](.devcontainer/.ss.png)
