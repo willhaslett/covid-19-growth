@@ -7,4 +7,4 @@ import dump_csv_and_json
 c19all.for_country(c19all.df_all['cases'], 'France')
 c19all.for_province_state(c19all.df_all['cases'], 'British Columbia')
 
-print("Tests passed\n")
+print('Tests passed')

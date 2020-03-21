@@ -5,11 +5,11 @@ import c19all
 import constants
 
 
-""" Exposes two functions that each return a dictionary of three dataframes
-df_us()
-    Contains all US data by date with location type parsed into columns for each type
-df_region_and_state()
-    Contains all US data by date, aggregated by state, with columns for us 2019 census region, sub_region, and population
+""" Creates two dictionaries of structured US data and pickle files for each dataframe
+    df_us()
+        Contains all US data by date with location type parsed into columns for each type
+    df_region_and_state()
+        Contains all US data by date, aggregated by state, with columns for us 2019 census region, sub_region, and population
 """
 
 KNOWN_LOCATIONS = constants.US_LOCATIONS_IN_SOURCE
