@@ -11,9 +11,9 @@ DATAFRAMES = {
     'df_us_cases':                      c19us.df_us['cases'],
     'df_us_deaths':                     c19us.df_us['deaths'],
     'df_us_recovered':                  c19us.df_us['recovered'],
-    'df_us_region_and_state_cases':     c19us.df_us['cases'],
-    'df_us_region_and_state_deaths':    c19us.df_us['deaths'],
-    'df_us_region_and_state_recovered': c19us.df_us['recovered'],
+    'df_us_region_and_state_cases':     c19us.df_us_region_and_state['cases'],
+    'df_us_region_and_state_deaths':    c19us.df_us_region_and_state['deaths'],
+    'df_us_region_and_state_recovered': c19us.df_us_region_and_state['recovered'],
 }
 
 for filename in DATAFRAMES:
