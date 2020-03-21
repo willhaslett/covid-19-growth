@@ -48,14 +48,12 @@ pip install -q -r requirements.txt
 Verify installation
 ```
 $ python lib/tests.py
-
 Updated pickle file pickles/df_all.p with global data
 Updated pickle file pickles/df_us.p
 Updated pickle file pickles/df_us_region_and_state.p
 Generated up-to-date CSV files
 Generated up-to-date JSON files
 Tests passed
-
 $
 ```
 
