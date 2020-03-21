@@ -26,7 +26,7 @@ This repo aims to provide a sensible starting point and some useful functions fo
 [2850 rows x 6 columns]
 >>>  
 ```
-For work outside of Pandas, the generated dataframes are available as CSV files
+For work outside of Pandas, the generated dataframes are available as CSV files.
 
 ```
 python lib/make_csv.py
