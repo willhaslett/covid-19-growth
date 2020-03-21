@@ -7,7 +7,7 @@ displayed on their
 This repo provides:
 - A sensible starting point and some useful functions for COVID-19 reporting/analysis/modeling using
   Pandas/Python
-- CSV and JSON Data structures for use outside of Pandas
+- CSV and JSON data structures for use outside of Pandas
 
 
  ```
