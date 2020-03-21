@@ -8,7 +8,6 @@ This repo aims to provide:
 - A sensible starting point and some useful functions for covid19 reporting/analysis/modeling
 - CSV and JSON Data structures for use outside of Pandas, e.g., app development
 
- using the JH COVID-19 data. The latest JH CSV files are pulled from GitHub at runtime.
 
  ```
 >>> print(df_us_region_and_state['cases'])
