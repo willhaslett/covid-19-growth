@@ -2,7 +2,7 @@ import c19us
 import c19all
 import pandas as pd
 
-""" Generates CSV files in csv_out for all available dataframes """
+""" Generates CSV and JSON files for all available dataframes """
 
 DATAFRAMES = {
     'df_all_cases':                     c19all.df_all['cases'],
@@ -18,5 +18,9 @@ DATAFRAMES = {
 
 for filename in DATAFRAMES:
     DATAFRAMES[filename].to_csv(f'csv_out/{filename}.csv')
+    DATAFRAMES[filename].to_json(
+        f'json_out/{filename}.json',
+    )
 
 print('Generated up-to-date CSV files')
+print('Generated up-to-date JSON files')
