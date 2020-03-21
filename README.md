@@ -5,7 +5,7 @@ The Johns Hopkins University Center for Systems Science and Engineering is provi
 displayed on their
 [ArcGIS dashboard for COVID-19](https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6).
 This repo aims to provide:
-- A sensible starting point and some useful functions for covid19 reporting/analysis/modeling using
+- A sensible starting point and some useful functions for COVID-19 reporting/analysis/modeling using
   Pandas/Python
 - CSV and JSON Data structures for use outside of Pandas, e.g., app development
 
