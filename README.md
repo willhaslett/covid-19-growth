@@ -4,7 +4,10 @@ The Johns Hopkins University Center for Systems Science and Engineering is provi
 [daily COVID-19 CSV files](https://github.com/CSSEGISandData/COVID-19) containing the data that are
 displayed on their
 [ArcGIS dashboard for COVID-19](https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6).
-This repo aims to provide a sensible starting point and some useful functions for reporting/analysis/modeling
+This repo aims to provide:
+- A sensible starting point and some useful functions for covid19 reporting/analysis/modeling
+- Data structures for use outside of Pandas, e.g., app development
+
  using the JH COVID-19 data. The latest JH CSV files are pulled from GitHub at runtime.
 
  ```
@@ -25,23 +28,6 @@ This repo aims to provide a sensible starting point and some useful functions fo
 
 [2850 rows x 6 columns]
 >>>  
-```
-For work outside of Pandas, the generated dataframes are available as CSV files.
-
-```
-python lib/make_csv.py
-
-DATAFRAMES = {
-    'df_all_cases':                     c19all.df_all['cases'],
-    'df_all_deaths':                    c19all.df_all['deaths'],
-    'df_all_recovered':                 c19all.df_all['recovered'],
-    'df_us_cases':                      c19us.df_us['cases'],
-    'df_us_deaths':                     c19us.df_us['deaths'],
-    'df_us_recovered':                  c19us.df_us['recovered'],
-    'df_us_region_and_state_cases':     c19us.df_us_region_and_state['cases'],
-    'df_us_region_and_state_deaths':    c19us.df_us_region_and_state['deaths'],
-    'df_us_region_and_state_recovered': c19us.df_us_region_and_state['recovered'],
-}
 ```
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
@@ -95,6 +81,11 @@ In VSCode, [Open the project folder in a container](https://code.visualstudio.co
 Verify the installation as above.
 
 ## Usage
+
+### CSV and JSON
+``` python lib/dump_csv_and_json.py```
+
+Data are synchronized with the Johns Hopkins repo when this is run. See below for the structure of the   output files.
 
 ### `c19all.py`
 * `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
