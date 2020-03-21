@@ -49,25 +49,11 @@ Verify installation
 ```
 $ python lib/tests.py
 
-Global recovered (tail):
-            date  day  cases province_state         country      lat     long
-26329 2020-03-18   56      0          Aruba     Netherlands  12.5186 -70.0358
-26330 2020-03-18   56      0            NaN          Zambia -15.4167  28.2833
-26331 2020-03-18   56      0            NaN        Djibouti  11.8251  42.5903
-26332 2020-03-18   56      0            NaN     Gambia, The  13.4432 -15.3101
-26333 2020-03-18   56      0     Montserrat  United Kingdom  16.7425 -62.1874
-
-...
-
-US Cases by region/state(tail):
-           date region sub_region       state  population  cases
-2845 2020-03-18   west    pacific      Alaska    731545.0      6
-2846 2020-03-18   west    pacific  California  39512223.0    751
-2847 2020-03-18   west    pacific      Hawaii   1415872.0     14
-2848 2020-03-18   west    pacific      Oregon   4217737.0     68
-2849 2020-03-18   west    pacific  Washington   7614893.0   1014
-
-Pickle files for global and US data are up-to-date with the Johns Hopkins CSV files
+Updated pickle file pickles/df_all.p with global data
+Updated pickle file pickles/df_us.p
+Updated pickle file pickles/df_us_region_and_state.p
+Generated up-to-date CSV files
+Generated up-to-date JSON files
 Tests passed
 
 $
