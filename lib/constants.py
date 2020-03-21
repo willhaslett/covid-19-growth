@@ -4,6 +4,13 @@ DATA_URLS = {
     'recovered': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv'
 }
 
+RENAMED_COLUMNS = {
+    'Province/State': 'province_state',
+    'Country/Region': 'country',
+    'Lat': 'lat',
+    'Long': 'long',
+}
+
 # Latest dictionary for US locatation values
 US_LOCATIONS_IN_SOURCE = {
     "Alabama":                      'state',
@@ -261,66 +268,6 @@ CRUISE_SHIPS = [
     'Grand Princess',
 ]
 
-US_STATE_ABBREVS = {
-    'AL': 'Alabama',          
-    'AK': 'Alaska',           
-    'AZ': 'Arizona',          
-    'AR': 'Arkansas',         
-    'CA': 'California',       
-    'CO': 'Colorado',         
-    'CT': 'Connecticut',      
-    'DE': 'Delaware',         
-    'FL': 'Florida',          
-    'GA': 'Georgia',          
-    'HI': 'Hawaii',           
-    'ID': 'Idaho',            
-    'IL': 'Illinois',         
-    'IN': 'Indiana',          
-    'IA': 'Iowa',             
-    'KS': 'Kansas',           
-    'KY': 'Kentucky',         
-    'LA': 'Louisiana',        
-    'ME': 'Maine',            
-    'MD': 'Maryland',         
-    'MA': 'Massachusetts',    
-    'MI': 'Michigan',         
-    'MN': 'Minnesota',        
-    'MS': 'Mississippi',      
-    'MO': 'Missouri',         
-    'MT': 'Montana',          
-    'NE': 'Nebraska',         
-    'NV': 'Nevada',           
-    'NH': 'New Hampshire',    
-    'NJ': 'New Jersey',       
-    'NM': 'New Mexico',       
-    'NY': 'New York',         
-    'NC': 'North Carolina',   
-    'ND': 'North Dakota',     
-    'OH': 'Ohio',             
-    'OK': 'Oklahoma',         
-    'OR': 'Oregon',           
-    'PA': 'Pennsylvania',     
-    'RI': 'Rhode Island',     
-    'SC': 'South Carolina',   
-    'SD': 'South Dakota',     
-    'TN': 'Tennessee',        
-    'TX': 'Texas',            
-    'UT': 'Utah',             
-    'VT': 'Vermont',          
-    'VA': 'Virginia',         
-    'WA': 'Washington',       
-    'WV': 'West Virginia',    
-    'WI': 'Wisconsin',        
-    'WY': 'Wyoming',          
-}
-
-RENAMED_COLUMNS = {
-    'Province/State': 'province_state',
-    'Country/Region': 'country',
-    'Lat': 'lat',
-    'Long': 'long',
-}
-
 # https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States_by_population#Summary_of_population_by_region
 US_POPULATION = {
     'Massachusetts':        {'population': 6892503,  'sub_region': 'new_england',        'region': 'northeast'},
@@ -375,3 +322,57 @@ US_POPULATION = {
     'Hawaii':               {'population': 1415872,  'sub_region': 'pacific',            'region': 'west'},
     'Alaska':               {'population': 731545,   'sub_region': 'pacific',            'region': 'west'}
 }
+
+US_STATE_ABBREVS = {
+    'AL': 'Alabama',          
+    'AK': 'Alaska',           
+    'AZ': 'Arizona',          
+    'AR': 'Arkansas',         
+    'CA': 'California',       
+    'CO': 'Colorado',         
+    'CT': 'Connecticut',      
+    'DE': 'Delaware',         
+    'FL': 'Florida',          
+    'GA': 'Georgia',          
+    'HI': 'Hawaii',           
+    'ID': 'Idaho',            
+    'IL': 'Illinois',         
+    'IN': 'Indiana',          
+    'IA': 'Iowa',             
+    'KS': 'Kansas',           
+    'KY': 'Kentucky',         
+    'LA': 'Louisiana',        
+    'ME': 'Maine',            
+    'MD': 'Maryland',         
+    'MA': 'Massachusetts',    
+    'MI': 'Michigan',         
+    'MN': 'Minnesota',        
+    'MS': 'Mississippi',      
+    'MO': 'Missouri',         
+    'MT': 'Montana',          
+    'NE': 'Nebraska',         
+    'NV': 'Nevada',           
+    'NH': 'New Hampshire',    
+    'NJ': 'New Jersey',       
+    'NM': 'New Mexico',       
+    'NY': 'New York',         
+    'NC': 'North Carolina',   
+    'ND': 'North Dakota',     
+    'OH': 'Ohio',             
+    'OK': 'Oklahoma',         
+    'OR': 'Oregon',           
+    'PA': 'Pennsylvania',     
+    'RI': 'Rhode Island',     
+    'SC': 'South Carolina',   
+    'SD': 'South Dakota',     
+    'TN': 'Tennessee',        
+    'TX': 'Texas',            
+    'UT': 'Utah',             
+    'VT': 'Vermont',          
+    'VA': 'Virginia',         
+    'WA': 'Washington',       
+    'WV': 'West Virginia',    
+    'WI': 'Wisconsin',        
+    'WY': 'Wyoming',          
+}
+
