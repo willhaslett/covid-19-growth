@@ -82,10 +82,8 @@ Verify the installation as above.
 
 ## Usage
 
-### CSV and JSON
-``` python lib/dump_csv_and_json.py```
-
-Data are synchronized with the Johns Hopkins repo when this is run. See below for the structure of the   output files.
+### `dump_csv_and_json.py`
+* Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized with the Johns Hopkins repo when this is run. See below for the structure of the output files.
 
 ### `c19all.py`
 * `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
