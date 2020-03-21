@@ -142,7 +142,7 @@ sub_region, region, and population are added.
   >>>
   ```
 
-* `df_us.p` and `df_us_region_and_state.p` are pickle files that persist the correspondnig dictionaries of dataframes. For performance reasons, it is recommended to use these pickles for downstream work with the US data rather than importing the `c19us.py` module.
+* `df_us.p` and `df_us_region_and_state.p` are pickle files that persist the corresponding dictionaries of dataframes. For performance reasons, it is recommended to use these pickles for downstream work with the US data rather than importing the `c19us.py` module.
 
 * Jupyter Notebooks
   
