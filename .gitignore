@@ -2,4 +2,3 @@ venv/
 .vscode/
 *.swp
 lib/__pycache__/
-csv_out/*
