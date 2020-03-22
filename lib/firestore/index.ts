@@ -8,4 +8,10 @@ import * as yaml from 'js-yaml';
 let credential_file = fs.readFileSync('../../.firebase_credentials.yaml', 'utf8');
 let credentials = yaml.safeLoad(credential_file);
 
-console.log(credentials);
+firebase.initializeApp({
+    apiKey: credentials.apiKey,                             
+    authDomain: "YOUR_APP.firebaseapp.com",         
+    databaseURL: "https://YOUR_APP.firebaseio.com", 
+    storageBucket: "YOUR_APP.appspot.com",          
+    messagingSenderId: "123456789"                  
+});
