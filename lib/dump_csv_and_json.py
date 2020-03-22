@@ -17,10 +17,8 @@ DATAFRAMES = {
 }
 
 for filename in DATAFRAMES:
-    DATAFRAMES[filename].to_csv(f'csv_out/{filename}.csv')
-    DATAFRAMES[filename].to_json(
-        f'json_out/{filename}.json',
-    )
+    DATAFRAMES[filename].to_csv(f'output/csv/{filename}.csv')
+    DATAFRAMES[filename].to_json(f'output/json/{filename}.json')
 
-print('Generated up-to-date CSV files')
-print('Generated up-to-date JSON files')
+print('Updated CSV files')
+print('Updated JSON files')
