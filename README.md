@@ -67,7 +67,7 @@ Verify the installation as above.
 ## Usage
 
 ### `dump_csv_and_json.py`
-Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized with the Johns Hopkins repo when this is run.
+Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized with the Johns Hopkins repo at runtime.
 
 * **CSV**
   Comma-delimited files for each dataframe. Format mirrors the dataframes as described below
