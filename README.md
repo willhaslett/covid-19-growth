@@ -70,12 +70,12 @@ Verify the installation as above.
 Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized with the Johns Hopkins repo at runtime.
 
 * **CSV**
-  Comma-delimited files for each dataframe. Format mirrors the dataframes as described below
+  Comma-delimited files for each dataframe. Format mirrors the dataframes as described below.
 
 * **JSON**
   JavaScript Object Notation files for each dataframe. Files are constructed using the `orient='table'` format as described
   [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html).
-  For minified JSON, set `JSON_INDENT` to 0 in `dump_csv_and_json.py`
+  For minified JSON, set `JSON_INDENT` to 0 in `dump_csv_and_json.py`.
 
 
 
