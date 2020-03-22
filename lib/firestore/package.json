@@ -4,12 +4,14 @@
   "description": "Tools for uploading the Johns Hopkins COVID-19 data into a Firestore database'",
   "main": "index.ts",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Will Haslett",
   "license": "MIT",
   "dependencies": {
     "firebase-admin": "^8.10.0",
+    "fs": "0.0.1-security",
     "js-yaml": "^3.13.1",
     "node-firestore-import-export": "^0.14.1",
     "typescript": "^3.8.3"
