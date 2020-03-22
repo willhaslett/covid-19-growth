@@ -1,4 +1,5 @@
 venv/
 .vscode/
+*.pyc
 *.swp
 lib/__pycache__/
