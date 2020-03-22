@@ -73,12 +73,9 @@ Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized
   Comma-delimited files for each dataframe. Format mirrors the dataframes as described below.
 
 * **JSON**
-  JavaScript Object Notation files for each dataframe. Files are constructed using the `orient='table'` format as described
-  [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html).
-  For minified JSON, set `JSON_INDENT` to 0.
-
-
-
+  JavaScript Object Notation files for each dataframe. Files are constructed using the `orient='table'` format for 
+  [pandas.DataFrame.to_json](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html).
+  Choose a different structure for the JSON files by setting `JSON_ORIENT`. For minified JSON, set `JSON_INDENT` to 0.
 
 ### `c19all.py`
 * **`df_all`** A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
