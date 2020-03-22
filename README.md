@@ -69,13 +69,11 @@ Verify the installation as above.
 ### `dump_csv_and_json.py`
 Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized with the Johns Hopkins repo when this is run.
 
-* CSV
+* **CSV**
+  Comma-delimited files for each dataframe. Format mirrors the dataframes as described below
 
-  Format mirrors the dataframes as described below
-
-* JSON
-
-  Files are constructed using the `orient='table'` format as described
+* **JSON**
+  JavaScript Object Notation files for each dataframe. Files are constructed using the `orient='table'` format as described
   [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html).
   For minified JSON, set `JSON_INDENT` to 0 in `dump_csv_and_json.py`
 
@@ -83,7 +81,7 @@ Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized
 
 
 ### `c19all.py`
-* `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
+* **`df_all`** A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
   ```
   print(df_all['cases'])
 
@@ -103,14 +101,14 @@ Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized
   [21892 rows x 7 columns] 
   ```
 
-* Functions
+* **Functions**
   - `filter(df, column, vlaue)` Generic filter
   - `for_country(df, country)` Filter by country
   - `for_province_state(df, province_state)` Filter by province_state
   - `sum_by_date(df)` Group by date and sum case counts 
 
 ### `c19us.py`
-* `df_us` A dictionary with dataframes for US cases, deaths, and recoveries. Mixed location data
+* **`df_us`** A dictionary with dataframes for US cases, deaths, and recoveries. Mixed location data
 from upstream are parsed into idividual columns for different location types. For state-level data,
 sub_region, region, and population are added.
   ```
@@ -134,7 +132,7 @@ sub_region, region, and population are added.
   ![](.devcontainer/.us_cases.png)
   
 
-* `df_us_region_state` A dictionary of US data by date, aggregated at the state level, with columns for sub_region, region, and population.
+* **`df_us_region_and_state`** A dictionary of US data by date, aggregated at the state level, with columns for sub_region, region, and population.
   ```
   >>> print(df_us_region_and_state['cases'])
 
@@ -155,9 +153,11 @@ sub_region, region, and population are added.
   >>>
   ```
 
-* `df_us.p` and `df_us_region_and_state.p` are pickle files that persist the corresponding dictionaries of dataframes. For performance reasons, it is recommended to use these pickles for downstream work with the US data rather than importing the `c19us.py` module.
+* **Pickle files**
 
-* Jupyter Notebooks
+  `df_us.p` and `df_us_region_and_state.p` are pickle files that persist the corresponding dictionaries of dataframes. For performance reasons, it is recommended to use these pickles for downstream work with the US data rather than importing the `c19us.py` module.
+
+* **Jupyter Notebooks**
   
   `all.ipynb` and `us.ipynb` contain starting points for work with global or US data.
 
