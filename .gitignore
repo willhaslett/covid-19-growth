@@ -3,4 +3,4 @@ venv/
 *.pyc
 *.swp
 lib/__pycache__/
-firebase_credentials.json
+firebase_credentials.ts
