@@ -1,7 +1,7 @@
 // https://www.npmjs.com/package/node-firestore-import-export
 import {firestoreImport} from 'node-firestore-import-export';
-import * as firebase from './firebase-admin';
-import FIREBASE_CREDENTIALS as credentials from 'firebase_credentials';
+import * as firebase from 'firebase-admin';
+import {FIREBASE_CREDENTIALS}  from './firebase_credentials';
 
 
 firebase.initializeApp({
