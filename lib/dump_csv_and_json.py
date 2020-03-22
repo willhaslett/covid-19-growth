@@ -17,7 +17,7 @@ DATAFRAMES = {
 }
 
 for filename in DATAFRAMES:
-    DATAFRAMES[filename].to_csv(f'output/csv/{filename}.csv')
+    DATAFRAMES[filename].to_csv(f'output/csv/{filename}.csv', index=False)
     DATAFRAMES[filename].to_json(f'output/json/{filename}.json')
 
 print('Updated CSV files')
