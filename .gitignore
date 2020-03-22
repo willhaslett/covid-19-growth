@@ -2,3 +2,4 @@ venv/
 .vscode/
 *.swp
 lib/__pycache__/
+firebase_credentials.json
