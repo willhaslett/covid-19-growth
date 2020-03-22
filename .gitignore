@@ -3,8 +3,4 @@ venv/
 *.pyc
 *.swp
 lib/__pycache__/
-firebase_credentials.ts
-node_modules/
-package-lock.json
-index.js
 .firebase_credentials.yaml
