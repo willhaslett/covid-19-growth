@@ -70,7 +70,7 @@ Verify the installation as above.
 Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized with the Johns Hopkins repo at runtime.
 
 * **CSV**
-  Comma-delimited files for each dataframe. Format mirrors the dataframes as described below.
+  Comma-delimited files for each dataframe. The formats mirror the dataframes as described below.
 
 * **JSON**
   JavaScript Object Notation files for each dataframe. Files are constructed using the `orient='table'` argument for 
