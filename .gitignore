@@ -4,3 +4,4 @@ venv/
 *.swp
 lib/__pycache__/
 .firebase_credentials.yaml
+.google_service_account_key.json

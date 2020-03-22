@@ -3,9 +3,10 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 
 # Use the application default credentials
-cred = credentials.ApplicationDefault()
+cred = credentials.Certificate('.google_service_account_key.json')
+
 firebase_admin.initialize_app(cred, {
-  'projectId': project_id,
+  'projectId': 'covidlocal',
 })
 
 db = firestore.client()
