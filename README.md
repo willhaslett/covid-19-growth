@@ -158,6 +158,15 @@ sub_region, region, and population are added.
   
   `all.ipynb` and `us.ipynb` contain starting points for work with global or US data.
 
+## Feature Suggestions
+
+  If there is a new feature that would help streamline your work with these data, please create a feature request issue.
+
+## Awareness-raising
+
+  If you find this repo useful, please consider starring it. The open issues for the Johns Hopkins repo show that many people are struggling with ETL for the JH CSV files. My hope is to make the ETL painless and to help quick-start the development of useful downstream tools.
+
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md) file for details
