@@ -75,7 +75,7 @@ Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized
 * **JSON**
   JavaScript Object Notation files for each dataframe. Files are constructed using the `orient='table'` format as described
   [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html).
-  For minified JSON, set `JSON_INDENT` to 0 in `dump_csv_and_json.py`.
+  For minified JSON, set `JSON_INDENT` to 0.
 
 
 
