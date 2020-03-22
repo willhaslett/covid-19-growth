@@ -1,1 +1,1 @@
-npm run tsc index.ts
+node index.js
