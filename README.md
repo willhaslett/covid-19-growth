@@ -160,7 +160,7 @@ sub_region, region, and population are added.
 
 ## Feature Suggestions
 
-  If there is a new feature that would help streamline your work with these data, please create a feature request issue.
+  If there is a new feature that would help to streamline your work with these data, please create a feature request issue.
 
 ## Awareness-raising
 
