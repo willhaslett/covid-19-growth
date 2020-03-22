@@ -6,3 +6,4 @@ lib/__pycache__/
 firebase_credentials.ts
 node_modules/
 package-lock.json
+.firebase_credentials.yml
