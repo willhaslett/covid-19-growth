@@ -67,7 +67,29 @@ Verify the installation as above.
 ## Usage
 
 ### `dump_csv_and_json.py`
-* Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized with the Johns Hopkins repo when this is run. See below for the structure of the output files.
+Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized with the Johns Hopkins repo when this is run.
+* output/csv
+
+  Format mirrors the dataframes. Shown here as fixed width
+  ```
+  date        region     sub_region          state           population  cases
+  2020-01-22  midwest    east_north_central  Illinois        12671821.0  0
+  2020-01-22  midwest    east_north_central  Indiana         6732219.0   0
+  2020-01-22  midwest    east_north_central  Michigan        9986857.0   0
+  2020-01-22  midwest    east_north_central  Ohio            11689100.0  0
+  2020-01-22  midwest    east_north_central  Wisconsin       5822434.0   0
+  2020-01-22  midwest    west_north_central  Iowa            3155070.0   0
+  ...
+  ```
+* output/json
+
+  Files are constructed using the `orient='table'` format as described
+  [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html).
+
+  For minified JSON, set `JSON_INDENT` to 0 in `dump_csv_and_json.py`
+
+
+
 
 ### `c19all.py`
 * `df_all` A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
