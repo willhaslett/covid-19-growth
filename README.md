@@ -31,11 +31,6 @@ The latest Johns Hopkins files are pulled from GitHub at runtime.
 [2850 rows x 6 columns]
 >>>  
 ```
-
-For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
-
-![](.images/vscode.png)
-
 - [covid-19-growth](#covid-19-growth)
   - [Installing](#installing)
     - [Virtualenv](#virtualenv)
@@ -75,11 +70,12 @@ $
 ```
 
 ### VSCode
-Have the [VSCode extension for Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) installed. Here 'remote' means in a local Docker container (Debian).
+-  Have the [VSCode extension for Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) installed. Here 'remote' means in a local Docker container (Debian).
+- In VSCode, [Open the project folder in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
+- Verify the installation as above.
 
-In VSCode, [Open the project folder in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
+![](.images/vscode.png)
 
-Verify the installation as above.
 
 ## Usage
 
