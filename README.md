@@ -172,7 +172,7 @@ sub_region, region, and population are added.
 - `python lib/upload_to_firestore.py`
 - Coffee
 
-  ![](.images/firebase.png)
+  ![](.images/firestore.png)
 
 ## Feature Suggestions
 
