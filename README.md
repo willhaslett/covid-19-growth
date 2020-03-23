@@ -160,9 +160,9 @@ sub_region, region, and population are added.
   
   `all.ipynb` and `us.ipynb` contain starting points for work with global or US data. You can preview the notebook stubs here in GitHub by navigating to them:
   
-  [Global Cases](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/all.ipynb)
+  [Global Deaths](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/all.ipynb)
   
-  [US Deaths](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/us.ipynb)
+  [US Cases](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/us.ipynb)
 
 ## Firebase
 - [Create your Firebase project](https://firebase.google.com/) and add a Firestore database
