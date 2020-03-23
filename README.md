@@ -32,7 +32,7 @@ This repo provides:
 
 For VSCode users, available as a self-contained, system-independent environment using Docker Remote with Jupyter Notebook integration.
 
-![](.devcontainer/.ss.png)
+![](.images/vscode.png)
 
 ## Installing
 ### Vanilla
@@ -126,7 +126,7 @@ sub_region, region, and population are added.
   ```
   Be wary of the county-level US data. The makeup of the US data between counties and states has been, understandably, inconsistent over time. `df_us_region_and_state` aggregates both county and state-level records.
 
-  ![](.devcontainer/.us_cases.png)
+  ![](.images/county_problem.png)
   
 
 * **`df_us_region_and_state`** A dictionary of US data by date, aggregated at the state level, with columns for sub_region, region, and population.
