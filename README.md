@@ -162,10 +162,6 @@ sub_region, region, and population are added.
   >>>
   ```
 
-* **Pickle files**
-
-  `df_us.p` and `df_us_region_and_state.p` are pickle files that persist the corresponding dictionaries of dataframes. For performance reasons, it is recommended to use these pickles for downstream work with the US data rather than importing the `c19us.py` module.
-
 ## Jupyter Notebooks
   
   `all.ipynb` and `us.ipynb` contain starting points for work with global or US data. You can preview the notebook stubs here in GitHub by navigating to them:
