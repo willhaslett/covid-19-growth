@@ -10,6 +10,14 @@ This repo provides:
 - Parsed CSV and JSON data structures for use outside of Pandas
 - Google Firebase integration
 
+## US Source Data Format Change
+On 2020-02-23, Johns Hopkins changed the format of the US case data. Data are now shown at the
+locale level. This will presumably break this rerpository's  pipeline for the US data processing. A fix and update for
+the US data,including the handling of data at the locale level, is underway. A new release containg
+these changes is planned for 2020-03-24. 
+
+![](.images/us_locale.png)
+
 The latest Johns Hopkins files are pulled from GitHub at runtime. The cached output Pandas dataframes, CSV files, and JSON files are updated if stale.
 
 - [covid-19-growth](#covid-19-growth)
@@ -41,6 +49,9 @@ pip install -q -r requirements.txt
 Verify installation
 ```
 $ python lib/tests.py
+Updated pickle file df_all.p with global data
+Updated pickle file df_us.p
+Updated pickle file df_us_region_and_state.p
 Updated CSV files
 Updated JSON files
 Tests passed
