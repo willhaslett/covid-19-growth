@@ -10,6 +10,7 @@ This repo provides:
 - Parsed CSV and JSON data structures for use outside of Pandas
 - Google Firebase integration
 
+The latest Johns Hopkins files are pulled from GitHub at runtime.
 
  ```
 >>> print(df_us_region_and_state['cases'])
