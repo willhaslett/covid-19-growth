@@ -21,6 +21,7 @@ The latest Johns Hopkins files are pulled from GitHub at runtime. The output Pan
     - [CSV and JSON](#csv-and-json)
     - [Global Data](#global-data)
     - [US Data](#us-data)
+  - [Jupyter Notebooks](#jupyter-notebooks)
   - [Firebase](#firebase)
   - [Feature Suggestions](#feature-suggestions)
   - [License](#license)
@@ -166,7 +167,7 @@ sub_region, region, and population are added.
 
   `df_us.p` and `df_us_region_and_state.p` are pickle files that persist the corresponding dictionaries of dataframes. For performance reasons, it is recommended to use these pickles for downstream work with the US data rather than importing the `c19us.py` module.
 
-* **Jupyter Notebooks**
+## Jupyter Notebooks
   
   `all.ipynb` and `us.ipynb` contain starting points for work with global or US data. You can preview the notebook stubs here in GitHub by navigating to them:
   
