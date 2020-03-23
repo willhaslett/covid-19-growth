@@ -14,7 +14,7 @@ This repo provides:
 On 2020-02-23, Johns Hopkins changed the format of the US case data. Data are now shown at the
 locale level. The tests still pass, importing county and state-level US data. An update for
 the US data pipeline, including new features for working with locale-level data, is under development.
-A release that incorporrates these changes is planned for 2020-03-24. 
+A release that incorporates these changes is planned for 2020-03-24. 
 
 ![](.images/us_locale.png)
 
