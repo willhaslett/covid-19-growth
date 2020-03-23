@@ -5,11 +5,11 @@ import c19all
 import constants
 
 
-""" Creates two dictionaries of structured US data and pickle files for each dataframe
+""" Creates two dictionaries of structured US data
     df_us()
-        Contains all US data by date with location type parsed into columns for each type
+        Contains case, death and recovery data by date with location type parsed into columns for each type
     df_region_and_state()
-        Contains all US data by date, aggregated by state, with columns for us 2019 census region, sub_region, and population
+        Contains case, death, and recovery data by date, aggregated by state, with columns for US 2019 census region, sub_region, and population
 """
 
 KNOWN_LOCATIONS = constants.US_LOCATIONS_IN_SOURCE
@@ -114,9 +114,9 @@ df_us_region_and_state = {
 }
 
 # Optional pickle files
-pickle_file = open('output/pickles/df_us.p', 'wb')
-pickle.dump(df_us, pickle_file)
-print('Updated pickle file df_us.p')
-pickle_file = open('output/pickles/df_us_region_and_state.p', 'wb')
-pickle.dump(df_us, pickle_file)
-print('Updated pickle file df_us_region_and_state.p')
+# pickle_file = open('output/pickles/df_us.p', 'wb')
+# pickle.dump(df_us, pickle_file)
+# print('Updated pickle file df_us.p')
+# pickle_file = open('output/pickles/df_us_region_and_state.p', 'wb')
+# pickle.dump(df_us, pickle_file)
+# print('Updated pickle file df_us_region_and_state.p')

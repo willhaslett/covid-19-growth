@@ -54,6 +54,6 @@ df_all = {
 }
 
 # Optional pickle files
-pickle_file = open('output/pickles/df_all.p', 'wb')
-pickle.dump(df_all, pickle_file)
-print('Updated pickle file df_all.p with global data')
+# pickle_file = open('output/pickles/df_all.p', 'wb')
+# pickle.dump(df_all, pickle_file)
+# print('Updated pickle file df_all.p with global data')
