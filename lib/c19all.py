@@ -53,6 +53,7 @@ df_all = {
     'recovered': df_from_csv(constants.DATA_URLS['recovered'])
 }
 
+# Optional pickle files
 pickle_file = open('output/pickles/df_all.p', 'wb')
 pickle.dump(df_all, pickle_file)
 print('Updated pickle file df_all.p with global data')
