@@ -36,8 +36,22 @@ For VSCode users, available as a self-contained, system-independent environment 
 
 ![](.images/vscode.png)
 
+- [covid-19-growth](#covid-19-growth)
+  - [Installing](#installing)
+    - [Virtualenv](#virtualenv)
+    - [VSCode](#vscode)
+  - [Usage](#usage)
+    - [CSV and JSON](#csv-and-json)
+    - [Global Data](#global-data)
+    - [US Data](#us-data)
+  - [Firebase](#firebase)
+  - [Feature Suggestions](#feature-suggestions)
+  - [License](#license)
+  - [Acknowledgments](#acknowledgments)
+
+
 ## Installing
-### Vanilla
+### Virtualenv
 Clone and set up your Python environmet. For Virtualenv, just copy/paste:
 ```
 git clone https://github.com/willhaslett/covid-19-growth.git
@@ -59,7 +73,7 @@ Tests passed
 $
 ```
 
-### VSCode/Docker
+### VSCode
 Have the [VSCode extension for Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) installed. Here 'remote' means in a local Docker container (Debian).
 
 In VSCode, [Open the project folder in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
@@ -68,7 +82,8 @@ Verify the installation as above.
 
 ## Usage
 
-### `dump_csv_and_json.py`
+### CSV and JSON
+`dump_csv_and_json.py`
 Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized with the Johns Hopkins repo at runtime.
 
 * **CSV**
@@ -79,7 +94,8 @@ Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized
   [pandas.DataFrame.to_json](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html).
   Choose a different structure for the JSON files by setting `JSON_ORIENT`. For minified JSON, set `JSON_INDENT` to 0.
 
-### `c19all.py`
+### Global Data
+`c19all.py`
 * **`df_all`** A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
   ```
   print(df_all['cases'])
@@ -106,7 +122,8 @@ Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized
   - `for_province_state(df, province_state)` Filter by province_state
   - `sum_by_date(df)` Group by date and sum case counts 
 
-### `c19us.py`
+### US Data
+`c19us.py`
 * **`df_us`** A dictionary with dataframes for US cases, deaths, and recoveries. Mixed location data
 from upstream are parsed into idividual columns for different location types. For state-level data,
 sub_region, region, and population are added.
