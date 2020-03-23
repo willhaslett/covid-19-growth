@@ -41,6 +41,7 @@ For VSCode users, available as a self-contained, system-independent environment 
     - [Virtualenv](#virtualenv)
     - [VSCode](#vscode)
   - [Usage](#usage)
+    - [What do I get?](#what-do-i-get)
     - [CSV and JSON](#csv-and-json)
     - [Global Data](#global-data)
     - [US Data](#us-data)
@@ -81,6 +82,21 @@ In VSCode, [Open the project folder in a container](https://code.visualstudio.co
 Verify the installation as above.
 
 ## Usage
+
+### What do I get?
+Two sets of output data are constructed at runtime, one for all global data and one for all US data. Currently, the global data structures are unparsed and mirror the raw Johns Hopkins files.
+
+The US data are parsed and demographic data are added. Province/State is parsed into [state, county, territory, other] and [region, sub_region, population] are added.
+
+The three output formats, Pandas, CSV and JSON, all contain the same  data. In Pandas, the dataframes are placed into dictionaries as shown below. For CSV and JSON files, these are broken out into nine individual files.
+- Dictionary for global data
+  - Dataframe for cases
+  - Dataframe for deaths
+  - Dataframe for recoveries
+- Dictionary for US data x two formats
+  - Dataframe for cases
+  - Dataframe for deaths
+  - Dataframe for recoveries
 
 ### CSV and JSON
 `dump_csv_and_json.py`
