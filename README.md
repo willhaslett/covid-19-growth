@@ -52,7 +52,7 @@ For VSCode users, available as a self-contained, system-independent environment 
 
 ## Installing
 ### Virtualenv
-Clone and set up your Python environmet. For Virtualenv, just copy/paste:
+Clone and set up your Python environmet. Copy/paste:
 ```
 git clone https://github.com/willhaslett/covid-19-growth.git
 cd covid-19-growth
