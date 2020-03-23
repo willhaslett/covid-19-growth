@@ -2,6 +2,7 @@ import pandas as pd
 from operator import itemgetter
 import hashlib
 import pickle
+import os.path
 import constants
 
 
@@ -52,7 +53,7 @@ def get_digest(df):
     sha.update(bytes(df.to_string(), encoding='utf-8'))
     return sha.hexdigest()
 
-# Load latest data from GitHub
+# Load the latest data from GitHub
 _dfs = {
     'cases': pd.read_csv(constants.DATA_URLS['cases']),
     'deaths': pd.read_csv(constants.DATA_URLS['deaths']),
