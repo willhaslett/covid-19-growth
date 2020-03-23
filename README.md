@@ -193,7 +193,7 @@ sub_region, region, and population are added.
 
 ## Feature Suggestions
 
-  If there is a new feature that would help to streamline your work with these data, please create a feature request issue.
+  If you have in mind a new feature that would help to streamline your work with these data, please create a feature request issue.
 
 ## License
 
