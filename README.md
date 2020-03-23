@@ -13,7 +13,7 @@ This repo provides:
 ## US Source Data Format Change
 On 2020-02-23, Johns Hopkins changed the format of the US case data. Data are now shown at the
 locale level. The new format will presumably break this rerpository's pipeline for processing the US data. A fix and update for
-the US data, including new features for the locale-level, is under development.
+the US data, including new features for working with locale-level data, is under development.
 A release that incorporrates these changes is planned for 2020-03-24. 
 
 ![](.images/us_locale.png)
