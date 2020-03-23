@@ -10,7 +10,7 @@ This repo provides:
 - Parsed CSV and JSON data structures for use outside of Pandas
 - Google Firebase integration
 
-The latest Johns Hopkins files are pulled from GitHub at runtime.
+The latest Johns Hopkins files are pulled from GitHub at runtime. The output Pandas dataframes are cached, and Pandas, CSV and JSON outputs are updated if stale.
 
 - [covid-19-growth](#covid-19-growth)
   - [Installing](#installing)
