@@ -7,7 +7,8 @@ displayed on their
 This repo provides:
 - A sensible starting point and some useful functions for COVID-19 reporting/analysis/modeling using
   Pandas/Python
-- CSV and JSON data structures for use outside of Pandas
+- Parsed CSV and JSON data structures for use outside of Pandas
+- Google Firebase integration
 
 
  ```
@@ -162,14 +163,19 @@ sub_region, region, and population are added.
   
   [US Deaths](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/us.ipynb)
 
+## Firebase
+- [Create your Firebase project](https://firebase.google.com/) and add a Firestore database
+- Create and download a private key JSON file for your project (Project settings > Service accounts)
+- Rename the downladed file to `.google_service_account_key.json` and put it in the project root (this file is ignored by Git) 
+- Customize `lib/upload_to_firestore.py` so that it works with the specific data that you want to upload
+- `python lib/upload_to_firestore.py`
+- Coffee
+
+  ![](.images/firebase.png)
+
 ## Feature Suggestions
 
   If there is a new feature that would help to streamline your work with these data, please create a feature request issue.
-
-## Awareness-raising
-
-  If you find this repo useful, please consider starring it. The open issues for the Johns Hopkins repo show that many people are struggling with ETL for the JH CSV files. My hope is to make the ETL painless and to help quick-start the development of useful downstream tools.
-
 
 ## License
 
