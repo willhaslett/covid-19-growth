@@ -88,7 +88,7 @@ Two sets of output data are constructed at runtime, one for all global data and 
 
 The US data are parsed and demographic data are added. Province/State is parsed into [state, county, territory, other] and [region, sub_region, population] are added.
 
-The three output formats, Pandas, CSV and JSON, all contain the same  data. In Pandas, the dataframes are placed into dictionaries as shown below. For CSV and JSON files, these are broken out into nine individual files.
+The three output formats, Pandas, CSV and JSON, all contain the same  data. In Pandas, the dataframes are placed into dictionaries as shown below. For CSV and JSON output, these are broken out into nine individual files.
 - Dictionary for global data
   - Dataframe for cases
   - Dataframe for deaths
