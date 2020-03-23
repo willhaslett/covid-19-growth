@@ -165,10 +165,10 @@ sub_region, region, and population are added.
   [US Cases](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/us.ipynb)
 
 ## Firebase
-- [Create your Firebase project](https://firebase.google.com/) and add a Firestore database
-- Create and download a private key JSON file for your project (Project settings > Service accounts)
-- Rename the downladed file to `.google_service_account_key.json` and put it in the project root (this file will be ignored by Git) 
-- Customize `lib/upload_to_firestore.py` so that it works with the specific data that you want to upload
+- [Create your Firebase project](https://firebase.google.com/) and add a Firestore database.
+- Create and download a private key JSON file for your project. (Project settings > Service accounts)
+- Rename the downladed file to `.google_service_account_key.json` and put it in the project root. This file will be ignored by Git.
+- Customize `lib/upload_to_firestore.py` so that it works with the specific data that you want to upload.
 - `python lib/upload_to_firestore.py`
 - Coffee
 
