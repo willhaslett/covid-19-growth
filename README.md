@@ -12,25 +12,6 @@ This repo provides:
 
 The latest Johns Hopkins files are pulled from GitHub at runtime.
 
- ```
->>> print(df_us_region_and_state['cases'])
-
-            date   region          sub_region       state  population  cases
-0    2020-01-22  midwest  east_north_central    Illinois  12671821.0      0
-1    2020-01-22  midwest  east_north_central     Indiana   6732219.0      0
-2    2020-01-22  midwest  east_north_central    Michigan   9986857.0      0
-3    2020-01-22  midwest  east_north_central        Ohio  11689100.0      0
-4    2020-01-22  midwest  east_north_central   Wisconsin   5822434.0      0
-...         ...      ...                 ...         ...         ...    ...
-2845 2020-03-18     west             pacific      Alaska    731545.0      6
-2846 2020-03-18     west             pacific  California  39512223.0    751
-2847 2020-03-18     west             pacific      Hawaii   1415872.0     14
-2848 2020-03-18     west             pacific      Oregon   4217737.0     68
-2849 2020-03-18     west             pacific  Washington   7614893.0   1014
-
-[2850 rows x 6 columns]
->>>  
-```
 - [covid-19-growth](#covid-19-growth)
   - [Installing](#installing)
     - [Virtualenv](#virtualenv)
