@@ -23,7 +23,6 @@ The latest Johns Hopkins files are pulled from GitHub at runtime. The output Pan
     - [US Data](#us-data)
   - [Jupyter Notebooks](#jupyter-notebooks)
   - [Firebase](#firebase)
-  - [Feature Suggestions](#feature-suggestions)
   - [License](#license)
   - [Acknowledgments](#acknowledgments)
 
@@ -184,10 +183,6 @@ sub_region, region, and population are added.
 - Coffee
 
   ![](.images/firestore.png)
-
-## Feature Suggestions
-
-  If you have in mind a new feature that would help to streamline your work with these data, please create a feature request issue.
 
 ## License
 
