@@ -11,16 +11,14 @@ This repo provides:
 - Google Firebase integration
 
 ## US Source Data Format Change
-On 2020-02-23, Johns Hopkins changed the format of the US case data. Data are now shown at the
-locale level. The tests still pass, importing county and state-level US data. An update for
-the US data pipeline, including new features for working with locale-level data, is under development.
-A release that incorporates these changes is planned for 2020-03-24. 
+On 2020-02-23, Johns Hopkins changed the format of the US case data that appear on their ArcGIS dshboard. Data are now shown at the locale level rather than the state level. If the CSV files that are posted this evening include this new level of detail, that's great news, but downstream tools such as this one will likely need a day or so to incorporate the changes. This section will be updated when more information becomes available.
 
 ![](.images/us_locale.png)
 
 The latest Johns Hopkins files are pulled from GitHub at runtime. The cached output Pandas dataframes, CSV files, and JSON files are updated if stale.
 
 - [covid-19-growth](#covid-19-growth)
+  - [US Source Data Format Change](#us-source-data-format-change)
   - [Installing](#installing)
     - [Virtualenv](#virtualenv)
     - [VSCode](#vscode)
