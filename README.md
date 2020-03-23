@@ -13,8 +13,6 @@ This repo provides:
 ## US Source Data Format Change
 On 2020-02-23, Johns Hopkins changed the format of the US case data that appear on their ArcGIS dshboard. Data are now shown at the locale level rather than the state level. If the CSV files that are posted this evening include this new level of detail, that's great news, but downstream tools such as this one will likely need a day or so to incorporate the changes. This section will be updated when more information becomes available.
 
-![](.images/us_locale.png)
-
 The latest Johns Hopkins files are pulled from GitHub at runtime. The cached output Pandas dataframes, CSV files, and JSON files are updated if stale.
 
 - [covid-19-growth](#covid-19-growth)
