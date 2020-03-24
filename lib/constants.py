@@ -258,9 +258,11 @@ US_LOCATIONS_IN_SOURCE = {
     "Puerto Rico":                  'territory',
     "Virgin Islands, U.S.":         'territory',
     "Virgin Islands":               'territory',
+    "United States Virgin Islands": 'territory',
     "Guam":                         'territory',
     "Diamond Princess":             'other',
     "Grand Princess":               'other',
+    "US":                           'other'
 }
 
 CRUISE_SHIPS = [
