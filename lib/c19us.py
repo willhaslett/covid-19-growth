@@ -1,6 +1,5 @@
 import pandas as pd
 import pickle
-from pprint import pprint as pp
 import c19all
 import constants
 
