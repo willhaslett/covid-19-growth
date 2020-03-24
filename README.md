@@ -16,7 +16,7 @@ The latest Johns Hopkins files are pulled from GitHub at runtime. The cached out
  [started containing extensive county-level data](https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports/03-23-2020.csv)
  for the US. In addition, the time series files 
  [have been deprecated](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series)
- in favor of new CSV files in the same directory. It is unclear whether or not the new time series files will contain the new couty level data. Currently, [they do not.](https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv).
+ in favor of new CSV files in the same directory. It is unclear whether or not the new time series files will contain the new county level data. Currently, [they do not.](https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv)
  The URLs in [lib/constants.py](https://github.com/willhaslett/covid-19-growth/blob/master/lib/constants.py)
  have been updated to point at the new case and death time series files. Note that no new times series
  file has been provided for recoveries.
@@ -24,7 +24,7 @@ The latest Johns Hopkins files are pulled from GitHub at runtime. The cached out
  The situation will be assessed after tonight's files are posted. Taking their comments and the files' contents
  as a whole, it sounds like the county-level data will start appearing the time series files. If so, the
  existing `df_us` dictionary will continue to have the same format, but will have much richer data for the
- US. If these data are not added to the time series files, a pipeline for the daily case reports will
+ US. If the county-level data are not added to the time series files, a pipeline for the daily case reports will
  be developed.
 
 
