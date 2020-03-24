@@ -24,10 +24,7 @@ The latest Johns Hopkins files are pulled from GitHub at runtime. The cached out
  The situation will be assessed after tonight's files are posted. Taking their comments and the files' contents
  as a whole, it sounds like the county-level data will start appearing the time series files. If so, the
  existing `df_us` dictionary will continue to have the same format, but will have much richer data for the
- US. If the county-level data are not added to the time series files, a pipeline for the daily case reports will
- be developed.
-
-
+ US.
 
   - [Installing](#installing)
     - [Virtualenv](#virtualenv)
