@@ -114,9 +114,11 @@ df_us_region_and_state = {
     'recovered': _by_region_and_state(df_us['recovered']),
 }
 
-pickle_file = open('output/pickles/df_us.p', 'wb')
-pickle.dump(df_us, pickle_file)
-print('Updated pickle file df_us.p')
-pickle_file = open('output/pickles/df_us_region_and_state.p', 'wb')
-pickle.dump(df_us, pickle_file)
-print('Updated pickle file df_us_region_and_state.p')
+# Optional pickle files
+
+# pickle_file = open('output/pickles/df_us.p', 'wb')
+# pickle.dump(df_us, pickle_file)
+# print('Updated pickle file df_us.p')
+# pickle_file = open('output/pickles/df_us_region_and_state.p', 'wb')
+# pickle.dump(df_us, pickle_file)
+# print('Updated pickle file df_us_region_and_state.p')
