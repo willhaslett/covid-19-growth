@@ -36,9 +36,8 @@ _output_columns = [
 def _parse_location(row):
     location = row._location
     if location not in KNOWN_LOCATIONS:
-        row.unknown_type = location
+        KNOWN_LOCATIONS[location] = 'unkown_type'
         print(f'Location {location} assigend as unknown_type. Update constants.US_LOCATIONS_IN_SOURCE')
-        return row
     if KNOWN_LOCATIONS[location] == 'state':
         row.is_state = True
         row.state = location
@@ -59,8 +58,10 @@ def _parse_location(row):
     if KNOWN_LOCATIONS[location] == 'other':
         row.other = location
         return row
-    print(f'Failed to parse {location} as known or unknown_type')
-    raise ValueError('A very specific bad thing happened.')
+    if KNOWN_LOCATIONS[location] == 'unkown_type':
+        row.unknown_type = location
+        return row
+    raise ValueError('Parsing location failed. Open a GitHub issue.')
 
 
 def _handle_special_cases(df):
@@ -113,6 +114,7 @@ df_us_region_and_state = {
 }
 
 # Optional pickle files
+
 # pickle_file = open('output/pickles/df_us.p', 'wb')
 # pickle.dump(df_us, pickle_file)
 # print('Updated pickle file df_us.p')

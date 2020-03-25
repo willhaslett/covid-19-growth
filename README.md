@@ -10,13 +10,22 @@ This repo provides:
 - Parsed CSV and JSON data structures for use outside of Pandas
 - Google Firebase integration
 
-**US Source Data Format Change:**
-On 2020-02-23, Johns Hopkins changed the format of the US case data that appear on their ArcGIS dshboard. Data are now shown at the locale level rather than the state level. If the CSV files that are posted this evening include this new level of detail, that's great news, but downstream tools such as this one will likely need a day or so to incorporate the changes. This section will be updated when more information becomes available.
-
 The latest Johns Hopkins files are pulled from GitHub at runtime. The cached output Pandas dataframes, CSV files, and JSON files are updated if stale.
 
-- [covid-19-growth](#covid-19-growth)
-  - [US Source Data Format Change](#us-source-data-format-change)
+**New county-level US data from JH** : On 2020-03-23, The JH daily case reports
+ [started containing extensive county-level data](https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports/03-23-2020.csv)
+ for the US. In addition, the time series files 
+ [have been deprecated](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series)
+ in favor of new CSV files in the same directory. It is unclear whether or not the new time series files will contain the new county level data. Currently, [they do not.](https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv)
+ The URLs in [lib/constants.py](https://github.com/willhaslett/covid-19-growth/blob/master/lib/constants.py)
+ have been updated to point at the new case and death time series files. Note that no new times series
+ file has been provided for recoveries.
+
+ The situation will be assessed after tonight's files are posted. Taking their comments and the files' contents
+ as a whole, it sounds like the county-level data will start appearing the time series files. If so, the
+ existing `df_us` dictionary will continue to have the same format, but will have much richer data for the
+ US.
+
   - [Installing](#installing)
     - [Virtualenv](#virtualenv)
     - [VSCode](#vscode)
@@ -65,11 +74,13 @@ $
 ## Usage
 
 ### What do I get?
-Two sets of output data are constructed at runtime, one for all global data and one for all US data. Currently, the global data structures are unparsed and mirror the raw Johns Hopkins files.
-
+Two sets of output data are constructed at runtime, one for all global data and one for all US data.
 The US data are parsed and demographic data are added. Province/State is parsed into [state, county, territory, other] and [region, sub_region, population] are added.
 
-The three output formats, Pandas, CSV and JSON, all contain the same  data. In Pandas, the dataframes are placed into dictionaries as shown below. For CSV and JSON output, these are broken out into nine individual files.
+The three output formats, Pandas, CSV and JSON, all contain the same data, with the dataframes and CSV files
+having the same tabular format, and the JSON files structured by the
+[pandas.DataFrame.to_json](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html) function.
+In Pandas, the dataframes are placed into dictionaries as shown below. For CSV and JSON output, these are broken out into nine individual files.
 - Dictionary for global data
   - Dataframe for cases
   - Dataframe for deaths

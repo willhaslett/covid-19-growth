@@ -62,19 +62,8 @@ _dfs = {
     'recovered': pd.read_csv(constants.DATA_URLS['recovered']),
 }
 
-# Dict must have a `cases` member
-def load_or_update_df_dict(df_dict, dict_name):
-    # Load cache or process new data
-    if cache_is_valid(df_dict['cases'], dict_name) && _pickle_exists(dict_name):
-        print("\nNo new data found. Loading cache") 
-        pickle_file = open(f'pickles/df_all.p', 'rb')
-        df_us = pickle.load(pickle_file)
-        pickle_file.close()
-    else:
-        print("\nNew data found. Updated cache for global data") 
-        df_all = _dfs
-        pickle_file = open('pickles/df_all.p', 'wb')
-        pickle.dump(df_all, pickle_file)
-        pickle_file.close()
-        with open('', 'w') as digest:
-            digest.write("Purchase Amount: %s" % TotalAmount)
+# Optional pickle file
+
+# pickle_file = open('output/pickles/df_all.p', 'wb')
+# pickle.dump(df_all, pickle_file)
+# print('Updated pickle file df_all.p with global data')

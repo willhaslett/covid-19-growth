@@ -1,6 +1,6 @@
 DATA_URLS = {
-    'cases': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv',
-    'deaths': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv',
+    'cases': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv',
+    'deaths': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv',
     'recovered': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv'
 }
 
@@ -258,9 +258,11 @@ US_LOCATIONS_IN_SOURCE = {
     "Puerto Rico":                  'territory',
     "Virgin Islands, U.S.":         'territory',
     "Virgin Islands":               'territory',
+    "United States Virgin Islands": 'territory',
     "Guam":                         'territory',
     "Diamond Princess":             'other',
     "Grand Princess":               'other',
+    "US":                           'other'
 }
 
 CRUISE_SHIPS = [
