@@ -12,11 +12,13 @@ This repo provides:
 
 The latest Johns Hopkins files are pulled from GitHub at runtime. The cached output Pandas dataframes, CSV files, and JSON files are updated if stale.
 
-**DEPRACATION NOTICE for US data structure** : On 2020-03-23, The JH daily case reports
+**New US county-level data structure** : On 2020-03-22, The JH daily case reports
  [started containing extensive county-level data](https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports/03-23-2020.csv)
- for the US. The county-level do not appear in the time series files as of 2020-03-25. The **next release** of this tool, planned for 2020-03-28, will include a new set of dataframes for the new county-level data.
- The daily CSV files will  be aggregated into a time series, and the dataframes will be long format as they are now.
- The current code that process US data will be **depracated**. If you have a continued use for the US time series files, stick with [v0.5.1](https://github.com/willhaslett/covid-19-growth/tree/v0.5.1). The global data output will not be affected by these changes.
+ for the US. The county-level do not appear in the time series files as of 2020-03-25. The **next release** of this tool, planned for 2020-03-28,
+ will include a new module, `lib/c19us_county.py`, that contains a set of dataframes for the new county-level data. This module will only contain data for 2020-03-22 and beyond.
+ The daily CSV files will be aggregated into a time series, and the dataframes will be long format as they are now.
+ 
+ `c19_all.py`, `c19_us.py`, and `c19_us_region_and_state` will continue to provide up-to-date state-level data.
 
   - [Installing](#installing)
     - [Virtualenv](#virtualenv)
