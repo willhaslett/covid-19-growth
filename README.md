@@ -17,8 +17,7 @@ The latest Johns Hopkins files are pulled from GitHub at runtime. The cached out
  for the US. The county-level do not appear in the time series files as of 2020-03-25. The **next release** of this tool, planned for 2020-03-28,
  will include a new module, `lib/c19us_county.py`, that contains a set of dataframes for the new county-level data. This module will only contain data for 2020-03-22 and beyond.
  The daily CSV files will be aggregated into a time series, and the dataframes will be long format as they are now.
- 
- `c19_all.py`, `c19_us.py`, and `c19_us_region_and_state` will continue to provide up-to-date state-level data.
+  `c19_all.py`, `c19_us.py`, and `c19_us_region_and_state` will continue to provide up-to-date state-level US data.
 
   - [Installing](#installing)
     - [Virtualenv](#virtualenv)
