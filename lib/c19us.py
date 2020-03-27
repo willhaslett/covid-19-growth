@@ -1,5 +1,5 @@
 import pandas as pd
-import pickle
+import urllib
 import c19all
 import constants
 
@@ -13,20 +13,18 @@ import constants
 """
 
 def date_to_str(pd_date):
-    return pd_date.strftime('%Y-%m-%d')
+    return pd_date.strftime('%m-%d-%Y')
 
 date_range = pd.date_range(start=constants.DAILY_START_DATE, end=pd.to_datetime('today')).tolist()
-date_range = [date.strftime('%Y-%m-%d') for date in date_range]
-print(date_range)
+date_range = [date.strftime('%m-%d-%Y') for date in date_range]
+daily_dfs = {}
+for date in date_range:
+    url = constants.DATA_URLS['daily'].replace('##-##-####', date)
+    response =  urllib.request.urlopen(url)
+    if response.code == 200:
+        daily_dfs[date] = pd.read_csv(url)
 
-
-
-
-
-
-
-
-
+print(daily_dfs)
 
 
 _output_columns = [
