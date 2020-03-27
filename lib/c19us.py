@@ -1,31 +1,29 @@
 import pandas as pd
 import urllib
+import math
 import c19all
 import constants
 
-""" Exposes df_us, a dictionary with dataframes holding all US county-level data
-     df_us = {
-         'cases': <all US cases dataframe>,
-         'deaths': <all US deaths dataframe>
-         'recovered': <all US recoveries dataframe>
-         'active': <all US active cases dataframe>
-     }
-"""
+DATE_RANGE = pd.date_range(start=constants.DAILY_START_DATE, end=pd.to_datetime('today')).tolist()
 
-def date_to_str(pd_date):
-    return pd_date.strftime('%m-%d-%Y')
+def df_from_daily_report(url):
+    df = pd.read_csv(url)[['FIPS', 'Confirmed', 'Deaths', 'Recovered', 'Active']]
+    df = df.rename(columns=constants.RENAMED_COLUMNS['daily_reports'])
+    # Remove problematic records
+    df = df.loc[~df.fips.isnull()]
+    return df
 
-date_range = pd.date_range(start=constants.DAILY_START_DATE, end=pd.to_datetime('today')).tolist()
-date_range = [date.strftime('%m-%d-%Y') for date in date_range]
 daily_dfs = {}
-for date in date_range:
-    url = constants.DATA_URLS['daily'].replace('##-##-####', date)
+for date in DATE_RANGE:
+    filename_date = date.strftime('%m-%d-%Y')
+    iso_8601_date = date.strftime('%Y-%m-%d') 
+    url = constants.DATA_URLS['daily'].replace('##-##-####', filename_date)
     try:
         response =  urllib.request.urlopen(url)
     except urllib.error.HTTPError:
         break
     else:
-        daily_dfs[date] = pd.read_csv(url)
+        daily_dfs[iso_8601_date] = df_from_daily_report(url)
 
 print(daily_dfs)
 

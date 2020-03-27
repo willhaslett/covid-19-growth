@@ -7,10 +7,19 @@ DATA_URLS = {
 }
 
 RENAMED_COLUMNS = {
-    "Province/State": "province_state",
-    "Country/Region": "country",
-    "Lat": "lat",
-    "Long": "long",
+    'time_series': {
+        'Province/State': 'province_state',
+        'Country/Region': 'country',
+        'Lat': 'lat',
+        'Long': 'long',
+    },
+    'daily_reports': {
+        'FIPS': 'fips',
+        'Confirmed': 'confirmed',
+        'Deaths': 'deaths',
+        'Recovered': 'recovered',
+        'Active': 'active'
+    }
 }
 
 DAILY_START_DATE = '2020-03-22'
