@@ -20,8 +20,11 @@ date_range = [date.strftime('%m-%d-%Y') for date in date_range]
 daily_dfs = {}
 for date in date_range:
     url = constants.DATA_URLS['daily'].replace('##-##-####', date)
-    response =  urllib.request.urlopen(url)
-    if response.code == 200:
+    try:
+        response =  urllib.request.urlopen(url)
+    except urllib.error.HTTPError:
+        break
+    else:
         daily_dfs[date] = pd.read_csv(url)
 
 print(daily_dfs)
