@@ -12,10 +12,12 @@ import constants
      }
 """
 
-date_range = pd.date_range(start=constants.DAILY_START_DATE, end=pd.to_datetime('today'))
-for date in date_range:
-    date = date.strftime('%Y-%m-%d')
-    print(date)
+def date_to_str(pd_date):
+    return pd_date.strftime('%Y-%m-%d')
+
+date_range = pd.date_range(start=constants.DAILY_START_DATE, end=pd.to_datetime('today')).tolist()
+date_range = [date.strftime('%Y-%m-%d') for date in date_range]
+print(date_range)
 
 
 
