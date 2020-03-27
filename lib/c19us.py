@@ -3,8 +3,6 @@ import pickle
 import c19all
 import constants
 
-
-
 """ Exposes df_us, a dictionary with dataframes holding all US county-level data
      df_us = {
          'cases': <all US cases dataframe>,
@@ -14,7 +12,20 @@ import constants
      }
 """
 
-POPULATION = constants.US_POPULATION
+date_range = pd.date_range(start=constants.DAILY_START_DATE, end=pd.to_datetime('today'))
+for date in date_range:
+    date = date.strftime('%Y-%m-%d')
+    print(date)
+
+
+
+
+
+
+
+
+
+
 
 _output_columns = [
     'date',

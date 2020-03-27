@@ -13,6 +13,8 @@ RENAMED_COLUMNS = {
     "Long": "long",
 }
 
+DAILY_START_DATE = '2020-03-22'
+
 COUNTIES = {
     "45001":  {"county": "Abbeville",             "state": "South Carolina",        "lat": "34.22333378",  "long": "-82.46170658",  "sub_region": "south_atlantic",      "region": "south"},
     "22001":  {"county": "Acadia",                "state": "Louisiana",             "lat": "30.2950649",   "long": "-92.41419698",  "sub_region": "west_south_central",  "region": "south"},
@@ -832,7 +834,6 @@ COUNTIES = {
     "46043":  {"county": "Douglas",               "state": "South Dakota",          "lat": "43.38520741",  "long": "-98.36978007",  "sub_region": "west_north_central",  "region": "midwest"},
     "53017":  {"county": "Douglas",               "state": "Washington",            "lat": "47.7361335",   "long": "-119.692937",   "sub_region": "pacific",             "region": "west"},
     "55031":  {"county": "Douglas",               "state": "Wisconsin",             "lat": "46.43222285",  "long": "-91.91595768",  "sub_region": "east_north_central",  "region": "midwest"},
-    "35013":  {"county": "Do√±a Ana",             "state": "New Mexico",            "lat": "32.35275771",  "long": "-106.8329387",  "sub_region": "mountain",            "region": "west"},
     "5043":   {"county": "Drew",                  "state": "Arkansas",              "lat": "33.59035001",  "long": "-91.71777921",  "sub_region": "west_south_central",  "region": "south"},
     "17043":  {"county": "DuPage",                "state": "Illinois",              "lat": "41.85116968",  "long": "-88.08642662",  "sub_region": "east_north_central",  "region": "midwest"},
     "18037":  {"county": "Dubois",                "state": "Indiana",               "lat": "38.36597551",  "long": "-86.8792417",   "sub_region": "east_north_central",  "region": "midwest"},
@@ -880,7 +881,6 @@ COUNTIES = {
     "42047":  {"county": "Elk",                   "state": "Pennsylvania",          "lat": "41.42822061",  "long": "-78.64524744",  "sub_region": "mid_atlantic",        "region": "northeast"},
     "18039":  {"county": "Elkhart",               "state": "Indiana",               "lat": "41.59761169",  "long": "-85.85875695",  "sub_region": "east_north_central",  "region": "midwest"},
     "32007":  {"county": "Elko",                  "state": "Nevada",                "lat": "41.14531606",  "long": "-115.3577619",  "sub_region": "mountain",            "region": "west"},
-    "32007":  {"county": "Elko County",           "state": "Nevada",                "lat": "41.14531606",  "long": "-115.3577619",  "sub_region": "mountain",            "region": "west"},
     "21063":  {"county": "Elliott",               "state": "Kentucky",              "lat": "38.11624059",  "long": "-83.09771563",  "sub_region": "east_south_central",  "region": "south"},
     "20051":  {"county": "Ellis",                 "state": "Kansas",                "lat": "38.91458712",  "long": "-99.31751551",  "sub_region": "west_north_central",  "region": "midwest"},
     "40045":  {"county": "Ellis",                 "state": "Oklahoma",              "lat": "36.2180194",   "long": "-99.75324573",  "sub_region": "west_south_central",  "region": "south"},
