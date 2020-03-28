@@ -1,16 +1,17 @@
 # covid-19-growth
 
-The Johns Hopkins University Center for Systems Science and Engineering is providing
-[daily COVID-19 CSV files](https://github.com/CSSEGISandData/COVID-19) containing the data that are
-displayed on their
-[ArcGIS dashboard for COVID-19](https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6).
-This repo provides:
+The [New York Times](https://raw.githubusercontent.com/nytimes/covid-19-data)
+and the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)
+Center for Systems Science and Engineering are providing daily COVID-19 case
+count data. This repo provides:
 - A sensible starting point and some useful functions for COVID-19 reporting/analysis/modeling using
   Pandas/Python
 - Parsed CSV and JSON data structures for use outside of Pandas
 - Google Firebase integration
 
-The latest Johns Hopkins files are pulled from GitHub at runtime. The cached output Pandas dataframes, CSV files, and JSON files are updated if stale.
+The latest NYT and NHU files are pulled from GitHub at runtime.
+The resulting data structures are output as Pandas dataframes
+, CSV files, and JSON files.
 
 ### Johns Hopkins and New York Times US county-level data
 As of 2020-03-28, JHU and NYT are both sharing county-level data for the US.
