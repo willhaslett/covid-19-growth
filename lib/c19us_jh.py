@@ -21,7 +21,6 @@ county_columns = [
 
 output_columns = [
     'date',
-    'day',
     'county',
     'state',
     'sub_region',
@@ -40,7 +39,6 @@ def df_from_daily_report(date, url):
     df = df.loc[df.fips.isin(fips)]
     df = df.astype({'fips': 'int32'})
     df['date'] = date 
-    df['day'] = (df.date - pd.to_datetime(df.date.iloc[0])).astype('timedelta64[D]')
     for column in county_columns:
         df[column] = df.apply(lambda row: counties.loc[column, str(row['fips'])], axis=1)
     return df[output_columns]
@@ -56,3 +54,5 @@ for date in DATE_RANGE:
         dfs.append(df_from_daily_report(date, url))
 
 df_us = pd.concat(dfs)
+
+print(df_us)
