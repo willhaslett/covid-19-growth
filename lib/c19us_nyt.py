@@ -21,7 +21,7 @@ df['day'] = (df.date - df.start_date).astype('timedelta64[D]')
 for column in county_columns:
     df[column] = df.apply(
         lambda row: counties.loc[column, str(row['fips'])], axis=1)
-df_us = df[output_columns]
+df_us = df[output_columns].set_index('fips')
 
 pickle_file = open('output/pickles/df_us_nyt.p', 'wb')
 pickle.dump(df_us, pickle_file)

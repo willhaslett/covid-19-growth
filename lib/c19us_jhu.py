@@ -8,19 +8,18 @@ import constants
 
 counties = pd.DataFrame(constants.COUNTIES)
 fips = constants.COUNTIES.keys()
-county_columns = constants.US_COUNTY_COLUMNS['jh']
-output_columns = constants.US_OUTPUT_COLUMNS['jh']
-start_date = constants.START_DATE['jh']
+county_columns = constants.US_COUNTY_COLUMNS['jhu']
+output_columns = constants.US_OUTPUT_COLUMNS['jhu']
+start_date = constants.START_DATE['jhu']
 
 DATE_RANGE = pd.date_range(
-    start=pd.to_datetime(constants.START_DATE['jh']),
+    start=pd.to_datetime(constants.START_DATE['jhu']),
     end=pd.to_datetime('today')
 ).tolist()
 
 def df_from_daily_report(date, url):
-    df = pd.read_csv(
-        url)[['FIPS', 'Confirmed', 'Deaths', 'Recovered', 'Active']]
-    df = df.rename(columns=constants.JH_RENAMED_COLUMNS['daily_reports'])
+    df = pd.read_csv( url)[['FIPS', 'Confirmed', 'Deaths', 'Recovered', 'Active']]
+    df = df.rename(columns=constants.JHU_RENAMED_COLUMNS['daily_reports'])
     df = df.loc[df.fips.isin(fips)]
     df = df.astype({'fips': 'int32'})
     df['date'] = date
@@ -28,11 +27,11 @@ def df_from_daily_report(date, url):
     for column in county_columns:
         df[column] = df.apply(
             lambda row: counties.loc[column, str(row['fips'])], axis=1)
-    return df[output_columns]
+    return df[output_columns].set_index('fips')
 
 dfs = []
 for date in DATE_RANGE:
-    url = constants.DATA_URLS['us']['jh'].replace(
+    url = constants.DATA_URLS['us']['jhu'].replace(
         '##-##-####', date.strftime('%m-%d-%Y'))
     try:
         response = request.urlopen(url)
@@ -43,6 +42,6 @@ for date in DATE_RANGE:
 
 df_us = pd.concat(dfs)
 
-pickle_file = open('output/pickles/df_us_jh.p', 'wb')
+pickle_file = open('output/pickles/df_us_jhu.p', 'wb')
 pickle.dump(df_us, pickle_file)
-print('Updated pickle file df_us_jh.p with Johns Hopkins data')
+print('Updated pickle file df_us_jhu.p with Johns Hopkins data')

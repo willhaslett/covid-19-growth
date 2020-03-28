@@ -1,5 +1,5 @@
 import c19all
-import c19us_jh
+import c19us_jhu
 import c19us_nyt
 import c19us_combined
 import pandas as pd
@@ -15,7 +15,7 @@ JSON_INDENT = 2
 DATAFRAMES = {
     'df_all_cases':   c19all.df_all['cases'],
     'df_all_deaths':  c19all.df_all['deaths'],
-    'df_us_jh':       c19us_jh.df_us,
+    'df_us_jhu':      c19us_jhu.df_us,
     'df_us_nyt':      c19us_nyt.df_us,
     'df_us_combined': c19us_combined.df_us,
 }

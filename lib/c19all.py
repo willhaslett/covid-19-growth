@@ -17,10 +17,12 @@ import constants
     `sum_by_date(df)` Group by date and sum case counts 
 """
 
+renamed_columns = constants.JHU_RENAMED_COLUMNS['time_series']
+
 def df_from_csv(file_name):
     """ Perform ETL on a Johns Hopkins COVID-19 time series file, Returning a dataframe """
     df = pd.read_csv(file_name)
-    df = df.rename(columns=constants.JH_RENAMED_COLUMNS['time_series'])
+    df = df.rename(columns=renamed_columns)
     date_cols = df.filter(regex=('^\d+/\d+/\d+$')).columns.array
     df = pd.melt(df, id_vars=['province_state', 'country', 'lat',
                                       'long'], value_vars=date_cols, var_name='date', value_name='cases')

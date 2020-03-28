@@ -4,18 +4,18 @@ DATA_URLS = {
         'deaths': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv',
     },
     'us': {
-        'jh': 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/##-##-####.csv',
+        'jhu': 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/##-##-####.csv',
         'nyt': 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv'
     }
 }
 
 START_DATE = {
-    'jh': '2020-03-22',
+    'jhu': '2020-03-22',
     'nyt': '2020-01-21'
 }
 
 US_COUNTY_COLUMNS = {
-    'jh': [
+    'jhu': [
         'county',
         'state',
         'sub_region',
@@ -32,9 +32,10 @@ US_COUNTY_COLUMNS = {
 }
 
 US_OUTPUT_COLUMNS = {
-    'jh': [
+    'jhu': [
         'date',
         'day',
+        'fips',
         'county',
         'state',
         'sub_region',
@@ -49,6 +50,7 @@ US_OUTPUT_COLUMNS = {
     'nyt': [
         'date',
         'day',
+        'fips',
         'county',
         'state',
         'sub_region',
@@ -60,7 +62,7 @@ US_OUTPUT_COLUMNS = {
     ]
 }
 
-JH_RENAMED_COLUMNS = {
+JHU_RENAMED_COLUMNS = {
     'time_series': {
         'Province/State': 'province_state',
         'Country/Region': 'country',
