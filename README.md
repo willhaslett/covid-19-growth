@@ -157,10 +157,10 @@ Creates CSV and JSON files for the five Pandas dataframes. Data are synchronized
   [US Cases](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/us.ipynb)
 
 ## Firebase
-Supports uploading these data structures into Firebase/Firestore. Customize the data model to your liking,
-but be wary of uploading an entire dataframe as a Firestore document. Currently, `upload_to_firestore.py`
+`upload_to_firestore.py` uploads data structures into Firebase/Firestore.
+Currently, `upload_to_firestore.py`
 breaks up the `c19us_combined` dataframe into a set of dataframes, one for each date, and the data for
-each date are stored as a single JSON string in the Firestore documents.
+each date are stored as a single JSON string in a Firestore document.
 ### Prerequisites
   - [Create your Firebase project](https://firebase.google.com/) and add a Firestore database.
   - Create and download a private key JSON file for your project. (Project settings > Service accounts)
