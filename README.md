@@ -62,7 +62,7 @@ $
 ### What do I get?
 Two sets of output data are constructed at runtime, one for all global data and one for all US data.
 The US data are parsed and demographic data are added.
-The NYT and JH US data are available separately and as a combined time series.
+The NYT and JHU US data are available separately and as a combined time series.
 
 The three output formats, Pandas, CSV and JSON, all contain the same data, with the dataframes and CSV files
 having the same tabular format, and the JSON files structured by the
@@ -82,20 +82,20 @@ having the same tabular format, and the JSON files structured by the
   ```
   print(df_all['cases'])
 
-              date  day  cases  province_state              country      lat      long
-  0     2020-01-22    0      2             NaN             Thailand  15.0000  101.0000
-  1     2020-01-22    0      2             NaN                Japan  36.0000  138.0000
-  2     2020-01-22    0      0             NaN            Singapore   1.2833  103.8333
-  3     2020-01-22    0      0             NaN                Nepal  28.1667   84.2500
-  4     2020-01-22    0      0             NaN             Malaysia   2.5000  112.5000
-  ...          ...  ...    ...             ...                  ...      ...       ...
-  21887 2020-03-13   51      2             NaN                Aruba  12.5211  -69.9683
-  21888 2020-03-13   51      2  Grand Princess               Canada  37.6489 -122.6655
-  21889 2020-03-13   51      1             NaN                Kenya  -0.0236   37.9062
-  21890 2020-03-13   51      1             NaN  Antigua and Barbuda  17.0608  -61.7964
-  21891 2020-03-13   51      5         Alabama                   US  32.3182  -86.9023
-  
-  [21892 rows x 7 columns] 
+              date  day  cases         province_state                country        lat        long
+  0     2020-01-22    0      0                    NaN            Afghanistan  33.000000   65.000000
+  1     2020-01-22    0      0                    NaN                Albania  41.153300   20.168300
+  2     2020-01-22    0      0                    NaN                Algeria  28.033900    1.659600
+  3     2020-01-22    0      0                    NaN                Andorra  42.506300    1.521800
+  4     2020-01-22    0      0                    NaN                 Angola -11.202700   17.873900
+  ...          ...  ...    ...                    ...                    ...        ...         ...
+  16429 2020-03-27   65      2                    NaN  Saint Kitts and Nevis  17.357822  -62.782998
+  16430 2020-03-27   65      1  Northwest Territories                 Canada  64.825500 -124.845700
+  16431 2020-03-27   65      3                  Yukon                 Canada  64.282300 -135.000000
+  16432 2020-03-27   65     86                    NaN                 Kosovo  42.602636   20.902977
+  16433 2020-03-27   65      8                    NaN                  Burma  21.916200   95.956000
+
+[16434 rows x 7 columns]
   ```
 
 * **Functions**
@@ -108,7 +108,7 @@ having the same tabular format, and the JSON files structured by the
 The three output US data structures all have the same basic shape.
 Note however that whereas the NYT time series starts on 2020-01-21, the JHU time series
 starts on 2020-03-22, the date when JHU changed the format of their US data.
-`date` and `fips` are used as a multindex in Pandas, and these are output as columns
+`date` and `fips` are used as a multindex in Pandas, and these are added as columns
 in the CSV and JSON files.
 
 `c19us_jhu.df_us` and `c19us_nyt.df_us` are combined in `c19us_combined` as shown below.
