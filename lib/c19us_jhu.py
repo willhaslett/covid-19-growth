@@ -21,13 +21,13 @@ def df_from_daily_report(date, url):
     df = pd.read_csv( url)[['FIPS', 'Confirmed', 'Deaths', 'Recovered', 'Active']]
     df = df.rename(columns=constants.JHU_RENAMED_COLUMNS['daily_reports'])
     df = df.loc[df.fips.isin(fips)]
-    df = df.astype({'fips': 'int32'})
+    df = df.astype({'fips': 'int32', 'deaths': 'int32', 'recovered': 'int32', 'cases': 'int32'})
     df['date'] = date
     df['day'] = (date - pd.to_datetime(start_date)).days
     for column in county_columns:
         df[column] = df.apply(
             lambda row: counties.loc[column, str(row['fips'])], axis=1)
-    return df[output_columns].set_index('fips')
+    return df[output_columns]
 
 dfs = []
 for date in DATE_RANGE:
@@ -40,7 +40,7 @@ for date in DATE_RANGE:
     else:
         dfs.append(df_from_daily_report(date, url))
 
-df_us = pd.concat(dfs)
+df_us = pd.concat(dfs).set_index(['date', 'fips'])
 
 pickle_file = open('output/pickles/df_us_jhu.p', 'wb')
 pickle.dump(df_us, pickle_file)
