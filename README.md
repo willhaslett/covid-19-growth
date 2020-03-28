@@ -95,7 +95,7 @@ having the same tabular format, and the JSON files structured by the
   16432 2020-03-27   65     86                    NaN                 Kosovo  42.602636   20.902977
   16433 2020-03-27   65      8                    NaN                  Burma  21.916200   95.956000
 
-[16434 rows x 7 columns]
+  [16434 rows x 7 columns]
   ```
 
 * **Functions**
