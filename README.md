@@ -12,27 +12,27 @@ This repo provides:
 
 The latest Johns Hopkins files are pulled from GitHub at runtime. The cached output Pandas dataframes, CSV files, and JSON files are updated if stale.
 
-### Update on new US county-level data
-v0.6.0, with a new dataframe containing all county-level US data as a time series, will
-be released on 2020-03-28. This new structure contains aggregated data from the JH
-daily reports, which as of 2020-03-22 contain the sub-national US data. The format will be:
+### Johns Hopkins and New York Times US county-level data
+As of 2020-03-28, JHU and NYT are both sharing county-level data for the US.
+As of v0.6.0, the US data structures here include both sources of data. 
 ```
->>> import c19us
->>> print(c19us.df_us)    
-           date         county         state          sub_region     region          lat          long  confirmed  deaths  recovered  active
-0    2020-03-22  New York City      New York        mid_atlantic  northeast   40.7672726  -73.97152637       9654      63          0       0
-1    2020-03-22         Nassau      New York        mid_atlantic  northeast  40.74066522  -73.58941873       1900       4          0       0
-2    2020-03-22    Westchester      New York        mid_atlantic  northeast  41.16278376  -73.75741653       1873       0          0       0
-3    2020-03-22        Suffolk      New York        mid_atlantic  northeast  40.88320119   -72.8012172       1034       9          0       0
-4    2020-03-22       Rockland      New York        mid_atlantic  northeast  41.15027894  -74.02560498        455       1          0       0
-...         ...            ...           ...                 ...        ...          ...           ...        ...     ...        ...     ...
-3168 2020-03-27           Yuma       Arizona            mountain       west  32.76895712  -113.9066674          4       0          0       0
-3169 2020-03-27           Yuma      Colorado            mountain       west  40.00346839  -102.4258673          2       0          0       0
-3170 2020-03-27         Zapata         Texas  west_south_central      south  27.00156391  -99.16987152          0       0          0       0
-3171 2020-03-27         Zavala         Texas  west_south_central      south  28.86617238  -99.76050829          0       0          0       0
-3172 2020-03-27        Ziebach  South Dakota  west_north_central    midwest  44.97881876  -101.6654622          0       0          0       0
+>>> from c19us_combined import df_us
+>>> print(df_us)    
+                   day      county       state          sub_region   region          lat          long  cases  deaths  cases_jhu  deaths_jhu  recovered  active
+date       fips                                                                                                                                                
+2020-01-21 53061   0.0   Snohomish  Washington             pacific     west  48.04615983  -121.7170703      1       0        NaN         NaN        NaN     NaN
+2020-01-22 53061   1.0   Snohomish  Washington             pacific     west  48.04615983  -121.7170703      1       0        NaN         NaN        NaN     NaN
+2020-01-23 53061   2.0   Snohomish  Washington             pacific     west  48.04615983  -121.7170703      1       0        NaN         NaN        NaN     NaN
+2020-01-24 17031   3.0        Cook    Illinois  east_north_central  midwest  41.84144849  -87.81658794      1       0        NaN         NaN        NaN     NaN
+           53061   3.0   Snohomish  Washington             pacific     west  48.04615983  -121.7170703      1       0        NaN         NaN        NaN     NaN
+...                ...         ...         ...                 ...      ...          ...           ...    ...     ...        ...         ...        ...     ...
+2020-03-26 56025  65.0     Natrona     Wyoming            mountain     west  42.96180148   -106.797885      6       0        6.0         0.0        0.0     0.0
+           56029  65.0        Park     Wyoming            mountain     west  44.52157546  -109.5852825      1       0        1.0         0.0        0.0     0.0
+           56033  65.0    Sheridan     Wyoming            mountain     west  44.79048913  -106.8862389      4       0        4.0         0.0        0.0     0.0
+           56037  65.0  Sweetwater     Wyoming            mountain     west  41.65943896  -108.8827882      1       0        1.0         0.0        0.0     0.0
+           56039  65.0       Teton     Wyoming            mountain     west  43.93522482  -110.5890801      8       0        7.0         0.0        0.0     0.0
 
-[18864 rows x 12 columns]
+[13832 rows x 13 columns]
 >>>
 ```
 
@@ -142,51 +142,7 @@ Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized
   - `sum_by_date(df)` Group by date and sum case counts 
 
 ### US Data
-`c19us.py`
-* **`df_us`** A dictionary with dataframes for US cases, deaths, and recoveries. Mixed location data
-from upstream are parsed into idividual columns for different location types. For state-level data,
-sub_region, region, and population are added.
-  ```
-              date  day  cases          state     county       territory             other is_state      lat      long          sub_region     region  population
-  0     2020-01-22    0      0     Washington       None            None              None     True  47.4009 -121.4905             pacific       west   7614893.0
-  1     2020-01-22    0      0       New York       None            None              None     True  42.1657  -74.9481        mid_atlantic  northeast  19453561.0
-  2     2020-01-22    0      0     California       None            None              None     True  36.1162 -119.6816             pacific       west  39512223.0
-  3     2020-01-22    0      0  Massachusetts       None            None              None     True  42.2302  -71.5301         new_england  northeast   6892503.0
-  4     2020-01-22    0      0           None       None            None  Diamond Princess    False  35.4437  139.6380                 NaN        NaN         NaN
-  ...          ...  ...    ...            ...        ...             ...               ...      ...      ...       ...                 ...        ...         ...
-  13333 2020-03-15   53      0       Delaware  NewCastle            None              None    False  39.5393  -75.6674                 NaN        NaN         NaN
-  13334 2020-03-15   53     12        Alabama       None            None              None     True  32.3182  -86.9023  east_south_central      south   4903185.0
-  13335 2020-03-15   53      3           None       None     Puerto Rico              None    False  18.2208  -66.5901                 NaN        NaN         NaN
-  13336 2020-03-15   53      1           None       None  Virgin Islands              None    False  18.3358  -64.8963                 NaN        NaN         NaN
-  13337 2020-03-15   53      3           None       None            Guam              None    False  13.4443  144.7937                 NaN        NaN         NaN
-
-  [13338 rows x 13 columns]
-  ```
-  Be wary of the county-level US data. The makeup of the US data between counties and states has been, understandably, inconsistent over time. `df_us_region_and_state` aggregates both county and state-level records.
-
-  ![](.images/county_problem.png)
-  
-
-* **`df_us_region_and_state`** A dictionary of US data by date, aggregated at the state level, with columns for sub_region, region, and population.
-  ```
-  >>> print(df_us_region_and_state['cases'])
-
-             date   region          sub_region       state  population  cases
-  0    2020-01-22  midwest  east_north_central    Illinois  12671821.0      0
-  1    2020-01-22  midwest  east_north_central     Indiana   6732219.0      0
-  2    2020-01-22  midwest  east_north_central    Michigan   9986857.0      0
-  3    2020-01-22  midwest  east_north_central        Ohio  11689100.0      0
-  4    2020-01-22  midwest  east_north_central   Wisconsin   5822434.0      0
-  ...         ...      ...                 ...         ...         ...    ...
-  2845 2020-03-18     west             pacific      Alaska    731545.0      6
-  2846 2020-03-18     west             pacific  California  39512223.0    751
-  2847 2020-03-18     west             pacific      Hawaii   1415872.0     14
-  2848 2020-03-18     west             pacific      Oregon   4217737.0     68
-  2849 2020-03-18     west             pacific  Washington   7614893.0   1014
-
-  [2850 rows x 6 columns]
-  >>>
-  ```
+- Needs updating
 
 ## Jupyter Notebooks
   
