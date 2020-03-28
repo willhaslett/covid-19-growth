@@ -19,23 +19,28 @@ db = firestore.client()
 # Turn date and fips into columns
 df_us = df_us.reset_index()
 
-# Break up df_us into json strings for each date
+# Create a Firestore document that holds the column names, to accompany values documents
 df_us['date_string'] = df_us.date.apply(lambda date: date.strftime('%Y-%m-%d'))
+df_us = df_us.drop(columns='date')
+columns = {}
+for i in range(0, len(df_us.columns)):
+    columns[str(i)] = df_us.columns[i]
+db.collection(u'us-columns').document(u'us-combined').set(columns)
+
+
+# Break up df_us into json strings for each date
 date_list = df_us.date_string.unique().tolist()
 json_by_date = {}
 for date in date_list:
     df = df_us[df_us['date_string'] == date]
-    date_json = df.to_json(orient='index')
+    date_json = df.to_json(orient='values')
     json_by_date[date] = date_json
 
-print(json_by_date.__class__)
-
-# Upload json string for each date as a document
+# Upload JSON string for each date as a document
 for date_string, json_string in json_by_date.items():
-  db.collection(u'us-data').document(date_string).set({'json': json_string})
+    db.collection(u'us-data').document(date_string).set({'json': json_string})
 
-# Delete a collection. This does not work if there are sub-collections present
-# https://firebase.google.com/docs/firestore/solutions/delete-collections
+
 def delete_collection(coll_ref, batch_size=100):
     docs = coll_ref.limit(batch_size).stream()
     deleted = 0
@@ -45,3 +50,6 @@ def delete_collection(coll_ref, batch_size=100):
         deleted = deleted + 1
     if deleted >= batch_size:
         return delete_collection(coll_ref, batch_size)
+
+# Delete a collection. This does not work if there are sub-collections present
+# https://firebase.google.com/docs/firestore/solutions/delete-collections

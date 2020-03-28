@@ -134,19 +134,21 @@ date       fips
 >>>
 ```
 
-### CSV and JSON
+## CSV and JSON
 `dump_csv_and_json.py`
 Creates CSV and JSON files for the five Pandas dataframes. Data are synchronized with the upstream repos at runtime.
 
-* **CSV**
+- **CSV:**
   Comma-delimited files for each dataframe. The formats mirror the dataframes as described above.
 
-* **JSON**
+- **JSON:**
   JavaScript Object Notation files for each dataframe. Files are constructed using the `orient='table'` argument for 
   [pandas.DataFrame.to_json](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html).
   Choose a different structure for the JSON files by setting `JSON_ORIENT`. JSON files are minified by default. For not-minified JSON, set `JSON_INDENT` to > 0.
 
 ## Jupyter Notebooks
+
+  **NOTE: `us.ipynb`** needs to be updated to handle the new US data format.
   
   `all.ipynb` and `us.ipynb` contain starting points for work with global or US data. You can preview the notebook stubs here in GitHub by navigating to them:
   
@@ -155,14 +157,21 @@ Creates CSV and JSON files for the five Pandas dataframes. Data are synchronized
   [US Cases](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/us.ipynb)
 
 ## Firebase
-- [Create your Firebase project](https://firebase.google.com/) and add a Firestore database.
-- Create and download a private key JSON file for your project. (Project settings > Service accounts)
-- Rename the downladed file to `.google_service_account_key.json` and put it in the project root. This file will be ignored by Git.
-- Customize `lib/upload_to_firestore.py` so that it works with the specific data that you want to upload.
-- `python lib/upload_to_firestore.py`
-- Coffee
+Supports uploading these data structures into Firebase/Firestore. Customize the data model to your liking,
+but be wary of uploading an entire dataframe as a Firestore document. Currently, `upload_to_firestore.py`
+breaks up the `c19us_combined` dataframe into a set of dataframes, one for each date, and the data for
+each date are stored as a single JSON string in the Firestore documents.
+### Prerequisites
+  - [Create your Firebase project](https://firebase.google.com/) and add a Firestore database.
+  - Create and download a private key JSON file for your project. (Project settings > Service accounts)
+  - Rename the downladed file to `.google_service_account_key.json` and put it in the project root. This file will be ignored by Git.
 
-  ![](.images/firestore.png)
+### Usage
+  - `python lib/upload_to_firestore.py`
+  - Output schema document
+    ![](.images/firestore_schema.png)
+  - Output values document
+    ![](.images/firestore_values.png)
 
 ## License
 
