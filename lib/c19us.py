@@ -55,5 +55,3 @@ for date in DATE_RANGE:
         dfs.append(df_from_daily_report(date, url))
 
 df_us = pd.concat(dfs)
-
-print(df_us)
