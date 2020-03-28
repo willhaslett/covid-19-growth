@@ -3,15 +3,13 @@
 The [New York Times](https://github.com/nytimes/covid-19-data)
 and the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)
 Center for Systems Science and Engineering are providing daily Covid-19 case
-count files.
-This pipeline imports these files, performs type conversions where needed, and outputs
-the data as a set of long-format time series.
-The latest NYT and NHU files are pulled from GitHub at runtime. The pipeline provides:
-- A sensible starting point for Covid-19 reporting/analysis/modeling using
-  Pandas/Python
-- CSV and JSON data structures for use outside of Pandas
-- Google Firebase integration
+count files. This pipeline:
+- Imports the NYT and JHU data
+- Performs type conversions where needed
+- Adds demopraphic data
+- Outputs the resulting data structures as a set of long-format time series.
 
+The latest NYT and NHU files are pulled from GitHub at runtime.
 
   - [Installing](#installing)
     - [Virtualenv](#virtualenv)
