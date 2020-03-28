@@ -62,7 +62,7 @@ $
 ### What do I get?
 Two sets of output data are constructed at runtime, one for all global data and one for all US data.
 The US data are parsed and demographic data are added.
-The NYT and JH data are available separately and as a combined time series.
+The NYT and JH US data are available separately and as a combined time series.
 
 The three output formats, Pandas, CSV and JSON, all contain the same data, with the dataframes and CSV files
 having the same tabular format, and the JSON files structured by the
@@ -112,7 +112,7 @@ starts on 2020-03-22, the date when JHU changed the format of their US data.
 in the CSV and JSON files.
 
 `c19us_jhu.df_us` and `c19us_nyt.df_us` are combined in `c19us_combined` as shown below.
-Here, the suffixes `_nty`and `_jhu` are added to the case and death data.
+Here, the suffixes `_nyt`and `_jhu` are added to the case and death data.
 ```
 >>> from c19us_combined import df_us
 >>> print(df_us)    
