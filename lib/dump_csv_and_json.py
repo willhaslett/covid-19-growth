@@ -1,5 +1,7 @@
-import c19us
 import c19all
+import c19us_jhu
+import c19us_nyt
+import c19us_combined
 import pandas as pd
 
 """ Generates CSV and JSON files for all available dataframes """
@@ -11,15 +13,11 @@ JSON_ORIENT = 'table'
 JSON_INDENT = 2
 
 DATAFRAMES = {
-    'df_all_cases':                     c19all.df_all['cases'],
-    'df_all_deaths':                    c19all.df_all['deaths'],
-    'df_all_recovered':                 c19all.df_all['recovered'],
-    'df_us_cases':                      c19us.df_us['cases'],
-    'df_us_deaths':                     c19us.df_us['deaths'],
-    'df_us_recovered':                  c19us.df_us['recovered'],
-    'df_us_region_and_state_cases':     c19us.df_us_region_and_state['cases'],
-    'df_us_region_and_state_deaths':    c19us.df_us_region_and_state['deaths'],
-    'df_us_region_and_state_recovered': c19us.df_us_region_and_state['recovered'],
+    'df_all_cases':   c19all.df_all['cases'],
+    'df_all_deaths':  c19all.df_all['deaths'],
+    'df_us_jhu':      c19us_jhu.df_us.reset_index(),
+    'df_us_nyt':      c19us_nyt.df_us.reset_index(),
+    'df_us_combined': c19us_combined.df_us.reset_index(),
 }
 
 for filename in DATAFRAMES:
