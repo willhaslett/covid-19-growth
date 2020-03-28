@@ -3,15 +3,13 @@
 The [New York Times](https://github.com/nytimes/covid-19-data)
 and the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)
 Center for Systems Science and Engineering are providing daily COVID-19 case
-count data. This repo provides:
+count data. The latest NYT and NHU files are pulled from GitHub at runtime.
+This repo provides:
 - A sensible starting point and some useful functions for COVID-19 reporting/analysis/modeling using
   Pandas/Python
 - Parsed CSV and JSON data structures for use outside of Pandas
 - Google Firebase integration
 
-The latest NYT and NHU files are pulled from GitHub at runtime.
-The resulting data structures are output as Pandas dataframes
-, CSV files, and JSON files.
 
 ### NEW: Johns Hopkins and New York Times US county-level data
 As of 2020-03-28, JHU and NYT are both sharing county-level data for the US.
