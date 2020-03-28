@@ -1,6 +1,6 @@
 # covid-19-growth
 
-The [New York Times](https://raw.githubusercontent.com/nytimes/covid-19-data)
+The [New York Times](https://github.com/nytimes/covid-19-data)
 and the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)
 Center for Systems Science and Engineering are providing daily COVID-19 case
 count data. This repo provides:
