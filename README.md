@@ -73,7 +73,6 @@ Updated pickle file df_us_combined.p with Johns Hopkins and New York Times data
 Updated CSV files
 Updated JSON files
 Tests passed
-Tests passed
 $
 ```
 
@@ -95,7 +94,7 @@ The NYT and JH data are available separately and as a combined time series.
 The three output formats, Pandas, CSV and JSON, all contain the same data, with the dataframes and CSV files
 having the same tabular format, and the JSON files structured by the
 [pandas.DataFrame.to_json](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html) function.
-In Pandas, the dataframes are placed into dictionaries as shown below. For CSV and JSON output, these are broken out into nine individual files.
+
 - Global data (JHU)
   - df_all_cases
   - df_all_deaths 
@@ -171,4 +170,4 @@ This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md)
 
 ## Acknowledgments
 
-The Johns Hopkins University Center for Systems Science and Engineering is doing a great public service by sharing these data.
+The New York Times and the Johns Hopkins University Center for Systems Science and Engineering is doing a great public service by sharing these data.
