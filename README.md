@@ -147,14 +147,12 @@ Creates CSV and JSON files for the five Pandas dataframes. Data are synchronized
   Choose a different structure for the JSON files by setting `JSON_ORIENT`. JSON files are minified by default. For not-minified JSON, set `JSON_INDENT` to > 0.
 
 ## Jupyter Notebooks
-
-  **NOTE: `us.ipynb`** needs to be updated to handle the new US data format.
   
   `all.ipynb` and `us.ipynb` contain starting points for work with global or US data. You can preview the notebook stubs here in GitHub by navigating to them:
   
-  [Global Deaths](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/all.ipynb)
+  [Global Cases](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/all.ipynb)
   
-  [US Cases](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/us.ipynb)
+  [US Deaths](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/us.ipynb)
 
 ## Firebase
 `upload_to_firestore.py` uploads data structures into Firebase/Firestore.
