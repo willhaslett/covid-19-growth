@@ -7,36 +7,13 @@ import constants
 
 counties = pd.DataFrame(constants.COUNTIES)
 fips = constants.COUNTIES.keys()
+county_columns = constants.US_COUNTY_COLUMNS
+output_columns = constants.US_OUTPUT_COLUMNS
 
 DATE_RANGE = pd.date_range(
-    start=pd.to_datetime(constants.JH_START_DATE),
+    start=pd.to_datetime(constants.START_DATE['jh']),
     end=pd.to_datetime('today')
 ).tolist()
-
-county_columns = [
-    'county',
-    'state',
-    'sub_region',
-    'region',
-    'lat',
-    'long',
-]
-
-output_columns = [
-    'date',
-    'day',
-    'county',
-    'state',
-    'sub_region',
-    'region',
-    'lat',
-    'long',
-    'confirmed',
-    'deaths',
-    'recovered',
-    'active'
-]
-
 
 def df_from_daily_report(date, url):
     df = pd.read_csv(
@@ -45,12 +22,11 @@ def df_from_daily_report(date, url):
     df = df.loc[df.fips.isin(fips)]
     df = df.astype({'fips': 'int32'})
     df['date'] = date
-    df['day'] = (date - pd.to_datetime(constants.JH_START_DATE)).days
+    df['day'] = (date - pd.to_datetime(constants.START_DATE['jh'])).days
     for column in county_columns:
         df[column] = df.apply(
             lambda row: counties.loc[column, str(row['fips'])], axis=1)
     return df[output_columns]
-
 
 dfs = []
 for date in DATE_RANGE:

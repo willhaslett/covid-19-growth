@@ -9,6 +9,35 @@ DATA_URLS = {
     }
 }
 
+START_DATE = {
+    'jh': '2020-03-22',
+    'nyt': '2020-01-21'
+}
+
+US_COUNTY_COLUMNS = [
+    'county',
+    'state',
+    'sub_region',
+    'region',
+    'lat',
+    'long',
+]
+
+US_OUTPUT_COLUMNS = [
+    'date',
+    'day',
+    'county',
+    'state',
+    'sub_region',
+    'region',
+    'lat',
+    'long',
+    'confirmed',
+    'deaths',
+    'recovered',
+    'active'
+]
+
 JH_RENAMED_COLUMNS = {
     'time_series': {
         'Province/State': 'province_state',
@@ -24,9 +53,6 @@ JH_RENAMED_COLUMNS = {
         'Active': 'active'
     }
 }
-
-JH_START_DATE = '2020-03-22'
-NYT_START_DATE = '2020-01-21'
 
 COUNTIES = {
     "45001":  {"county": "Abbeville",             "state": "South Carolina",        "lat": "34.22333378",  "long": "-82.46170658",  "sub_region": "south_atlantic",      "region": "south"},
