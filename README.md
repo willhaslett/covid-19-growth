@@ -110,6 +110,8 @@ having the same tabular format, and the JSON files structured by the
 The three output US data structures all have the same basic shape.
 Note however that whereas the NYT time series starts on 2020-01-21, the JHU time series
 starts on 2020-03-22, the date when JHU changed the format of their US data.
+`date` and `fips` are used as a multindex in Pandas, and these are output as columns
+in the CSV and JSON files.
 
 `c19us_jhu.df_us` and `c19us_nyt.df_us` are combined in `c19us_combined` as shown below.
 In the combined output, the suffix `_jhu` is added to the JHU case and death data.
