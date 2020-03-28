@@ -48,7 +48,6 @@ def sum_by_date(df):
     return df.groupby('date').sum().reset_index()
 
 _df_cases = df_from_csv(constants.DATA_URLS['global']['cases'])
-print(_df_cases)
 _df_deaths = df_from_csv(constants.DATA_URLS['global']['deaths']).rename(columns={'cases': 'deaths'})
 
 """ Dictionary containing dataframes for all global data """
