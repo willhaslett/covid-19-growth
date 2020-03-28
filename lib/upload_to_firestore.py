@@ -2,10 +2,10 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 import pandas as pd
-import c19all
+from c19us_combined import df_us
+
 
 # Be aware of Firestore pricing: https://firebase.google.com/docs/firestore/pricing
-# If you run one or both of the uploads, the corresponding shell will be busy for aWHILE
 # TODO:
 #   Async
 #   Incremental daily uploads 
@@ -36,6 +36,13 @@ def delete_collection(coll_ref, batch_size=100):
         deleted = deleted + 1
     if deleted >= batch_size:
         return delete_collection(coll_ref, batch_size)
+        
+# Turn date and fips into columns
+df_us = df_us.reset_index()
+
+# Break up df_us into dfs for each date
+dates = df_us.date.apply(lambda date: date.strftime('%Y-%m-%d')).unique().tolist()  
+print(dates)
 
 # Bulk uploads with all current data
 # To upload a subset, filter first, e.g.: df = df[df.country == 'Japan']
