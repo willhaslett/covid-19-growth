@@ -12,7 +12,7 @@ This repo provides:
 
 The latest Johns Hopkins files are pulled from GitHub at runtime. The cached output Pandas dataframes, CSV files, and JSON files are updated if stale.
 
-### Update on new US county-level data 2020-03-27
+### Update on new US county-level data
 v0.6.0, with a new dataframe containing all county-level US data as a time series, will
 be released on 2020-03-28. This new structure contains aggregated data from the JH
 daily reports, which as of 2020-03-22 contain the sub-national US data. The format will be:
