@@ -19,18 +19,18 @@ daily reports, which as of 2020-03-22 contain the sub-national US data. The form
 ```
 >>> import c19us
 >>> print(c19us.df_us)    
-           date  day         county         state          sub_region     region          lat          long  confirmed  deaths  recovered  active
-0    2020-03-22  0.0  New York City      New York        mid_atlantic  northeast   40.7672726  -73.97152637       9654      63          0       0
-1    2020-03-22  0.0         Nassau      New York        mid_atlantic  northeast  40.74066522  -73.58941873       1900       4          0       0
-2    2020-03-22  0.0    Westchester      New York        mid_atlantic  northeast  41.16278376  -73.75741653       1873       0          0       0
-3    2020-03-22  0.0        Suffolk      New York        mid_atlantic  northeast  40.88320119   -72.8012172       1034       9          0       0
-4    2020-03-22  0.0       Rockland      New York        mid_atlantic  northeast  41.15027894  -74.02560498        455       1          0       0
-...         ...  ...            ...           ...                 ...        ...          ...           ...        ...     ...        ...     ...
-3168 2020-03-27  0.0           Yuma       Arizona            mountain       west  32.76895712  -113.9066674          4       0          0       0
-3169 2020-03-27  0.0           Yuma      Colorado            mountain       west  40.00346839  -102.4258673          2       0          0       0
-3170 2020-03-27  0.0         Zapata         Texas  west_south_central      south  27.00156391  -99.16987152          0       0          0       0
-3171 2020-03-27  0.0         Zavala         Texas  west_south_central      south  28.86617238  -99.76050829          0       0          0       0
-3172 2020-03-27  0.0        Ziebach  South Dakota  west_north_central    midwest  44.97881876  -101.6654622          0       0          0       0
+           date         county         state          sub_region     region          lat          long  confirmed  deaths  recovered  active
+0    2020-03-22  New York City      New York        mid_atlantic  northeast   40.7672726  -73.97152637       9654      63          0       0
+1    2020-03-22         Nassau      New York        mid_atlantic  northeast  40.74066522  -73.58941873       1900       4          0       0
+2    2020-03-22    Westchester      New York        mid_atlantic  northeast  41.16278376  -73.75741653       1873       0          0       0
+3    2020-03-22        Suffolk      New York        mid_atlantic  northeast  40.88320119   -72.8012172       1034       9          0       0
+4    2020-03-22       Rockland      New York        mid_atlantic  northeast  41.15027894  -74.02560498        455       1          0       0
+...         ...            ...           ...                 ...        ...          ...           ...        ...     ...        ...     ...
+3168 2020-03-27           Yuma       Arizona            mountain       west  32.76895712  -113.9066674          4       0          0       0
+3169 2020-03-27           Yuma      Colorado            mountain       west  40.00346839  -102.4258673          2       0          0       0
+3170 2020-03-27         Zapata         Texas  west_south_central      south  27.00156391  -99.16987152          0       0          0       0
+3171 2020-03-27         Zavala         Texas  west_south_central      south  28.86617238  -99.76050829          0       0          0       0
+3172 2020-03-27        Ziebach  South Dakota  west_north_central    midwest  44.97881876  -101.6654622          0       0          0       0
 
 [18864 rows x 12 columns]
 >>>
