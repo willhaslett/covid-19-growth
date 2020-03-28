@@ -25,7 +25,8 @@ JH_RENAMED_COLUMNS = {
     }
 }
 
-JH_DAILY_START_DATE = '2020-03-22'
+JH_START_DATE = '2020-03-22'
+NYT_START_DATE = '2020-01-21'
 
 COUNTIES = {
     "45001":  {"county": "Abbeville",             "state": "South Carolina",        "lat": "34.22333378",  "long": "-82.46170658",  "sub_region": "south_atlantic",      "region": "south"},

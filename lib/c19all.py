@@ -57,3 +57,4 @@ df_all = {
 # pickle.dump(df_all, pickle_file)
 # print('Updated pickle file df_all.p with global data')
 
+print(df_all['cases'])
