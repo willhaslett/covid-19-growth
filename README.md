@@ -170,4 +170,4 @@ This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md)
 
 ## Acknowledgments
 
-The New York Times and the Johns Hopkins University Center for Systems Science and Engineering is doing a great public service by sharing these data.
+The New York Times and the Johns Hopkins University Center for Systems Science and Engineering are doing a great public service by sharing these data.
