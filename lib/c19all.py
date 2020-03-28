@@ -51,10 +51,6 @@ df_all = {
     'deaths': df_from_csv(constants.DATA_URLS['global']['deaths'])
 }
 
-# Optional pickle file
-
-# pickle_file = open('output/pickles/df_all.p', 'wb')
-# pickle.dump(df_all, pickle_file)
-# print('Updated pickle file df_all.p with global data')
-
-print(df_all['cases'])
+pickle_file = open('output/pickles/df_all.p', 'wb')
+pickle.dump(df_all, pickle_file)
+print('Updated pickle file df_all.p with global data')

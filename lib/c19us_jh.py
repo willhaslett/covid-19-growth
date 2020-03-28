@@ -1,6 +1,7 @@
 import pandas as pd
 from urllib import error, request
 import math
+import pickle
 import constants
 
 ''' US county-level data from the Johns Hopkins files. '''
@@ -42,4 +43,6 @@ for date in DATE_RANGE:
 
 df_us = pd.concat(dfs)
 
-print(df_us)
+pickle_file = open('output/pickles/df_us_jh.p', 'wb')
+pickle.dump(df_us, pickle_file)
+print('Updated pickle file df_us_jh.p with Johns Hopkins data')

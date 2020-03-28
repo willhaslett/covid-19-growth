@@ -1,7 +1,7 @@
 import pandas as pd
-import numpy as np
 import urllib
 import math
+import pickle
 import constants
 
 ''' US county-level data from the New York Times files. '''
@@ -21,5 +21,8 @@ df['day'] = (df.date - df.start_date).astype('timedelta64[D]')
 for column in county_columns:
     df[column] = df.apply(
         lambda row: counties.loc[column, str(row['fips'])], axis=1)
-df = df[output_columns]
-print(df)
+df_us = df[output_columns]
+
+pickle_file = open('output/pickles/df_us_nyt.p', 'wb')
+pickle.dump(df_us, pickle_file)
+print('Updated pickle file df_us_nyt.p with New York Times data')
