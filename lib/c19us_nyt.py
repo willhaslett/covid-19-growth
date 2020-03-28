@@ -18,6 +18,7 @@ df = df.astype({'fips': 'int32'})
 df.date = pd.to_datetime(df.date)
 df['start_date'] = pd.to_datetime(start_date)
 df['day'] = (df.date - df.start_date).astype('timedelta64[D]')
+df.day = df.day.astype('int')
 for column in county_columns:
     df[column] = df.apply(
         lambda row: counties.loc[column, str(row['fips'])], axis=1)
