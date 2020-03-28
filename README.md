@@ -7,7 +7,7 @@ count files.
 This pipeline imports these files, performs type conversions where needed, and outputs
 the data as a set of long-format time series.
 The latest NYT and NHU files are pulled from GitHub at runtime. The pipeline provides:
-- A sensible starting point for COVID-19 reporting/analysis/modeling using
+- A sensible starting point for Covid-19 reporting/analysis/modeling using
   Pandas/Python
 - CSV and JSON data structures for use outside of Pandas
 - Google Firebase integration
@@ -78,18 +78,6 @@ having the same tabular format, and the JSON files structured by the
   - df_us_nyt
   - df_us_combined
 
-### CSV and JSON
-`dump_csv_and_json.py`
-Creates CSV and JSON files for the five Pandas dataframes. Data are synchronized with the upstream repos at runtime.
-
-* **CSV**
-  Comma-delimited files for each dataframe. The formats mirror the dataframes as described below.
-
-* **JSON**
-  JavaScript Object Notation files for each dataframe. Files are constructed using the `orient='table'` argument for 
-  [pandas.DataFrame.to_json](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html).
-  Choose a different structure for the JSON files by setting `JSON_ORIENT`. For minified JSON, set `JSON_INDENT` to 0.
-
 ### Global Data
 `c19all.py`
 * **`df_all`** A dictionary containing dataframes with all global data for cases, deaths, and recoveries. `province_state` has mixed types, as it does upstream.
@@ -146,7 +134,18 @@ date       fips
 [13832 rows x 13 columns]
 >>>
 ```
-- Needs updating
+
+### CSV and JSON
+`dump_csv_and_json.py`
+Creates CSV and JSON files for the five Pandas dataframes. Data are synchronized with the upstream repos at runtime.
+
+* **CSV**
+  Comma-delimited files for each dataframe. The formats mirror the dataframes as described above.
+
+* **JSON**
+  JavaScript Object Notation files for each dataframe. Files are constructed using the `orient='table'` argument for 
+  [pandas.DataFrame.to_json](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html).
+  Choose a different structure for the JSON files by setting `JSON_ORIENT`. For minified JSON, set `JSON_INDENT` to 0.
 
 ## Jupyter Notebooks
   
