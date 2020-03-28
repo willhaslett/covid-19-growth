@@ -2,9 +2,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 import pandas as pd
-import pickle
 import c19all
-import c19us
 
 # Be aware of Firestore pricing: https://firebase.google.com/docs/firestore/pricing
 # If you run one or both of the uploads, the corresponding shell will be busy for aWHILE
@@ -15,7 +13,7 @@ import c19us
 # Create the database client
 cred = credentials.Certificate('.google_service_account_key.json')
 firebase_admin.initialize_app(cred, {
-  'projectId': 'covidlocal',
+  'projectId': 'your-firebase-project-id',
 })
 db = firestore.client()
 
@@ -40,10 +38,8 @@ def delete_collection(coll_ref, batch_size=100):
         return delete_collection(coll_ref, batch_size)
 
 # Bulk uploads with all current data
-# To upload a subset, filter first: df = df[df.country == 'Japan']
+# To upload a subset, filter first, e.g.: df = df[df.country == 'Japan']
 # create_documents(c19all.df_all['cases'], 'global-cases')
-# create_documents(c19us.df_us_region_and_state['cases'], 'us-cases')
 
 # Delete collections
 # delete_collection(db.collection('global-cases'))
-# delete_collection(db.collection('us-cases'))
