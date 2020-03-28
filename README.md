@@ -2,7 +2,7 @@
 
 The [New York Times](https://github.com/nytimes/covid-19-data)
 and the [Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19)
-Center for Systems Science and Engineering are providing daily COVID-19 case
+Center for Systems Science and Engineering are providing daily Covid-19 case
 count files.
 This pipeline imports these files, performs type conversions where needed, and outputs
 the data as a set of long-format time series.
