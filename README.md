@@ -12,18 +12,13 @@ This repo provides:
 
 The latest Johns Hopkins files are pulled from GitHub at runtime. The cached output Pandas dataframes, CSV files, and JSON files are updated if stale.
 
-### On 2020-03-22, the US data files from Johns Hopkins got more detailed, and introduced breaking changes
-US state-level data no longer appear in the JH time series files. Detailed data for the US
-now appears in the daily case files instead. The change is a good one, since we now have
-county-level data for the whole country, but of course it breaks downstream APIs that were
-using the time series files for US data.
+### Update on new US county-level data 2020-03-27
+v0.6.0, with a new dataframe containing all county-level US data as a time series, will
+be released on 2020-03-28. This new structure contains aggregated data from the JH
+daily reports, which as of 2020-03-22 contain the sub-national US data. The format will be:
+```
 
-In v0.6.0, `c19us.py` will be rebuilt. It will output dataframes/files as a time series
-that is constructed from the daily case files, starting with 2020-03-22. Expect the
-format to be something like this:
-```
-[date, day, region, sub_region, state, county, lat, long, population, cases]
-```
+
 
   - [Installing](#installing)
     - [Virtualenv](#virtualenv)
