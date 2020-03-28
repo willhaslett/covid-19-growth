@@ -13,7 +13,7 @@ The latest NYT and NHU files are pulled from GitHub at runtime.
 The resulting data structures are output as Pandas dataframes
 , CSV files, and JSON files.
 
-### Johns Hopkins and New York Times US county-level data
+### NEW: Johns Hopkins and New York Times US county-level data
 As of 2020-03-28, JHU and NYT are both sharing county-level data for the US.
 As of v0.6.0, the US data structures here include both sources of data. 
 ```
