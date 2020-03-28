@@ -7,8 +7,9 @@ import constants
 
 counties = pd.DataFrame(constants.COUNTIES)
 fips = constants.COUNTIES.keys()
-county_columns = constants.US_COUNTY_COLUMNS
-output_columns = constants.US_OUTPUT_COLUMNS
+county_columns = constants.US_COUNTY_COLUMNS['jh']
+output_columns = constants.US_OUTPUT_COLUMNS['jh']
+start_date = constants.START_DATE['jh']
 
 DATE_RANGE = pd.date_range(
     start=pd.to_datetime(constants.START_DATE['jh']),
@@ -22,7 +23,7 @@ def df_from_daily_report(date, url):
     df = df.loc[df.fips.isin(fips)]
     df = df.astype({'fips': 'int32'})
     df['date'] = date
-    df['day'] = (date - pd.to_datetime(constants.START_DATE['jh'])).days
+    df['day'] = (date - pd.to_datetime(start_date)).days
     for column in county_columns:
         df[column] = df.apply(
             lambda row: counties.loc[column, str(row['fips'])], axis=1)
@@ -40,3 +41,5 @@ for date in DATE_RANGE:
         dfs.append(df_from_daily_report(date, url))
 
 df_us = pd.concat(dfs)
+
+print(df_us)

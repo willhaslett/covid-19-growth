@@ -14,29 +14,51 @@ START_DATE = {
     'nyt': '2020-01-21'
 }
 
-US_COUNTY_COLUMNS = [
-    'county',
-    'state',
-    'sub_region',
-    'region',
-    'lat',
-    'long',
-]
+US_COUNTY_COLUMNS = {
+    'jh': [
+        'county',
+        'state',
+        'sub_region',
+        'region',
+        'lat',
+        'long',
+    ],
+    'nyt': [
+        'sub_region',
+        'region',
+        'lat',
+        'long',
+    ]
+}
 
-US_OUTPUT_COLUMNS = [
-    'date',
-    'day',
-    'county',
-    'state',
-    'sub_region',
-    'region',
-    'lat',
-    'long',
-    'confirmed',
-    'deaths',
-    'recovered',
-    'active'
-]
+US_OUTPUT_COLUMNS = {
+    'jh': [
+        'date',
+        'day',
+        'county',
+        'state',
+        'sub_region',
+        'region',
+        'lat',
+        'long',
+        'cases',
+        'deaths',
+        'recovered',
+        'active'
+    ],
+    'nyt': [
+        'date',
+        'day',
+        'county',
+        'state',
+        'sub_region',
+        'region',
+        'lat',
+        'long',
+        'cases',
+        'deaths',
+    ]
+}
 
 JH_RENAMED_COLUMNS = {
     'time_series': {
@@ -47,7 +69,7 @@ JH_RENAMED_COLUMNS = {
     },
     'daily_reports': {
         'FIPS': 'fips',
-        'Confirmed': 'confirmed',
+        'Confirmed': 'cases',
         'Deaths': 'deaths',
         'Recovered': 'recovered',
         'Active': 'active'
