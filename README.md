@@ -160,7 +160,7 @@ Creates CSV and JSON files for the five Pandas dataframes. Data are synchronized
 `upload_to_firestore.py` uploads data structures into Firebase/Firestore.
 Currently, `upload_to_firestore.py`
 breaks up the `c19us_combined` dataframe into a set of dataframes, one for each date, and the data for
-each date are serilized as a JSON string in the corresponding Firestore document.
+each date are serialized as a JSON string in the corresponding Firestore document.
 ### Prerequisites
   - [Create your Firebase project](https://firebase.google.com/) and add a Firestore database.
   - Create and download a private key JSON file for your project. (Project settings > Service accounts)
