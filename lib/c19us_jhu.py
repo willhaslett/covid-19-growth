@@ -42,6 +42,9 @@ for date in DATE_RANGE:
 
 df_us = pd.concat(dfs).set_index(['date', 'fips'])
 
-pickle_file = open('output/pickles/df_us_jhu.p', 'wb')
-pickle.dump(df_us, pickle_file)
-print('Updated pickle file df_us_jhu.p with Johns Hopkins data')
+try:
+    get_ipython
+except:
+    pickle_file = open('output/pickles/df_us_jhu.p', 'wb')
+    pickle.dump(df_us, pickle_file)
+    print('Updated pickle file df_us_jhu.p with Johns Hopkins data')

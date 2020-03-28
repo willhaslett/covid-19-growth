@@ -47,12 +47,18 @@ def sum_by_date(df):
     """ Return input with all rows collapsed by date and cases summed """
     return df.groupby('date').sum().reset_index()
 
+_df_cases = df_from_csv(constants.DATA_URLS['global']['cases'])
+_df_deaths = df_from_csv(constants.DATA_URLS['global']['deaths']).rename(columns={'cases': 'deaths'})
+
 """ Dictionary containing dataframes for all global data """
 df_all = {
-    'cases': df_from_csv(constants.DATA_URLS['global']['cases']),
-    'deaths': df_from_csv(constants.DATA_URLS['global']['deaths'])
+    'cases': _df_cases,
+    'deaths': _df_deaths
 }
 
-pickle_file = open('output/pickles/df_all.p', 'wb')
-pickle.dump(df_all, pickle_file)
-print('Updated pickle file df_all.p with global data')
+try:
+    get_ipython
+except:
+    pickle_file = open('output/pickles/df_all.p', 'wb')
+    pickle.dump(df_all, pickle_file)
+    print('Updated pickle file df_all.p with global data')

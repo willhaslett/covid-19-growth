@@ -24,6 +24,9 @@ for column in county_columns:
         lambda row: counties.loc[column, str(row['fips'])], axis=1)
 df_us = df[output_columns].set_index(['date', 'fips'])
 
-pickle_file = open('output/pickles/df_us_nyt.p', 'wb')
-pickle.dump(df_us, pickle_file)
-print('Updated pickle file df_us_nyt.p with New York Times data')
+try:
+    get_ipython
+except:
+    pickle_file = open('output/pickles/df_us_nyt.p', 'wb')
+    pickle.dump(df_us, pickle_file)
+    print('Updated pickle file df_us_nyt.p with New York Times data')
