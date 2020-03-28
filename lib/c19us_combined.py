@@ -7,7 +7,8 @@ from c19us_nyt import df_us as df_nyt
 ''' Merged Johns Hopkins and New York Times US county-level data. '''
 
 df_jhu = df_jhu[['cases', 'deaths', 'recovered', 'active']]
-df_us = df_nyt.join(df_jhu, rsuffix='_jhu')
+df_us = df_nyt.join(df_jhu, lsuffix='_nyt', rsuffix='_jhu')
+print(df_us)
 
 pickle_file = open('output/pickles/df_us_combined.p', 'wb')
 pickle.dump(df_us, pickle_file)

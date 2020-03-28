@@ -114,24 +114,23 @@ starts on 2020-03-22, the date when JHU changed the format of their US data.
 in the CSV and JSON files.
 
 `c19us_jhu.df_us` and `c19us_nyt.df_us` are combined in `c19us_combined` as shown below.
-In the combined output, the suffix `_jhu` is added to the JHU case and death data.
-The recovered and active columns in the combined data are from the JHU source.
+Here, the suffixes `_nty`and `_jhu` are added to the case and death data.
 ```
 >>> from c19us_combined import df_us
 >>> print(df_us)    
-                   day      county       state          sub_region   region          lat          long  cases  deaths  cases_jhu  deaths_jhu  recovered  active
-date       fips                                                                                                                                                
-2020-01-21 53061   0.0   Snohomish  Washington             pacific     west  48.04615983  -121.7170703      1       0        NaN         NaN        NaN     NaN
-2020-01-22 53061   1.0   Snohomish  Washington             pacific     west  48.04615983  -121.7170703      1       0        NaN         NaN        NaN     NaN
-2020-01-23 53061   2.0   Snohomish  Washington             pacific     west  48.04615983  -121.7170703      1       0        NaN         NaN        NaN     NaN
-2020-01-24 17031   3.0        Cook    Illinois  east_north_central  midwest  41.84144849  -87.81658794      1       0        NaN         NaN        NaN     NaN
-           53061   3.0   Snohomish  Washington             pacific     west  48.04615983  -121.7170703      1       0        NaN         NaN        NaN     NaN
-...                ...         ...         ...                 ...      ...          ...           ...    ...     ...        ...         ...        ...     ...
-2020-03-26 56025  65.0     Natrona     Wyoming            mountain     west  42.96180148   -106.797885      6       0        6.0         0.0        0.0     0.0
-           56029  65.0        Park     Wyoming            mountain     west  44.52157546  -109.5852825      1       0        1.0         0.0        0.0     0.0
-           56033  65.0    Sheridan     Wyoming            mountain     west  44.79048913  -106.8862389      4       0        4.0         0.0        0.0     0.0
-           56037  65.0  Sweetwater     Wyoming            mountain     west  41.65943896  -108.8827882      1       0        1.0         0.0        0.0     0.0
-           56039  65.0       Teton     Wyoming            mountain     west  43.93522482  -110.5890801      8       0        7.0         0.0        0.0     0.0
+                   day      county       state          sub_region   region          lat          long  cases_nyt  deaths_nyt  cases_jhu  deaths_jhu  recovered  active
+date       fips                                                                                                                                                        
+2020-01-21 53061   0.0   Snohomish  Washington             pacific     west  48.04615983  -121.7170703          1           0        NaN         NaN        NaN     NaN
+2020-01-22 53061   1.0   Snohomish  Washington             pacific     west  48.04615983  -121.7170703          1           0        NaN         NaN        NaN     NaN
+2020-01-23 53061   2.0   Snohomish  Washington             pacific     west  48.04615983  -121.7170703          1           0        NaN         NaN        NaN     NaN
+2020-01-24 17031   3.0        Cook    Illinois  east_north_central  midwest  41.84144849  -87.81658794          1           0        NaN         NaN        NaN     NaN
+           53061   3.0   Snohomish  Washington             pacific     west  48.04615983  -121.7170703          1           0        NaN         NaN        NaN     NaN
+...                ...         ...         ...                 ...      ...          ...           ...        ...         ...        ...         ...        ...     ...
+2020-03-26 56025  65.0     Natrona     Wyoming            mountain     west  42.96180148   -106.797885          6           0        6.0         0.0        0.0     0.0
+           56029  65.0        Park     Wyoming            mountain     west  44.52157546  -109.5852825          1           0        1.0         0.0        0.0     0.0
+           56033  65.0    Sheridan     Wyoming            mountain     west  44.79048913  -106.8862389          4           0        4.0         0.0        0.0     0.0
+           56037  65.0  Sweetwater     Wyoming            mountain     west  41.65943896  -108.8827882          1           0        1.0         0.0        0.0     0.0
+           56039  65.0       Teton     Wyoming            mountain     west  43.93522482  -110.5890801          8           0        7.0         0.0        0.0     0.0
 
 [13832 rows x 13 columns]
 >>>
