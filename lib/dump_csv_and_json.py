@@ -9,8 +9,8 @@ import pandas as pd
 # For options, see https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html
 JSON_ORIENT = 'table'
 
-# For minified JSON, set to 0
-JSON_INDENT = 2
+# For not-minified JSON, set to > 0
+JSON_INDENT = 0
 
 DATAFRAMES = {
     'df_all_cases':   c19all.df_all['cases'],
