@@ -1,9 +1,12 @@
 DATA_URLS = {
-    "time_series": {
-        "cases": "https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv",
-        "deaths": "https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv",
+    'time_series': {
+        'cases': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv',
+        'deaths': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv',
     },
-    "daily": "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/##-##-####.csv"
+    'daily': {
+        'jh': 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/##-##-####.csv',
+        'nyt': 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv'
+    }
 }
 
 RENAMED_COLUMNS = {
