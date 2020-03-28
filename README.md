@@ -67,10 +67,12 @@ Verify installation
 ```
 $ python lib/tests.py
 Updated pickle file df_all.p with global data
-Updated pickle file df_us.p
-Updated pickle file df_us_region_and_state.p
+Updated pickle file df_us_jhu.p with Johns Hopkins data
+Updated pickle file df_us_nyt.p with New York Times data
+Updated pickle file df_us_combined.p with Johns Hopkins and New York Times data
 Updated CSV files
 Updated JSON files
+Tests passed
 Tests passed
 $
 ```
@@ -87,24 +89,24 @@ $
 
 ### What do I get?
 Two sets of output data are constructed at runtime, one for all global data and one for all US data.
-The US data are parsed and demographic data are added. Province/State is parsed into [state, county, territory, other] and [region, sub_region, population] are added.
+The US data are parsed and demographic data are added.
+The NYT and JH data are available separately and as a combined time series.
 
 The three output formats, Pandas, CSV and JSON, all contain the same data, with the dataframes and CSV files
 having the same tabular format, and the JSON files structured by the
 [pandas.DataFrame.to_json](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html) function.
 In Pandas, the dataframes are placed into dictionaries as shown below. For CSV and JSON output, these are broken out into nine individual files.
-- Dictionary for global data
-  - Dataframe for cases
-  - Dataframe for deaths
-  - Dataframe for recoveries
-- Dictionary for US data x two formats
-  - Dataframe for cases
-  - Dataframe for deaths
-  - Dataframe for recoveries
+- Global data (JHU)
+  - df_all_cases
+  - df_all_deaths 
+- US data
+  - df_us_jhu
+  - df_us_nyt
+  - df_us_combined
 
 ### CSV and JSON
 `dump_csv_and_json.py`
-Creates CSV and JSON files for the nine Pandas dataframes. Data are synchronized with the Johns Hopkins repo at runtime.
+Creates CSV and JSON files for the five Pandas dataframes. Data are synchronized with the upstream repos at runtime.
 
 * **CSV**
   Comma-delimited files for each dataframe. The formats mirror the dataframes as described below.
