@@ -1,15 +1,15 @@
 DATA_URLS = {
-    'time_series': {
+    'global': {
         'cases': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv',
         'deaths': 'https://raw.github.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv',
     },
-    'daily': {
+    'us': {
         'jh': 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/##-##-####.csv',
         'nyt': 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv'
     }
 }
 
-RENAMED_COLUMNS = {
+JH_RENAMED_COLUMNS = {
     'time_series': {
         'Province/State': 'province_state',
         'Country/Region': 'country',
@@ -25,7 +25,7 @@ RENAMED_COLUMNS = {
     }
 }
 
-DAILY_START_DATE = '2020-03-22'
+JH_DAILY_START_DATE = '2020-03-22'
 
 COUNTIES = {
     "45001":  {"county": "Abbeville",             "state": "South Carolina",        "lat": "34.22333378",  "long": "-82.46170658",  "sub_region": "south_atlantic",      "region": "south"},

@@ -1,13 +1,14 @@
 import pandas as pd
-import urllib
+from urllib import error, request
 import math
-import c19all
 import constants
+
+''' US county-level data from the Johns Hopkins files. '''
 
 counties = pd.DataFrame(constants.COUNTIES)
 fips = constants.COUNTIES.keys()
 
-DATE_RANGE = pd.date_range(start=constants.DAILY_START_DATE, end=pd.to_datetime('today')).tolist()
+DATE_RANGE = pd.date_range(start=constants.JH_DAILY_START_DATE, end=pd.to_datetime('today')).tolist()
 
 county_columns = [
     'county',
@@ -35,7 +36,7 @@ output_columns = [
 
 def df_from_daily_report(date, url):
     df = pd.read_csv(url)[['FIPS', 'Confirmed', 'Deaths', 'Recovered', 'Active']]
-    df = df.rename(columns=constants.RENAMED_COLUMNS['daily_reports'])
+    df = df.rename(columns=constants.JH_RENAMED_COLUMNS['daily_reports'])
     df = df.loc[df.fips.isin(fips)]
     df = df.astype({'fips': 'int32'})
     df['date'] = date 
@@ -46,10 +47,10 @@ def df_from_daily_report(date, url):
 
 dfs = []
 for date in DATE_RANGE:
-    url = constants.DATA_URLS['daily'].replace('##-##-####', date.strftime('%m-%d-%Y'))
+    url = constants.DATA_URLS['us']['jh'].replace('##-##-####', date.strftime('%m-%d-%Y'))
     try:
-        response =  urllib.request.urlopen(url)
-    except urllib.error.HTTPError:
+        response =  request.urlopen(url)
+    except error.HTTPError:
         break
     else:
         dfs.append(df_from_daily_report(date, url))

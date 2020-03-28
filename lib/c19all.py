@@ -20,7 +20,7 @@ import constants
 def df_from_csv(file_name):
     """ Perform ETL on a Johns Hopkins COVID-19 time series file, Returning a dataframe """
     df = pd.read_csv(file_name)
-    df = df.rename(columns=constants.RENAMED_COLUMNS['time_series'])
+    df = df.rename(columns=constants.JH_RENAMED_COLUMNS['time_series'])
     date_cols = df.filter(regex=('^\d+/\d+/\d+$')).columns.array
     df = pd.melt(df, id_vars=['province_state', 'country', 'lat',
                                       'long'], value_vars=date_cols, var_name='date', value_name='cases')
@@ -47,8 +47,8 @@ def sum_by_date(df):
 
 """ Dictionary containing dataframes for all global data """
 df_all = {
-    'cases': df_from_csv(constants.DATA_URLS['time_series']['cases']),
-    'deaths': df_from_csv(constants.DATA_URLS['time_series']['deaths'])
+    'cases': df_from_csv(constants.DATA_URLS['global']['cases']),
+    'deaths': df_from_csv(constants.DATA_URLS['global']['deaths'])
 }
 
 # Optional pickle file
