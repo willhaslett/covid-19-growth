@@ -27,7 +27,7 @@ The latest NYT and NHU files are pulled from GitHub at runtime.
 
 ## Installing
 ### Virtualenv
-Copy/paste:
+Copy/paste
 ```
 git clone https://github.com/willhaslett/covid-19-growth.git
 cd covid-19-growth
