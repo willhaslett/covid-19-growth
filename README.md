@@ -155,21 +155,21 @@ Creates CSV and JSON files for the five Pandas dataframes. Data are synchronized
   [US Deaths](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/us.ipynb)
 
 ## Firebase
-`upload_to_firestore.py` uploads data structures into Firebase/Firestore.
-Currently, `upload_to_firestore.py`
-breaks up the `c19us_combined` dataframe into a set of dataframes, one for each date, and the data for
-each date are serialized as a JSON string in the corresponding Firestore document.
 ### Prerequisites
   - [Create your Firebase project](https://firebase.google.com/) and add a Firestore database.
   - Create and download a private key JSON file for your project. (Project settings > Service accounts)
   - Rename the downladed file to `.google_service_account_key.json` and put it in the project root. This file will be ignored by Git.
 
 ### Usage
-  - `python lib/upload_to_firestore.py`
-  - Output schema document
-    ![](.images/firestore_schema.png)
-  - Output values document
-    ![](.images/firestore_values.png)
+`python lib/upload_to_firestore.py`
+
+ Currently, this script uploads the combined US data structure to Firestore using the following scheme: 
+  1. A schema document that defines the column names for the associated data documents
+    ![](.images/db_columns.png)
+  1. A collection of data documents, split by date, with all data for a date stored in a single JSON string
+    ![](.images/db_data.png)
+  3. A document containing the available additional data for all counties in the dataset, keyed by fips code
+    ![](.images/db_demos.png)
 
 ## License
 
