@@ -9,7 +9,7 @@ count files. This pipeline:
 - Adds demopraphic data
 - Outputs the resulting data structures as a set of long-format time series.
 
-The latest NYT and NHU files are pulled from GitHub at runtime.
+The latest NYT and JHU files are pulled from GitHub at runtime.
 
   - [Installing](#installing)
     - [Virtualenv](#virtualenv)
