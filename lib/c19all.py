@@ -19,8 +19,8 @@ import constants
 
 renamed_columns = constants.JHU_RENAMED_COLUMNS['time_series']
 
+# Perform ETL on a Johns Hopkins COVID-19 time series file, Returning a dataframe
 def df_from_csv(file_name):
-    """ Perform ETL on a Johns Hopkins COVID-19 time series file, Returning a dataframe """
     df = pd.read_csv(file_name)
     df = df.rename(columns=renamed_columns)
     date_cols = df.filter(regex=('^\d+/\d+/\d+$')).columns.array
@@ -31,26 +31,32 @@ def df_from_csv(file_name):
     df.day = df.day.apply(lambda day: int(round(day)))
     return df[['date', 'day', 'cases', 'province_state', 'country', 'lat', 'long']]
 
+# General purpose filter
 def filter(df, column, value):
-    """ General purpose filter. """
     return df[df[column] == value].reset_index()
 
+# Filter on country
 def for_country(df, country):
-    """ Filter on country """
     return filter(df, 'country', country)
 
+# Filter on province_state. us.py has its own function for this
 def for_province_state(df, province_state):
-    """ Filter on province_state. us.py has its own function for this """
     return filter(df, 'province_state', province_state)
 
+# Return input with all rows collapsed by date and cases summed
 def sum_by_date(df):
-    """ Return input with all rows collapsed by date and cases summed """
     return df.groupby('date').sum().reset_index()
 
+def date_to_day(date):
+    return (date - pd.to_datetime('2020-01-21')).days
+
+def day_to_date(day):
+    pd.to_datetime('2020-03-21') + pd.DateOffset(days=day)
+    
 _df_cases = df_from_csv(constants.DATA_URLS['global']['cases'])
 _df_deaths = df_from_csv(constants.DATA_URLS['global']['deaths']).rename(columns={'cases': 'deaths'})
 
-""" Dictionary containing dataframes for all global data """
+# Dictionary containing dataframes for all global data
 df_all = {
     'cases': _df_cases,
     'deaths': _df_deaths
