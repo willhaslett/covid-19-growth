@@ -9,7 +9,7 @@ count files. This pipeline:
 - Adds demopraphic data
 - Outputs the resulting data structures as a set of long-format time series.
 
-The latest NYT and JHU files are pulled from GitHub at runtime.
+The latest NYT and JHU files are pulled from GitHub at runtime. Fast, all data operations are vectorized.
 
   - [Installing](#installing)
     - [Virtualenv](#virtualenv)
@@ -150,9 +150,9 @@ Creates CSV and JSON files for the five Pandas dataframes. Data are synchronized
   
   `all.ipynb` and `us.ipynb` contain starting points for work with global or US data. You can preview the notebook stubs here in GitHub by navigating to them:
   
-  [Cases in India from 2020-03-11 to 2020-04-04](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/all.ipynb)
+  [Cases in Japan since 2020-01-21](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/all.ipynb)
   
-  [US Cases](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/us.ipynb)
+  [Deaths in New England since 2020-03-01](https://github.com/willhaslett/covid-19-growth/blob/master/notebooks/us.ipynb)
 
 ## Firebase
 ### Prerequisites

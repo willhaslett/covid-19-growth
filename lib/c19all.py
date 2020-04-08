@@ -15,6 +15,8 @@ import constants
     `for_country(df, country)` Filter by country
     `for_province_state(df, province_state)` Filter by province_state
     `sum_by_date(df)` Group by date and sum case counts 
+    `date_to_day(date)` Convert a date to the number of days since the date of the first records
+    `day_to_date(day)` Convert a number of days since the first records to a date
 """
 
 renamed_columns = constants.JHU_RENAMED_COLUMNS['time_series']
@@ -47,9 +49,11 @@ def for_province_state(df, province_state):
 def sum_by_date(df):
     return df.groupby('date').sum().reset_index()
 
+# Convert a date to the number of days since the date of the first records
 def date_to_day(date):
     return (date - pd.to_datetime('2020-01-21')).days
 
+# Convert a number of days since the first records to a date
 def day_to_date(day):
     pd.to_datetime('2020-03-21') + pd.DateOffset(days=day)
     
