@@ -13,6 +13,7 @@ The latest NYT and JHU files are pulled from GitHub at runtime. Fast, all data o
 
 If you find this project to be helpful, remember to click on the star at the top-right of the page. We're all trying to efficiently get people the right data, in the right shape, during this pandemic. Providing painless ETL is how I'm trying to help.
 
+  - [Installing](#installing)
     - [Virtualenv](#virtualenv)
     - [VSCode](#vscode)
   - [Usage](#usage)
