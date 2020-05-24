@@ -9,9 +9,8 @@ count files. This pipeline:
 - Adds demopraphic data
 - Outputs the resulting data structures as a set of long-format time series.
 
-The latest NYT and JHU files are pulled from GitHub at runtime. Fast, all data operations are vectorized.
+The latest NYT and JHU files are pulled from GitHub at runtime. All data operations are vectorized. All data from 2020-01-21 to the present are imported whenever you generate new CSV, JSON, or Pickle files. This assures that all revisions to JHU or NYT raw files will be included here. 
 
-If you find this project to be helpful, remember to click on the star at the top-right of the page. We're all trying to efficiently get people the right data, in the right shape, during this pandemic. Providing painless ETL is how I'm trying to help.
 
   - [Installing](#installing)
     - [Virtualenv](#virtualenv)
