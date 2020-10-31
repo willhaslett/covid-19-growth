@@ -2,6 +2,7 @@ appnope==0.1.0
 asteval==0.9.18
 astroid==2.3.3
 attrs==19.3.0
+autopep8==1.5.4
 backcall==0.1.0
 bleach==3.1.4
 CacheControl==0.12.6
@@ -33,11 +34,14 @@ ipywidgets==7.5.1
 isort==4.3.21
 jedi==0.16.0
 Jinja2==2.11.1
+json5==0.9.5
 jsonschema==3.2.0
 jupyter==1.0.0
 jupyter-client==6.0.0
 jupyter-console==6.1.0
 jupyter-core==4.6.3
+jupyterlab==2.2.9
+jupyterlab-server==1.2.0
 kiwisolver==1.1.0
 lazy-object-proxy==1.4.3
 lmfit==1.0.0
@@ -61,6 +65,7 @@ protobuf==3.11.3
 ptyprocess==0.6.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
+pycodestyle==2.6.0
 Pygments==2.6.1
 pylint==2.4.4
 pyparsing==2.4.6
@@ -77,6 +82,7 @@ Send2Trash==1.5.0
 six==1.14.0
 terminado==0.8.3
 testpath==0.4.4
+toml==0.10.1
 tornado==6.0.4
 traitlets==4.3.3
 typed-ast==1.4.1
