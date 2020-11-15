@@ -4,6 +4,7 @@ RUN apt update -qq \
     python-autopep8 \
     libopenblas-dev \
     liblapack-dev \
+    texlive-full \
     gfortran
 RUN pip install --upgrade pip
 RUN mkdir /app
