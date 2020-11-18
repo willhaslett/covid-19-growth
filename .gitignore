@@ -4,3 +4,5 @@ venv/
 *.swp
 lib/__pycache__/
 .google_service_account_key.json
+output/charts/*
+

@@ -18,7 +18,7 @@ SOURCE_LABELS = {
 }
 
 STATE_COLORS = {
-    'Vermont': '#871f78',
+    'Vermont': '#1f77b4',
     'New Hampshire': '#871f78',
 }
 
@@ -51,7 +51,7 @@ def county_plot(county, state, metric='cases', source='nyt', population=None):
     ax.bar('date', 'count_of_diff', data=df, color=color, alpha=0.35)
     ax.plot('date', 'count_of_diff_7_day_mean', color=color, data=df)
     ax.set_ylim(ymin=0)
-    ax.set_ylim(ymax=YMAX)
+    # ax.set_ylim(ymax=YMAX)
     ax.xaxis.set_major_locator(dt.MonthLocator())
     ax.xaxis.set_major_formatter(dt.DateFormatter('%b'))
     ax.tick_params(axis='y', colors=color)
