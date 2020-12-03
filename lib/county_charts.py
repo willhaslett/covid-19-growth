@@ -9,19 +9,14 @@ import pickle
 import copy
 import snake_case
 
-# TODO: This should all be object-oriented rather than a bunch of functions
-
-YMAX_TOTAL = 20
-YMAX_ADJ = 55
-
 YAXPARAMS = {
     'cases': {
         'total': {
-            'ymax': 20,
+            'ymax': 40,
             'yinterval': 5
         },
         'adj': {
-            'ymax': 50,
+            'ymax': 80,
             'yinterval': 10
         }
     },
