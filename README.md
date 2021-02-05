@@ -42,14 +42,14 @@ pip install -q -r requirements.txt
 ```
 Verify installation
 ```
-$ python lib/tests.py
+$ python lib/update.py
 Updated pickle file df_all.p with global data
 Updated pickle file df_us_jhu.p with Johns Hopkins data
 Updated pickle file df_us_nyt.p with New York Times data
 Updated pickle file df_us_combined.p with Johns Hopkins and New York Times data
 Updated CSV files
 Updated JSON files
-Tests passed
+Output Pickle, CSV and JSON files are up-to-date. For further work in Pyhon, import the Pickles!
 $
 ```
 
