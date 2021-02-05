@@ -152,7 +152,7 @@ Creates CSV and JSON files for the five Pandas dataframes. Data are synchronized
 
 ## Jupyter Notebooks
   
-  `all.ipynb` and `us.ipynb` contain starting points for work with global or US data. You can preview the notebook stubs here in GitHub by navigating to them:
+  `all.ipynb` and `us.ipynb` contain example starting points for work with global or US data.
 
 ## Firebase
 ### Prerequisites
