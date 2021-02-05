@@ -20,7 +20,7 @@ The latest NYT and JHU files are pulled from GitHub at runtime. All data operati
     - [VSCode](#vscode)
   - [Usage](#usage)
     - [What do I get?](#what-do-i-get)
-    - [CSV and JSON](#csv-and-json)
+    - [CSV, JSON, and Pickle files for the transformed data](#csv-and-json)
     - [Global Data](#global-data)
     - [US Data](#us-data)
   - [Jupyter Notebooks](#jupyter-notebooks)
