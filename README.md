@@ -148,7 +148,7 @@ Creates CSV and JSON files for the five Pandas dataframes. Data are synchronized
 - **JSON:**
   JavaScript Object Notation files for each dataframe. Files are constructed using the `orient='table'` argument for 
   [pandas.DataFrame.to_json](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html).
-  Choose a different structure for the JSON files by setting `JSON_ORIENT`. JSON files are minified by default. For not-minified JSON, set `JSON_INDENT` to > 0.
+  Choose a different structure for the JSON files by setting `JSON_ORIENT` in `lib/dump_csv_and_json.py`. JSON files are minified by default. For not-minified JSON, set `JSON_INDENT` to > 0.
 
 ## Jupyter Notebooks
   
