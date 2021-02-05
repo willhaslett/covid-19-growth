@@ -53,8 +53,13 @@ Output Pickle, CSV and JSON files are up-to-date. For further work in Pyhon, imp
 $
 ```
 
-### VSCode
--  Have the [VSCode extension for Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) installed. Here 'remote' means in a local Docker container (Debian).
+### VSCode/Docker
+
+
+If you'd like to use Docker, or if you have Python environment reasons to use Docker, VSCode makes it easy to get up and running.
+
+
+- Have the [VSCode extension for Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) installed. Here 'remote' means in a local Docker container (Debian).
 - In VSCode, [Open the project folder in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
 - Verify the installation as above.
 
