@@ -8,4 +8,4 @@ import dump_csv_and_json
 c19all.for_country(c19all.df_all['cases'], 'France')
 c19all.for_province_state(c19all.df_all['cases'], 'British Columbia')
 
-print('Tests passed')
+print('Tests passed. Output Pickle, CSV and JSON files are up-to-date. For further work in Pyhon, import the Pickles!')
