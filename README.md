@@ -48,7 +48,7 @@ Updated pickle file df_us_nyt.p with New York Times data
 Updated pickle file df_us_combined.p with Johns Hopkins and New York Times data
 Updated CSV files
 Updated JSON files
-Output Pickle, CSV and JSON files are up-to-date. For further work in Pyhon, import the Pickles!
+Output Pickle, CSV and JSON files are up-to-date. For further work in Python, import the Pickles!
 $
 ```
 
