@@ -8,7 +8,7 @@ are providing daily Covid-19 case
 count files. This pipeline:
 - Imports the NYT and JHU data
 - Performs type conversions where needed
-- Adds demographic data
+- For the US, adds population data for regions, sub-regions, states and counties, and adds lat/long for counties
 - Outputs the resulting data structures as a set of long-format time series
 - Jupyter Notebook stubs in place, including US county-level case rate trends
 
