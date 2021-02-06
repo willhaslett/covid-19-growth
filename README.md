@@ -8,9 +8,11 @@ are providing daily Covid-19 case
 count files. This pipeline:
 - Imports the NYT and JHU data
 - Performs type conversions where needed
+- Applies consistent snake_case naming for all attributes,  across sources, preserving fidelity to original meanings
 - For the US, facilitates aggregation at the region, sub-region, state, and county levels, and adds county-level population and lat/long
 - Outputs the resulting data structures as a set of long-format time series
-- Jupyter Notebook stubs in place, including US county-level case rate trends
+- Includes Jupyter Notebook stubs for working with the transformed data
+- Facilitiates uploading the tranformed data to Firebase for mobile/cloud use cases
 
 
 The latest NYT and JHU files are pulled from GitHub at runtime. All data operations are vectorized. All data from 2020-01-21 to the present are imported whenever you run `lib/update.py` to generate new CSV, JSON, or Pickle files. This ensures that all revisions to the JHU or NYT raw files will be included here. 
