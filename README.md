@@ -144,7 +144,7 @@ date       fips
 
 ## CSV and JSON
 `dump_csv_and_json.py` gets executed when you run `lib/update.py`. 
-It creates CSV and JSON files for the five Pandas dataframes and puts them in `output/csv` and `output/json`. Data are synchronized with the upstream repos at runtime.
+It creates CSV and JSON files for the five Pandas dataframes and puts them in `output/csv` and `output/json`.
 
 - **CSV:**
   Comma-delimited files for each dataframe. The formats mirror the dataframes as described above.
@@ -167,7 +167,7 @@ It creates CSV and JSON files for the five Pandas dataframes and puts them in `o
 ### Usage
 `python lib/upload_to_firestore.py`
 
- Currently, this script uploads the combined US data structure to Firestore using the following scheme: 
+ This script uploads the combined US data structure to Firestore using the following scheme: 
   1. A schema document that defines the column names for the associated data documents
     ![](.images/db_columns.png)
   1. A collection of data documents, split by date, with all data for a date stored in a single JSON string
