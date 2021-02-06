@@ -12,7 +12,7 @@ import snake_case
 YAXPARAMS = {
     'cases': {
         'total': {
-            'ymax': 40,
+            'ymax': 65,
             'yinterval': 5
         },
         'adj': {
