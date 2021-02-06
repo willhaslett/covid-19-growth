@@ -12,7 +12,7 @@ count files. This pipeline:
 
 ![](.images/rates.svg)
 
-The latest NYT and JHU files are pulled from GitHub at runtime. All data operations are vectorized. All data from 2020-01-21 to the present are imported whenever you generate new CSV, JSON, or Pickle files. This assures that all revisions to JHU or NYT raw files will be included here. 
+The latest NYT and JHU files are pulled from GitHub at runtime. All data operations are vectorized. All data from 2020-01-21 to the present are imported whenever you generate new CSV, JSON, or Pickle files. This ensures that all revisions to JHU or NYT raw files will be included here. 
 
 
   - [Installing](#installing)
@@ -59,7 +59,7 @@ $
 If you'd like to use Docker, or if you have Python environment reasons to use Docker, VSCode makes it easy to get up and running.
 
 
-- Have the [VSCode extension for Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) installed. Here 'remote' means in a local Docker container (Debian).
+- Have the [VSCode extension for Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) installed. Here, 'remote' means in a local Docker container (Debian).
 - In VSCode, [Open the project folder in a container](https://code.visualstudio.com/docs/remote/containers#_quick-start-open-an-existing-folder-in-a-container)
 - Verify the installation as above.
 
