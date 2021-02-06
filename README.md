@@ -4,8 +4,7 @@
 
 The [New York Times](https://github.com/nytimes/covid-19-data)
 and the [Johns Hopkins University Center for Systems Science and Engineering](https://github.com/CSSEGISandData/COVID-19)
-are providing daily Covid-19 case
-count files. This pipeline:
+are providing daily Covid-19 case and death data, and they are performing ad hoc revisions to existing data. This pipeline:
 - Imports the NYT and JHU data
 - Performs type conversions where needed
 - Applies consistent snake_case naming for all attributes,  across sources, preserving fidelity to original meanings
