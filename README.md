@@ -1,6 +1,6 @@
 # covid-19-growth
 
-What is this? This is your "I hope someone else already built a solid ETL pipeline for this" repository for Covid-19 case and death rates, with multi-resolution population and geospatial data added.
+*What is this? This is your "I hope someone else already built a solid ETL pipeline for this" repository for Covid-19 case and death rates, with multi-resolution population and geospatial data added.*
 
 The [New York Times](https://github.com/nytimes/covid-19-data)
 and the [Johns Hopkins University Center for Systems Science and Engineering](https://github.com/CSSEGISandData/COVID-19)
