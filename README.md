@@ -143,8 +143,8 @@ date       fips
 ```
 
 ## CSV and JSON
-`dump_csv_and_json.py`
-Creates CSV and JSON files for the five Pandas dataframes. Data are synchronized with the upstream repos at runtime.
+`dump_csv_and_json.py` gets executed when you run `lib/update.py`. 
+It creates CSV and JSON files for the five Pandas dataframes and puts them in `output/csv` and `output/json`. Data are synchronized with the upstream repos at runtime.
 
 - **CSV:**
   Comma-delimited files for each dataframe. The formats mirror the dataframes as described above.
