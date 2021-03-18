@@ -1,5 +1,8 @@
 # covid-19-growth
 
+## NOTE: The imports of the JHU data broke around 2021-03-10. It seems that there has been a format change, or there is non-numerical data that should be numerical, in the JHU data at present. Until this is worked-around, you CAN'T used `lib/update.py`. Instead, you can run `lib/update_nyt.py` to update the New York Times pickle, CSV, and JSON files. That's still working fine.
+
+
 *What is this? This is your "I hope someone else already built a solid ETL pipeline for this" repository for Covid-19 case and death rates, with multi-resolution population and geospatial data added.*
 
 The [New York Times](https://github.com/nytimes/covid-19-data)
