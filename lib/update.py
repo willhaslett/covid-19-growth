@@ -1,12 +1,21 @@
 import pandas as pd
-import c19all
-import dump_csv_and_json
+import numpy as np
+import pickle
+import c19us_nyt
 
+# For options, see https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html
+JSON_ORIENT = 'table'
 
-# Exmple function calls, the first of which will trigger a full update of the data locally
-# If you are going to work with the resulting dataframes (see README) *within* python, your
-# workflow is to run this once, then import the Pickle files to do downstream work
-c19all.for_country(c19all.df_all['cases'], 'France')
-c19all.for_province_state(c19all.df_all['cases'], 'British Columbia')
+# For not-minified JSON, set to > 0
+JSON_INDENT = 0
 
-print('Output Pickle, CSV and JSON files are up-to-date. For further work in Python, import the Pickles!')
+DATAFRAMES = {
+    'df_us_nyt':  c19us_nyt.df_us.reset_index(),
+}
+
+for filename in DATAFRAMES:
+    DATAFRAMES[filename].to_csv(f'output/csv/{filename}.csv', index=False)
+    DATAFRAMES[filename].to_json(f'output/json/{filename}.json', orient=JSON_ORIENT, indent=JSON_INDENT)
+
+print('Updated CSV files with New York Times data')
+print('Updated JSON files with New York Times data')

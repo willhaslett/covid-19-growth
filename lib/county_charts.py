@@ -46,7 +46,7 @@ STATE_COLORS = {
 }
 
 df_start = pickle.load(
-    open('output/pickles/df_us_combined.p', 'rb')).reset_index()
+    open('output/pickles/df_us_nyt.p', 'rb')).reset_index()
 
 # If you pass in a population, the output will be per 1,000 people
 # If you pass in an output filename, the plots will be written to ./images and not rendered to the screen
@@ -59,7 +59,7 @@ def county_plot(county, state, metrics=['cases', 'deaths'], source='nyt', total_
     }
     for metric in metrics:
         for population in [False, total_population]:
-            count_of = f'{metric}_{source}'
+            count_of = f'{metric}'
             county = location['value'][0]
             state = location['value'][1]
             color = STATE_COLORS[state]
